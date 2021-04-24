@@ -1,0 +1,112 @@
+<app-header></app-header>
+<br><br><br><br>
+
+<h1 >FORMULARIO PARA CREAR UN PROVEEDOR</h1>
+
+<br><br><br>
+
+<div class="container form">
+  <form class="row g-3" [formGroup]="options">
+
+    <!-- Nombre Proveedor -->
+    <div class="col-md-4">
+      <label for="inputEmail4" class="form-label">Nombre Proveedor</label>
+      <input type="text" formControlName="name" class="form-control" id="inputEmail4" placeholder="Primero Nombre"
+      [ngClass]="{
+        'is-invalid': options.controls['name'].invalid && (options.controls['name'].dirty || options.controls['name'].touched),
+        'is-valid': options.controls['name'].valid
+      }">
+      <div
+        *ngIf="options.controls['name'].invalid && (options.controls['name'].dirty || options.controls['name'].touched)">
+        <div *ngIf="options.controls['name'].errors.required">
+          El nombre del proveedor es requerido.
+        </div>
+        <div *ngIf="options.controls['name'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="options.controls['name'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Nit de Proveedor -->
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Nit de Proveedor</label>
+      <input type="numer" formControlName="nit" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': options.controls['nit'].invalid && (options.controls['nit'].dirty || options.controls['nit'].touched),
+        'is-valid': options.controls['nit'].valid
+      }">
+      <div
+        *ngIf="options.controls['nit'].invalid && (options.controls['nit'].dirty || options.controls['nit'].touched)">
+        <div *ngIf="options.controls['nit'].errors.required">
+          El Nit es requerido.
+        </div>
+        <div *ngIf="options.controls['nit'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="options.controls['nit'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Teléfono Fijo -->
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Teléfono Fijo</label>
+      <input type="numer" formControlName="phone" class="form-control" id="inputPassword4" placeholder="Número de identificación"   >
+    </div>
+
+    <!-- Teléfono Ceular -->
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Teléfono Ceular</label>
+      <input type="numer" formControlName="cellPhone" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': options.controls['cellPhone'].invalid && (options.controls['cellPhone'].dirty || options.controls['cellPhone'].touched),
+        'is-valid': options.controls['cellPhone'].valid
+      }">
+      <div
+        *ngIf="options.controls['cellPhone'].invalid && (options.controls['cellPhone'].dirty || options.controls['cellPhone'].touched)">
+        <div *ngIf="options.controls['cellPhone'].errors.required">
+          Celular es requerido.
+        </div>
+        <div *ngIf="options.controls['cellPhone'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="options.controls['cellPhone'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Correo electrónico principal -->
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Correo Electrónico Principal</label>
+      <input type="numer" formControlName="principalEmail" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': options.controls['principalEmail'].invalid && (options.controls['principalEmail'].dirty || options.controls['principalEmail'].touched),
+        'is-valid': options.controls['principalEmail'].valid
+      }">
+      <div
+        *ngIf="options.controls['principalEmail'].invalid && (options.controls['principalEmail'].dirty || options.controls['principalEmail'].touched)">
+        <div *ngIf="options.controls['principalEmail'].errors.required">
+          El email es requerido.
+        </div>
+        <div *ngIf="options.controls['principalEmail'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="options.controls['principalEmail'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Correo electrónico secundario -->
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Correo Electrónico Opcional</label>
+      <input type="numer" formControlName="secodEmail" class="form-control" id="inputPassword4" placeholder="Número de identificación">
+    </div>
+
+    <div class="col-12">
+      <button type="submit" [disabled]="options.invalid" class="btn btn-primary" [routerLink]="['./home']">Crear</button>
+    </div>
+  </form>
+</div>
