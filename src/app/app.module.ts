@@ -1,28 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegistroEmpleadoComponent } from './registro-empleado/registro-empleado.component';
-import { RegistroProveedorComponent } from './registro-proveedor/registro-proveedor.component';
-import { NosotrosComponent } from './nosotros/nosotros.component';
-import { HeaderLoginComponent } from './header-login/header-login.component';
-import { CreacionComponent } from './creacion/creacion.component';
-import { InformesComponent } from './informes/informes.component';
-import { ListComponent } from './creacion/list/list.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroEmpleadoComponent } from './components/registro-empleado/registro-empleado.component';
+import { RegistroProveedorComponent } from './components/registro-proveedor/registro-proveedor.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { HeaderLoginComponent } from './components/header-login/header-login.component';
+import { CreacionComponent } from './components/creacion/creacion.component';
+import { InformesComponent } from './components/informes/informes.component';
+import { ListComponent } from './components/creacion/list/list.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,11 @@ import { ListComponent } from './creacion/list/list.component';
     MatIconModule,
     MatDatepickerModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    NgbModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

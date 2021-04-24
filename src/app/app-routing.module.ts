@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreacionComponent } from './creacion/creacion.component';
-import { ListComponent } from './creacion/list/list.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderLoginComponent } from './header-login/header-login.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { InformesComponent } from './informes/informes.component';
-import { LoginComponent } from './login/login.component';
-import { NosotrosComponent } from './nosotros/nosotros.component';
-import { RegistroEmpleadoComponent } from './registro-empleado/registro-empleado.component';
-import { RegistroProveedorComponent } from './registro-proveedor/registro-proveedor.component';
+import { CreacionComponent } from './components/creacion/creacion.component';
+import { ListComponent } from './components/creacion/list/list.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderLoginComponent } from './components/header-login/header-login.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { InformesComponent } from './components/informes/informes.component';
+import { LoginComponent } from './components/login/login.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { RegistroEmpleadoComponent } from './components/registro-empleado/registro-empleado.component';
+import { RegistroProveedorComponent } from './components/registro-proveedor/registro-proveedor.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
