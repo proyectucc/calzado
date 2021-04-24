@@ -27,6 +27,10 @@ import { HeaderLoginComponent } from './components/header-login/header-login.com
 import { CreacionComponent } from './components/creacion/creacion.component';
 import { InformesComponent } from './components/informes/informes.component';
 import { ListComponent } from './components/creacion/list/list.component';
+import { ProductosComponent } from './components/productos/productos.component';
+import { CreacionProductosComponent } from './components/productos/creacion-productos/creacion-productos.component';
+import { ListarProductosComponent } from './components/productos/listar-productos/listar-productos.component';
+import { RolesComponent } from './components/roles/roles.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,10 @@ import { ListComponent } from './components/creacion/list/list.component';
     CreacionComponent,
     InformesComponent,
     ListComponent,
+    ProductosComponent,
+    CreacionProductosComponent,
+    ListarProductosComponent,
+    RolesComponent,
   ],
   imports: [
     BrowserModule,

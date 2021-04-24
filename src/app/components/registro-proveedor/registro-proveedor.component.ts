@@ -23,6 +23,7 @@ export class RegistroProveedorComponent{
       phone: [null],
       cellPhone: [null, Validators.required],
       principalEmail: [null, Validators.required],
+      secodEmail: [null],
     });
   }
 
