@@ -1,0 +1,42 @@
+.custom {
+  cursor: pointer;
+  border: 3px solid #FF7052;
+  border-radius: 5%;
+}
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h6 {
+  text-align: center;
+}
+
+
+.custom:hover {
+  background-color: #FF7052;
+  color: #ffffff;
+}
+
+.image-card-height {
+  width: 7rem;
+  height: 8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 6%;
+  padding-bottom: 10%;
+}
+
+.image-card-equal {
+  width: 8rem;
+  height: 8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 6%;
+  padding-bottom: 10%;
+}

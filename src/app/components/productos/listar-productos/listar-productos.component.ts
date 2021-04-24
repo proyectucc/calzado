@@ -85,11 +85,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  selector: 'app-listar-productos',
+  templateUrl: './listar-productos.component.html',
+  styleUrls: ['./listar-productos.component.scss'],
 })
-export class ListComponent implements OnInit {
+export class ListarProductosComponent implements OnInit {
 
   /**
    * Crea una nueva instancia de la clase
