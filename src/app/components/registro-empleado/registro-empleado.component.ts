@@ -31,6 +31,7 @@ export class RegistroEmpleadoComponent {
       principalEmail: [null, Validators.required],
       phone: [null],
       cellPhone: [null, Validators.required],
+      rol: [null, Validators.required],
     });
   }
 

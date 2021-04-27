@@ -206,6 +206,31 @@
       </div>
     </div>
 
+    <!-- Rol -->
+    <div class="col-md-3">
+      <label for="inputState" class="form-label">Rol</label>
+      <select id="inputState" class="form-select" formControlName="rol" [ngClass]="{
+        'is-invalid': options.controls['rol'].invalid && (options.controls['rol'].dirty || options.controls['rol'].touched),
+        'is-valid': options.controls['rol'].valid
+      }">
+        <option selected></option>
+        <option>Gerente</option>
+        <option>Vendedor</option>
+      </select>
+      <div
+      *ngIf="options.controls['rol'].invalid && (options.controls['rol'].dirty || options.controls['rol'].touched)">
+      <div *ngIf="options.controls['rol'].errors.required">
+        El rol es requerido.
+      </div>
+      <div *ngIf="options.controls['rol'].errors.minlength" class="invalid-feedback">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="options.controls['rol'].errors.forbiddenName" class="invalid-feedback">
+        Name cannot be Bob.
+      </div>
+    </div>
+    </div>
+
 
     <div class="col-12">
       <button type="submit" [disabled]="options.invalid" class="btn btn-primary" [routerLink]="['./home']">Crear</button>
