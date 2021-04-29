@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CreacionComponent } from './components/creacion/creacion.component';
+import { EditComponent } from './components/creacion/edit/edit.component';
 import { ListComponent } from './components/creacion/list/list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderLoginComponent } from './components/header-login/header-login.component';
@@ -26,11 +27,12 @@ const routes: Routes = [
   { path: 'regisemp', component: RegistroEmpleadoComponent},
   { path: 'footer', component: FooterComponent},
   { path: 'header', component: HeaderComponent},
-  { path: 'list', component: ListComponent},
+  { path: 'listado-usuarios', component: ListComponent},
   { path: 'headerlogin', component: HeaderLoginComponent},
   { path: 'productos', component: ProductosComponent},
   { path: 'listar-productos', component: ListarProductosComponent},
   { path: 'creacion-productos', component: CreacionProductosComponent},
+  { path: 'edit-empl', component: EditComponent},
   { path: 'roles', component: RolesComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];

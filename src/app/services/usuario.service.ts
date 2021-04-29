@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Empleados } from '../models/empleados';
 
 @Injectable({
   providedIn: 'root',
@@ -9,10 +10,18 @@ import { environment } from 'src/environments/environment';
 export class UsuarioService {
   baseURL = environment.apiURL + 'Empleados/';
 
+
   /**
    * Crea una nueva instancia de la clase
    */
   constructor(private http: HttpClient) {}
+
+  cargarEmpleados()
+  {
+    const urls = 'https://localhost:44384/api/Empleados';
+
+    return this.http.get<Empleados>( urls );
+  }
 
   /**
    * Se ejecuta para obtener información de la api
@@ -24,11 +33,11 @@ export class UsuarioService {
     });
   }
 
-  // ingresar(user): Observable<any> {
-  //   const parametros = JSON.stringify(user);
-  //   const headers = new HttpHeaders().set('Content-type', 'application/json');
-  //   return this.http.post('http://localhost:3001/user', parametros, {
-  //     headers,
-  //   });
-  // }
+  ingresar(user): Observable<any> {
+    const parametros = JSON.stringify(user);
+    const headers = new HttpHeaders().set('Content-type', 'application/json');
+    return this.http.post('https://localhost:44384/api/Empleados', parametros, {
+      headers,
+    });
+  }
 }

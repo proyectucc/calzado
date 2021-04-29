@@ -31,6 +31,8 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { CreacionProductosComponent } from './components/productos/creacion-productos/creacion-productos.component';
 import { ListarProductosComponent } from './components/productos/listar-productos/listar-productos.component';
 import { RolesComponent } from './components/roles/roles.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { EditComponent } from './components/creacion/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { RolesComponent } from './components/roles/roles.component';
     CreacionProductosComponent,
     ListarProductosComponent,
     RolesComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,7 @@ import { RolesComponent } from './components/roles/roles.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    NgxDatatableModule
   ],
   providers: [],
   bootstrap: [AppComponent],
