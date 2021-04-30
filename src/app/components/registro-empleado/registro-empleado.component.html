@@ -1,0 +1,239 @@
+<app-header></app-header>
+<br><br><br><br>
+
+<h1 >FORMULARIO PARA CREAR UN EMPLEADO</h1>
+
+<br><br><br>
+
+<div class="container form">
+  <form class="row g-3" [formGroup]="options">
+
+    <!-- Campo primer nombre -->
+    <div class="col-md-3">
+      <label for="inputEmail4" class="form-label">Primer Nombre</label>
+      <input type="text" formControlName="nameOne" class="form-control" id="inputEmail4" placeholder="Primero Nombre"
+      [ngClass]="{
+        'is-invalid': options.controls['nameOne'].invalid && (options.controls['nameOne'].dirty || options.controls['nameOne'].touched),
+        'is-valid': options.controls['nameOne'].valid
+      }">
+      <div
+        *ngIf="options.controls['nameOne'].invalid && (options.controls['nameOne'].dirty || options.controls['nameOne'].touched)">
+        <div *ngIf="options.controls['nameOne'].errors.required">
+          Nombre es requerido.
+        </div>
+        <div *ngIf="options.controls['nameOne'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="options.controls['nameOne'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Campo segundo nombre -->
+    <div class="col-md-3">
+      <label for="inputAddress" class="form-label">Segundo Nombre</label>
+      <input type="text" class="form-control" formControlName="nameTwo" id="inputAddress" placeholder="Segundo Nombre">
+    </div>
+
+    <!-- Campo primer apellido -->
+    <div class="col-md-3">
+      <label for="inputPassword4" class="form-label">Primer Apellido</label>
+      <input type="text" formControlName="lastNameOne" class="form-control" id="inputPassword4" placeholder="Primer Apellido"   [ngClass]="{
+        'is-invalid': options.controls['lastNameOne'].invalid && (options.controls['lastNameOne'].dirty || options.controls['lastNameOne'].touched),
+        'is-valid': options.controls['lastNameOne'].valid
+      }">
+      <div
+        *ngIf="options.controls['lastNameOne'].invalid && (options.controls['lastNameOne'].dirty || options.controls['lastNameOne'].touched)">
+        <div *ngIf="options.controls['lastNameOne'].errors.required">
+          Primer Apellido es requerido.
+        </div>
+        <div *ngIf="options.controls['lastNameOne'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="options.controls['lastNameOne'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Campo segundo apellido -->
+    <div class="col-md-3">
+      <label for="inputAddress" class="form-label">Segundo Apellido</label>
+      <input type="text" class="form-control" formControlName="lastNameTwo" id="inputAddress" placeholder="Segundo Apellido">
+    </div>
+
+    <!-- Tipo de identificación -->
+    <div class="col-md-3">
+      <label for="inputState" class="form-label">Tipo de identificación</label>
+      <select id="inputState" class="form-select" formControlName="typeDocument" [ngClass]="{
+        'is-invalid': options.controls['typeDocument'].invalid && (options.controls['typeDocument'].dirty || options.controls['typeDocument'].touched),
+        'is-valid': options.controls['typeDocument'].valid
+      }">
+        <option selected></option>
+        <option>CC: Cédula de Ciudadanía</option>
+        <option>CE: Cédula de Extranjería</option>
+        <option>PA: Pasaporte</option>
+      </select>
+      <div
+      *ngIf="options.controls['typeDocument'].invalid && (options.controls['typeDocument'].dirty || options.controls['typeDocument'].touched)">
+      <div *ngIf="options.controls['typeDocument'].errors.required">
+        Tipo de documento es requerido.
+      </div>
+      <div *ngIf="options.controls['typeDocument'].errors.minlength" class="invalid-feedback">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="options.controls['typeDocument'].errors.forbiddenName" class="invalid-feedback">
+        Name cannot be Bob.
+      </div>
+    </div>
+    </div>
+
+    <!-- Número de Identificación -->
+    <div class="col-md-3">
+      <label for="inputPassword4" class="form-label">Número de Identificación</label>
+      <input type="numer" formControlName="numberIdentification" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': options.controls['numberIdentification'].invalid && (options.controls['numberIdentification'].dirty || options.controls['numberIdentification'].touched),
+        'is-valid': options.controls['numberIdentification'].valid
+      }">
+      <div
+        *ngIf="options.controls['numberIdentification'].invalid && (options.controls['numberIdentification'].dirty || options.controls['numberIdentification'].touched)">
+        <div *ngIf="options.controls['numberIdentification'].errors.required">
+          Número de documento es requerido.
+        </div>
+        <div *ngIf="options.controls['numberIdentification'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="options.controls['numberIdentification'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Fecha de Nacimiento -->
+    <div class="col-md-3">
+      <label for="inputPassword4" class="form-label">Fecha de Nacimiento</label>
+      <input type="date" formControlName="dateBirthday" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': options.controls['dateBirthday'].invalid && (options.controls['dateBirthday'].dirty || options.controls['dateBirthday'].touched),
+        'is-valid': options.controls['dateBirthday'].valid
+      }">
+      <div
+        *ngIf="options.controls['dateBirthday'].invalid && (options.controls['dateBirthday'].dirty || options.controls['dateBirthday'].touched)">
+        <div *ngIf="options.controls['dateBirthday'].errors.required">
+          Fecha de Nacimiento es requerido.
+        </div>
+        <div *ngIf="options.controls['dateBirthday'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="options.controls['dateBirthday'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Fecha de Contratación -->
+    <div class="col-md-3">
+      <label for="inputPassword4" class="form-label">Fecha de Contratación</label>
+      <input type="date" formControlName="dateHiring" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': options.controls['dateHiring'].invalid && (options.controls['dateHiring'].dirty || options.controls['dateHiring'].touched),
+        'is-valid': options.controls['dateHiring'].valid
+      }">
+      <div
+        *ngIf="options.controls['dateHiring'].invalid && (options.controls['dateHiring'].dirty || options.controls['dateHiring'].touched)">
+        <div *ngIf="options.controls['dateHiring'].errors.required">
+          Fecha de Contratación es requerido.
+        </div>
+        <div *ngIf="options.controls['dateHiring'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="options.controls['dateHiring'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Fecha de Terminación de Contrato -->
+    <div class="col-md-3">
+      <label for="inputPassword4" class="form-label">Fecha de Terminación de Contratación</label>
+      <input type="date" formControlName="dateEndHiring" class="form-control" id="inputPassword4" placeholder="Número de identificación">
+    </div>
+
+    <!-- Correo electrónico personal -->
+    <div class="col-md-8">
+      <label for="inputPassword4" class="form-label">Email personal</label>
+      <input type="numer" formControlName="principalEmail" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': options.controls['principalEmail'].invalid && (options.controls['principalEmail'].dirty || options.controls['principalEmail'].touched),
+        'is-valid': options.controls['principalEmail'].valid
+      }">
+      <div
+        *ngIf="options.controls['principalEmail'].invalid && (options.controls['principalEmail'].dirty || options.controls['principalEmail'].touched)">
+        <div *ngIf="options.controls['principalEmail'].errors.required">
+          El email es requerido.
+        </div>
+        <div *ngIf="options.controls['principalEmail'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="options.controls['principalEmail'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Teléfono Fijo -->
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Teléfono Fijo</label>
+      <input type="numer" formControlName="phone" class="form-control" id="inputPassword4" placeholder="Número de identificación"   >
+    </div>
+
+    <!-- Teléfono Ceular -->
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Teléfono Ceular</label>
+      <input type="numer" formControlName="cellPhone" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': options.controls['cellPhone'].invalid && (options.controls['cellPhone'].dirty || options.controls['cellPhone'].touched),
+        'is-valid': options.controls['cellPhone'].valid
+      }">
+      <div
+        *ngIf="options.controls['cellPhone'].invalid && (options.controls['cellPhone'].dirty || options.controls['cellPhone'].touched)">
+        <div *ngIf="options.controls['cellPhone'].errors.required">
+          Celular es requerido.
+        </div>
+        <div *ngIf="options.controls['cellPhone'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="options.controls['cellPhone'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Rol -->
+    <div class="col-md-3">
+      <label for="inputState" class="form-label">Rol</label>
+      <select id="inputState" class="form-select" formControlName="rol" [ngClass]="{
+        'is-invalid': options.controls['rol'].invalid && (options.controls['rol'].dirty || options.controls['rol'].touched),
+        'is-valid': options.controls['rol'].valid
+      }">
+        <option selected></option>
+        <option>Gerente</option>
+        <option>Vendedor</option>
+      </select>
+      <div
+      *ngIf="options.controls['rol'].invalid && (options.controls['rol'].dirty || options.controls['rol'].touched)">
+      <div *ngIf="options.controls['rol'].errors.required">
+        El rol es requerido.
+      </div>
+      <div *ngIf="options.controls['rol'].errors.minlength" class="invalid-feedback">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="options.controls['rol'].errors.forbiddenName" class="invalid-feedback">
+        Name cannot be Bob.
+      </div>
+    </div>
+    </div>
+
+
+    <div class="col-12">
+      <button type="submit" [disabled]="options.invalid" class="btn btn-primary" [routerLink]="['./home']">Crear</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+<app-header-login></app-header-login>
+
+<div class="container">
+  <div class="row text-center login-page">
+    <div class="col-md-12 login-form">
+      <form action="claseDestino.php" [formGroup]="frmGroup">
+        <div class="row">
+          <div class="col-md-12 login-form-header">
+            <p class="login-form-font-header">Calzado <span>Experto</span>
+            <p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 login-from-row">
+            <input type="email" placeholder="Escriba el correo electrónico" formControlName="email"
+              required autofocus
+              pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+              placeholder="Usuario"  required />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 login-from-row">
+            <input name="password" type="password" placeholder="Password" formControlName="pass" minlength="10"
+              maxlength="15" required/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 login-from-row">
+            <button class="btn btn-info" routerLink="/home" [disabled]="frmGroup.invalid" tabindex="0"  title="Ingresar">Ingresar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

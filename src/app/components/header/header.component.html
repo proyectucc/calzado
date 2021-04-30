@@ -1,0 +1,14 @@
+<header>
+  <nav class="navbar navbar-light bg-light">
+    <form class="container-fluid justify-content-start" [formGroup]="">
+
+      <button class="btn btn-outline-success me-2 bot1"  title="Salir"
+        type="button" [routerLink]="['login']">Logout</button>
+
+        <br><br><br><br>
+
+      <button class="btn btn-outline-success me-2 bot2"  matTooltip="Atrás"
+      type="button" (click)="onBack()">Atrás</button>
+    </form>
+  </nav>
+</header>
