@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'productos', component: ProductosComponent},
   { path: 'listar-productos', component: ListarProductosComponent},
   { path: 'creacion-productos', component: CreacionProductosComponent},
-  { path: 'edit-empl', component: EditComponent},
+  { path: 'edit-empl/:id', component: EditComponent},
   { path: 'roles', component: RolesComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];

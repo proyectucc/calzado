@@ -1,9 +1,10 @@
 /**
  * Interface con los parámetros que tiene la Api de Empleados
-//  */
+ */
 
 export class Empleados {
   constructor(
+    idEmpleado: number,
     primerNombre: string,
     segundoNombre: null | string,
     primerApellido: string,
@@ -16,6 +17,7 @@ export class Empleados {
     fechaContratacion: Date,
     fechaTerminacion: Date,
     fechaNacimiento: Date,
+    role: string
   ){}
 }
 

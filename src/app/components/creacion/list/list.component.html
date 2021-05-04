@@ -10,6 +10,7 @@
 
       <thead>
         <tr>
+          <th>ID Empleado</th>
           <th>Primero Nombre</th>
           <th>Primer Apellido</th>
           <th>Email Personal</th>
@@ -20,6 +21,7 @@
       <br>
       <tbody>
         <tr *ngFor="let empleados of emp">
+          <td>{{empleados.idEmpleado}}</td>
           <td>{{empleados.primerNombre}}</td>
           <td>{{empleados.primerApellido}}</td>
           <td>{{empleados.emailPrincipal}}</td>
@@ -27,7 +29,7 @@
           <td>
             <div class="btn-group" role="group">
               <button type="button" class="btn btn-outline-danger" title="Eliminar Registro"  >Eliminar</button>
-              <button type="button" class="btn btn-outline-success" title="Actualizar registro" [routerLink]="['/edit-empl']">Editar</button>
+              <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarEmpleado(empleados)" >Editar</button>
             </div>
           </td>
         </tr>
