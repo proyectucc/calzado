@@ -33,6 +33,9 @@ import { ListarProductosComponent } from './components/productos/listar-producto
 import { RolesComponent } from './components/roles/roles.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { EditComponent } from './components/creacion/edit/edit.component';
+import { VentasComponent } from './components/ventas/ventas.component';
+import { RegistroClienteComponent } from './components/registro-cliente/registro-cliente.component';
+import { CreacionVentaComponent } from './components/ventas/creacion-venta/creacion-venta.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,9 @@ import { EditComponent } from './components/creacion/edit/edit.component';
     ListarProductosComponent,
     RolesComponent,
     EditComponent,
+    VentasComponent,
+    RegistroClienteComponent,
+    CreacionVentaComponent,
   ],
   imports: [
     BrowserModule,
