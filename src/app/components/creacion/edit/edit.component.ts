@@ -82,7 +82,7 @@ export class EditComponent {
       nameTwo: dataEmpleado.segundoNombre,
       lastNameOne: dataEmpleado.primerApellido,
       lastNameTwo: dataEmpleado.segundoApellido,
-      typeDocument: dataEmpleado.tipoIdent,
+      typeDocument: dataEmpleado.mask,
       numberIdentification: dataEmpleado.numeroIdentificacion,
       dateBirthday: moment(dataEmpleado?.fechaNacimiento).format('YYYY-MM-DD'),
       dateHiring: moment(dataEmpleado?.fechaContratacion).format('YYYY-MM-DD'),
@@ -95,8 +95,5 @@ export class EditComponent {
   }
 
   postForm(form: Empleados) {
-    this.api.putEmpleados(form).subscribe((data) => {
-      console.log('ACTUALIZAR', data);
-    });
   }
 }

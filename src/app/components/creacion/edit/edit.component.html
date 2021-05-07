@@ -71,8 +71,9 @@
         'is-valid': editarForm.controls['typeDocument'].valid
       }">
       <option [value]="null">Seleccione...</option>
-      <option *ngFor="let typeDocument of typeDocuments" [value]="typeDocument.tipoIdent">
+      <option *ngFor="let typeDocument of typeDocuments" [value]="typeDocument.mask">
          {{typeDocument.idTipoIdent}}
+         - {{typeDocument.mask}}
          - {{typeDocument.tipoIdent}}
       </option>
       </select>

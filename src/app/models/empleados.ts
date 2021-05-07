@@ -20,4 +20,3 @@ export class Empleados {
     role: string
   ){}
 }
-
