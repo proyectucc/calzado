@@ -8,6 +8,7 @@ import { UsuarioService } from '../../../services/usuarios/usuario.service';
 import * as moment from 'moment';
 import { RolService } from 'src/app/services/roles/rol.service';
 import { Roles } from 'src/app/models/roles.interface';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-edit',
@@ -74,7 +75,7 @@ export class EditComponent {
     this.roles.cargarRoles().subscribe((roles) => {
       this.rol = roles;
       console.log('Roles', this.rol);
-    })
+    });
     const dataEmpleado = JSON.parse(localStorage.getItem('empleado') || '');
     this.datosEmpleados = dataEmpleado;
     this.editarForm.setValue({
@@ -86,7 +87,9 @@ export class EditComponent {
       numberIdentification: dataEmpleado.numeroIdentificacion,
       dateBirthday: moment(dataEmpleado?.fechaNacimiento).format('YYYY-MM-DD'),
       dateHiring: moment(dataEmpleado?.fechaContratacion).format('YYYY-MM-DD'),
-      dateEndHiring: moment(dataEmpleado?.fechaTerminacion).format('YYYY-MM-DD'),
+      dateEndHiring: moment(dataEmpleado?.fechaTerminacion).format(
+        'YYYY-MM-DD'
+      ),
       principalEmail: dataEmpleado.emailPrincipal,
       phone: dataEmpleado.telefonoFijo,
       cellPhone: dataEmpleado.telefonoCelular,
@@ -94,6 +97,5 @@ export class EditComponent {
     });
   }
 
-  postForm(form: Empleados) {
-  }
+  postForm(form: Empleados) {}
 }

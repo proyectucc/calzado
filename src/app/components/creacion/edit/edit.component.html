@@ -70,11 +70,9 @@
         'is-invalid': editarForm.controls['typeDocument'].invalid && (editarForm.controls['typeDocument'].dirty || editarForm.controls['typeDocument'].touched),
         'is-valid': editarForm.controls['typeDocument'].valid
       }">
-      <option [value]="null">Seleccione...</option>
+      <option selected></option>
       <option *ngFor="let typeDocument of typeDocuments" [value]="typeDocument.mask">
-         {{typeDocument.idTipoIdent}}
-         - {{typeDocument.mask}}
-         - {{typeDocument.tipoIdent}}
+         {{typeDocument.mask}} - {{typeDocument.tipoIdent}}
       </option>
       </select>
       <div
@@ -215,10 +213,9 @@
         'is-invalid': editarForm.controls['rol'].invalid && (editarForm.controls['rol'].dirty || editarForm.controls['rol'].touched),
         'is-valid': editarForm.controls['rol'].valid
       }">
-      <option [value]="null">Seleccione...</option>
+      <option selected></option>
       <option *ngFor="let roles of rol" [value]="roles.nombreRol">
-        {{roles.idRol}}
-        - {{roles.nombreRol}}
+         {{roles.nombreRol}}
      </option>
       </select>
       <div
