@@ -1,0 +1,34 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  background-color: #F7EAE0;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.nav-item {
+  align-items: 50%;
+}
+.bot1:hover {
+  background-color: crimson;
+  color: #ffffff;
+  border-color: crimson;
+}
+
+.bot2:hover {
+  background-color: #E3C899;
+  color: #ffffff;
+  border-color: #E3C899;
+}

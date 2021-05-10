@@ -1,0 +1,240 @@
+<app-header></app-header>
+<br><br><br><br>
+
+<h1 >FORMULARIO PARA MODIFICAR UN EMPLEADO</h1>
+
+<br><br><br>
+
+<div class="container form">
+  <form class="row g-3" [formGroup]="editarForm" (ngSubmit)="postForm(editarForm.value)">
+
+    <!-- Campo primer nombre -->
+    <div class="col-md-3">
+      <label for="inputEmail4" class="form-label">Primer Nombre</label>
+      <input type="text" formControlName="nameOne" class="form-control" id="inputEmail4" placeholder="Primero Nombre"
+      [ngClass]="{
+        'is-invalid': editarForm.controls['nameOne'].invalid && (editarForm.controls['nameOne'].dirty || editarForm.controls['nameOne'].touched),
+        'is-valid': editarForm.controls['nameOne'].valid
+      }">
+      <div
+        *ngIf="editarForm.controls['nameOne'].invalid && (editarForm.controls['nameOne'].dirty || editarForm.controls['nameOne'].touched)">
+        <div *ngIf="editarForm.controls['nameOne'].errors.required">
+          Nombre es requerido.
+        </div>
+        <div *ngIf="editarForm.controls['nameOne'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarForm.controls['nameOne'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Campo segundo nombre -->
+    <div class="col-md-3">
+      <label for="inputAddress" class="form-label">Segundo Nombre</label>
+      <input type="text" class="form-control" formControlName="nameTwo" id="inputAddress" placeholder="Segundo Nombre">
+    </div>
+
+    <!-- Campo primer apellido -->
+    <div class="col-md-3">
+      <label for="inputPassword4" class="form-label">Primer Apellido</label>
+      <input type="text" formControlName="lastNameOne" class="form-control" id="inputPassword4" placeholder="Primer Apellido"   [ngClass]="{
+        'is-invalid': editarForm.controls['lastNameOne'].invalid && (editarForm.controls['lastNameOne'].dirty || editarForm.controls['lastNameOne'].touched),
+        'is-valid': editarForm.controls['lastNameOne'].valid
+      }">
+      <div
+        *ngIf="editarForm.controls['lastNameOne'].invalid && (editarForm.controls['lastNameOne'].dirty || editarForm.controls['lastNameOne'].touched)">
+        <div *ngIf="editarForm.controls['lastNameOne'].errors.required">
+          Primer Apellido es requerido.
+        </div>
+        <div *ngIf="editarForm.controls['lastNameOne'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarForm.controls['lastNameOne'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Campo segundo apellido -->
+    <div class="col-md-3">
+      <label for="inputAddress" class="form-label">Segundo Apellido</label>
+      <input type="text" class="form-control" formControlName="lastNameTwo" id="inputAddress" placeholder="Segundo Apellido">
+    </div>
+
+    <!-- Tipo de identificación -->
+    <div class="col-md-6">
+      <label for="inputState" class="form-label">Tipo de identificación</label>
+      <select id="inputState" class="form-select" formControlName="typeDocument" [ngClass]="{
+        'is-invalid': editarForm.controls['typeDocument'].invalid && (editarForm.controls['typeDocument'].dirty || editarForm.controls['typeDocument'].touched),
+        'is-valid': editarForm.controls['typeDocument'].valid
+      }">
+      <option selected></option>
+      <option *ngFor="let typeDocument of typeDocuments" [value]="typeDocument.mask">
+         {{typeDocument.mask}} - {{typeDocument.tipoIdent}}
+      </option>
+      </select>
+      <div
+      *ngIf="editarForm.controls['typeDocument'].invalid && (editarForm.controls['typeDocument'].dirty || editarForm.controls['typeDocument'].touched)">
+      <div *ngIf="editarForm.controls['typeDocument'].errors.required">
+        Tipo de documento es requerido.
+      </div>
+      <div *ngIf="editarForm.controls['typeDocument'].errors.minlength" class="invalid-feedback">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="editarForm.controls['typeDocument'].errors.forbiddenName" class="invalid-feedback">
+        Name cannot be Bob.
+      </div>
+    </div>
+    </div>
+
+    <!-- Número de Identificación -->
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Número de Identificación</label>
+      <input type="numer" formControlName="numberIdentification" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': editarForm.controls['numberIdentification'].invalid && (editarForm.controls['numberIdentification'].dirty || editarForm.controls['numberIdentification'].touched),
+        'is-valid': editarForm.controls['numberIdentification'].valid
+      }">
+      <div
+        *ngIf="editarForm.controls['numberIdentification'].invalid && (editarForm.controls['numberIdentification'].dirty || editarForm.controls['numberIdentification'].touched)">
+        <div *ngIf="editarForm.controls['numberIdentification'].errors.required">
+          Número de documento es requerido.
+        </div>
+        <div *ngIf="editarForm.controls['numberIdentification'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarForm.controls['numberIdentification'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Fecha de Nacimiento -->
+    <div class="col-md-3">
+      <label for="inputPassword4" class="form-label">Fecha de Nacimiento</label>
+      <input type="date" formControlName="dateBirthday" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': editarForm.controls['dateBirthday'].invalid && (editarForm.controls['dateBirthday'].dirty || editarForm.controls['dateBirthday'].touched),
+        'is-valid': editarForm.controls['dateBirthday'].valid
+      }">
+      <div
+        *ngIf="editarForm.controls['dateBirthday'].invalid && (editarForm.controls['dateBirthday'].dirty || editarForm.controls['dateBirthday'].touched)">
+        <div *ngIf="editarForm.controls['dateBirthday'].errors.required">
+          Fecha de Nacimiento es requerido.
+        </div>
+        <div *ngIf="editarForm.controls['dateBirthday'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarForm.controls['dateBirthday'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Fecha de Contratación -->
+    <div class="col-md-3">
+      <label for="inputPassword4" class="form-label">Fecha de Contratación</label>
+      <input type="date" formControlName="dateHiring" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': editarForm.controls['dateHiring'].invalid && (editarForm.controls['dateHiring'].dirty || editarForm.controls['dateHiring'].touched),
+        'is-valid': editarForm.controls['dateHiring'].valid
+      }">
+      <div
+        *ngIf="editarForm.controls['dateHiring'].invalid && (editarForm.controls['dateHiring'].dirty || editarForm.controls['dateHiring'].touched)">
+        <div *ngIf="editarForm.controls['dateHiring'].errors.required">
+          Fecha de Contratación es requerido.
+        </div>
+        <div *ngIf="editarForm.controls['dateHiring'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarForm.controls['dateHiring'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Fecha de Terminación de Contrato -->
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Fecha de Terminación de Contratación</label>
+      <input type="date" formControlName="dateEndHiring" class="form-control" id="inputPassword4" placeholder="Número de identificación">
+    </div>
+
+    <!-- Correo electrónico personal -->
+    <div class="col-md-8">
+      <label for="inputPassword4" class="form-label">Email personal</label>
+      <input type="numer" formControlName="principalEmail" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': editarForm.controls['principalEmail'].invalid && (editarForm.controls['principalEmail'].dirty || editarForm.controls['principalEmail'].touched),
+        'is-valid': editarForm.controls['principalEmail'].valid
+      }">
+      <div
+        *ngIf="editarForm.controls['principalEmail'].invalid && (editarForm.controls['principalEmail'].dirty || editarForm.controls['principalEmail'].touched)">
+        <div *ngIf="editarForm.controls['principalEmail'].errors.required">
+          El email es requerido.
+        </div>
+        <div *ngIf="editarForm.controls['principalEmail'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarForm.controls['principalEmail'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Teléfono Fijo -->
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Teléfono Fijo</label>
+      <input type="numer" formControlName="phone" class="form-control" id="inputPassword4" placeholder="Número de identificación"   >
+    </div>
+
+    <!-- Teléfono Ceular -->
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Teléfono Ceular</label>
+      <input type="numer" formControlName="cellPhone" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': editarForm.controls['cellPhone'].invalid && (editarForm.controls['cellPhone'].dirty || editarForm.controls['cellPhone'].touched),
+        'is-valid': editarForm.controls['cellPhone'].valid
+      }">
+      <div
+        *ngIf="editarForm.controls['cellPhone'].invalid && (editarForm.controls['cellPhone'].dirty || editarForm.controls['cellPhone'].touched)">
+        <div *ngIf="editarForm.controls['cellPhone'].errors.required">
+          Celular es requerido.
+        </div>
+        <div *ngIf="editarForm.controls['cellPhone'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarForm.controls['cellPhone'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Rol -->
+    <div class="col-md-3">
+      <label for="inputState" class="form-label">Rol</label>
+      <select id="inputState" class="form-select" formControlName="rol" [ngClass]="{
+        'is-invalid': editarForm.controls['rol'].invalid && (editarForm.controls['rol'].dirty || editarForm.controls['rol'].touched),
+        'is-valid': editarForm.controls['rol'].valid
+      }">
+      <option selected></option>
+      <option *ngFor="let roles of rol" [value]="roles.nombreRol">
+         {{roles.nombreRol}}
+     </option>
+      </select>
+      <div
+      *ngIf="editarForm.controls['rol'].invalid && (editarForm.controls['rol'].dirty || editarForm.controls['rol'].touched)">
+      <div *ngIf="editarForm.controls['rol'].errors.required">
+        El rol es requerido.
+      </div>
+      <div *ngIf="editarForm.controls['rol'].errors.minlength" class="invalid-feedback">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="editarForm.controls['rol'].errors.forbiddenName" class="invalid-feedback">
+        Name cannot be Bob.
+      </div>
+    </div>
+    </div>
+
+
+    <div class="col-12">
+      <button type="submit" [disabled]="editarForm.invalid" class="btn btn-primary">Actualizar</button>
+    </div>
+  </form>
+</div>
