@@ -18,6 +18,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
+import {MatDialogModule} from '@angular/material/dialog';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroEmpleadoComponent } from './components/registro-empleado/registro-empleado.component';
@@ -33,6 +34,7 @@ import { ListarProductosComponent } from './components/productos/listar-producto
 import { RolesComponent } from './components/roles/roles.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { EditComponent } from './components/creacion/edit/edit.component';
+import { ModalCreacionComponent } from './components/modal/modal-creacion/modal-creacion.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { EditComponent } from './components/creacion/edit/edit.component';
     ListarProductosComponent,
     RolesComponent,
     EditComponent,
+    ModalCreacionComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ import { EditComponent } from './components/creacion/edit/edit.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

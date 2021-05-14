@@ -1,0 +1,28 @@
+<!-- The Modal -->
+<div #option class="modal">
+  <div class="modal-content">
+    <div class="row justify-content-center">
+      <div class="col-2">
+        <img alt="logo" src="../../../../assets/imagenes/{{modalParameters.icon.type}}.svg" />
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <h1>{{ modalParameters?.title }}</h1>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+      <div class="col-12">
+        <p class="cuerpo">{{ modalParameters?.body }}</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <button *ngIf="modalParameters?.centerButton.isEnable" (click)="onCloseDialog()" class="btn btn-success boton">
+          {{ modalParameters?.centerButton.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

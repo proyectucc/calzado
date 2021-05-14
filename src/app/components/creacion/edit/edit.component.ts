@@ -1,34 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { TipoDocumento } from 'src/app/models/tipo-identificacion.iterface';
 import { IdentificacionService } from 'src/app/services//identificacion/identificacion.service';
-import { Empleados } from '../../../models/empleados';
 import { UsuarioService } from '../../../services/usuarios/usuario.service';
 import * as moment from 'moment';
 import { RolService } from 'src/app/services/roles/rol.service';
 import { Roles } from 'src/app/models/roles.interface';
-import { NgxSpinnerService } from 'ngx-spinner';
-
+import { Router, ActivatedRoute } from '@angular/router';
+import { DatosEmpleado } from 'src/app/models/empleados.interface';
+import { PutEmpleado } from 'src/app/models/put-empleado.interface';
+import { ModalParameters } from '../../modal/models/modal.model';
+import { ModalCreacionComponent } from '../../modal/modal-creacion/modal-creacion.component';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class EditComponent {
+export class EditComponent implements OnInit {
   /**
    * Declaración para poder manipular la información del formulario
    */
   editarForm: FormGroup;
 
-  /**
-   * Objeto que contiene los campos de los empleados
-   */
-  datosEmpleados: Empleados;
+  // /**
+  //  * Objeto que contiene los campos de los empleados
+  //  */
+  datosEmpleados: DatosEmpleado;
+  // datosEmpleados: Empleados;
   /**
    * Objeto que contiene los campos de los empleados
    */
   typeDocuments: TipoDocumento;
+
+  /**
+   * Configuracion de dialogo formulario
+   */
+  public modalParameters: ModalParameters;
+
+  /**
+   * Obtiene el componente dialogo formulario
+   */
+  @ViewChild('dialogForm')
+  private readonly dialogForm!: ModalCreacionComponent;
 
   /**
    * Objeto que trae los campos de roles
@@ -44,23 +58,39 @@ export class EditComponent {
     fb: FormBuilder,
     private api: UsuarioService,
     private document: IdentificacionService,
-    private roles: RolService
+    private roles: RolService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     this.editarForm = fb.group({
-      nameOne: [null, Validators.required],
-      nameTwo: [null],
-      lastNameOne: [null, Validators.required],
-      lastNameTwo: [null],
-      typeDocument: [null, Validators.required],
-      numberIdentification: [null, Validators.required],
-      dateBirthday: [{ value: null, disabled: true }],
-      dateHiring: [{ value: null, disabled: true }],
-      dateEndHiring: [null],
-      principalEmail: [null, Validators.required],
-      phone: [null],
-      cellPhone: [null, Validators.required],
+      idEmpleado: [''],
+      primerNombre: [null, Validators.required],
+      segundoNombre: [null],
+      primerApellido: [null, Validators.required],
+      segundoApellido: [null],
+      idTipoIdent: [null, Validators.required],
+      numeroIdentificacion: [null, Validators.required],
+      fechaNacimiento: [null, Validators.required],
+      fechaContratacion: [null, Validators.required],
+      fechaTerminacion: [null, Validators.required],
+      emailPrincipal: [null, Validators.required],
+      telefonoFijo: [null, Validators.required],
+      telefonoCelular: [null, Validators.required],
       rol: [null, Validators.required],
     });
+
+    this.modalParameters = {
+      icon: {
+        isEnable: false,
+        type: 'done',
+      },
+      title: 'Actualización exitosa',
+      body: 'Se ha actualizado correctamente el registro',
+      centerButton: {
+        name: 'Cerrar',
+        isEnable: true,
+      },
+    };
   }
 
   /**
@@ -69,33 +99,52 @@ export class EditComponent {
   ngOnInit() {
     this.document.cargardocumentos().subscribe((data) => {
       this.typeDocuments = data;
-      console.log('documentos', this.typeDocuments);
     });
 
     this.roles.cargarRoles().subscribe((roles) => {
       this.rol = roles;
-      console.log('Roles', this.rol);
+      console.log(this.rol);
     });
-    const dataEmpleado = JSON.parse(localStorage.getItem('empleado') || '');
-    this.datosEmpleados = dataEmpleado;
-    this.editarForm.setValue({
-      nameOne: dataEmpleado.primerNombre,
-      nameTwo: dataEmpleado.segundoNombre,
-      lastNameOne: dataEmpleado.primerApellido,
-      lastNameTwo: dataEmpleado.segundoApellido,
-      typeDocument: dataEmpleado.mask,
-      numberIdentification: dataEmpleado.numeroIdentificacion,
-      dateBirthday: moment(dataEmpleado?.fechaNacimiento).format('YYYY-MM-DD'),
-      dateHiring: moment(dataEmpleado?.fechaContratacion).format('YYYY-MM-DD'),
-      dateEndHiring: moment(dataEmpleado?.fechaTerminacion).format(
-        'YYYY-MM-DD'
-      ),
-      principalEmail: dataEmpleado.emailPrincipal,
-      phone: dataEmpleado.telefonoFijo,
-      cellPhone: dataEmpleado.telefonoCelular,
-      rol: dataEmpleado.rol,
+    const empleadoid = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.api.getSingleEmpleado(empleadoid).subscribe((data) => {
+      this.datosEmpleados = data;
+      //var idEmpleado = data.idEmpleado;
+      this.editarForm.setValue({
+        primerNombre: this.datosEmpleados.primerNombre,
+        segundoNombre: this.datosEmpleados.segundoNombre,
+        primerApellido: this.datosEmpleados.primerApellido,
+        segundoApellido: this.datosEmpleados.segundoApellido,
+        idTipoIdent: this.datosEmpleados.idTipoIdent,
+        numeroIdentificacion: this.datosEmpleados.numeroIdentificacion,
+        fechaNacimiento: moment(this.datosEmpleados?.fechaNacimiento).format(
+          'YYYY-MM-DD'
+        ),
+        fechaContratacion: moment(
+          this.datosEmpleados?.fechaContratacion
+        ).format('YYYY-MM-DD'),
+        fechaTerminacion: moment(this.datosEmpleados?.fechaTerminacion).format(
+          'YYYY-MM-DD'
+        ),
+        emailPrincipal: this.datosEmpleados.emailPrincipal,
+        telefonoFijo: this.datosEmpleados.telefonoFijo,
+        telefonoCelular: this.datosEmpleados.telefonoCelular,
+        rol: this.datosEmpleados.rol,
+        idEmpleado: this.datosEmpleados.idEmpleado,
+      });
     });
   }
 
-  postForm(form: Empleados) {}
+  putForm(empleado: PutEmpleado) {
+    this.api.putEmpleados(empleado).subscribe((data) => {
+      console.log('actualizar', data);
+    });
+  }
+
+  /**
+   * Abre el componente hijo de dialogo
+   */
+  public openModal() {
+    this.dialogForm.onShowDialog();
+  }
 }

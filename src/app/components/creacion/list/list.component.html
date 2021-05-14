@@ -28,12 +28,16 @@
           <td>{{empleados.fechaContratacion | date}}</td>
           <td>
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-outline-danger" title="Eliminar Registro"  >Eliminar</button>
-              <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarEmpleado(empleados)" >Editar</button>
+              <button type="button" class="btn btn-outline-danger" title="Eliminar Registro" (click)="eliminar(empleados.idEmpleado)"  >Eliminar</button>
+              <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarEmpleado(empleados.idEmpleado)" >Editar</button>
             </div>
           </td>
         </tr>
       </tbody>
+
+
+    <!-- Modal -->
+    <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
 
     </table>
 
