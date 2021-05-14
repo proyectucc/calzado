@@ -4,17 +4,14 @@ import { Observable } from 'rxjs';
 import { OneEmpleado} from '../../models/empleado.interface';
 import { ResponseI } from 'src/app/models/response.interface';
 import { DatosEmpleado } from 'src/app/models/empleados.interface';
-import { PutEmpleado } from 'src/app/models/put-empleado.interface';
-
 @Injectable({
   providedIn: 'root',
 })
 export class UsuarioService {
 
-  url = 'https://localhost:44384/api';
-
   /**
    * Crea una nueva instancia de la clase
+   * @param httpClient Sends an `HTTPRequest` and returns a stream of `HTTPEvents`.
    */
   constructor(private http: HttpClient) {}
 
@@ -39,7 +36,7 @@ export class UsuarioService {
   /**
    * Servicio que se encarga de comunicar backend y Frontend para el método Put
    */
-  putEmpleados(form: PutEmpleado): Observable<ResponseI>{
+  putEmpleados(form: DatosEmpleado): Observable<ResponseI>{
     const direccion = 'https://localhost:44384/api/Empleados/';
 
     const params = new HttpHeaders().set('Content-type', 'application/json');

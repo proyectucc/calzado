@@ -9,7 +9,6 @@ import { RolService } from 'src/app/services/roles/rol.service';
 import { Roles } from 'src/app/models/roles.interface';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DatosEmpleado } from 'src/app/models/empleados.interface';
-import { PutEmpleado } from 'src/app/models/put-empleado.interface';
 import { ModalParameters } from '../../modal/models/modal.model';
 import { ModalCreacionComponent } from '../../modal/modal-creacion/modal-creacion.component';
 @Component({
@@ -64,19 +63,19 @@ export class EditComponent implements OnInit {
   ) {
     this.editarForm = fb.group({
       idEmpleado: [''],
-      primerNombre: [null, Validators.required],
-      segundoNombre: [null],
-      primerApellido: [null, Validators.required],
-      segundoApellido: [null],
-      idTipoIdent: [null, Validators.required],
-      numeroIdentificacion: [null, Validators.required],
-      fechaNacimiento: [null, Validators.required],
-      fechaContratacion: [null, Validators.required],
-      fechaTerminacion: [null, Validators.required],
-      emailPrincipal: [null, Validators.required],
-      telefonoFijo: [null, Validators.required],
-      telefonoCelular: [null, Validators.required],
-      rol: [null, Validators.required],
+      primerNombre: ['', [Validators.required, Validators.minLength(3)]],
+      segundoNombre: [''],
+      primerApellido: ['', [Validators.required, Validators.minLength(3)]],
+      segundoApellido: [''],
+      idTipoIdent: ['', Validators.required],
+      numeroIdentificacion: ['', Validators.required],
+      fechaNacimiento: ['', Validators.required],
+      fechaContratacion: ['', Validators.required],
+      fechaTerminacion: ['', Validators.required],
+      emailPrincipal: ['', [Validators.required, Validators.minLength(5), Validators.email]],
+      telefonoFijo: [0, [Validators.required, Validators.minLength(5)]],
+      telefonoCelular: [0, [Validators.required, Validators.minLength(5)]],
+      rol: ['', Validators.required],
     });
 
     this.modalParameters = {
@@ -109,7 +108,6 @@ export class EditComponent implements OnInit {
 
     this.api.getSingleEmpleado(empleadoid).subscribe((data) => {
       this.datosEmpleados = data;
-      //var idEmpleado = data.idEmpleado;
       this.editarForm.setValue({
         primerNombre: this.datosEmpleados.primerNombre,
         segundoNombre: this.datosEmpleados.segundoNombre,
@@ -135,7 +133,7 @@ export class EditComponent implements OnInit {
     });
   }
 
-  putForm(empleado: PutEmpleado) {
+  putForm(empleado: DatosEmpleado) {
     this.api.putEmpleados(empleado).subscribe((data) => {
       console.log('actualizar', data);
     });

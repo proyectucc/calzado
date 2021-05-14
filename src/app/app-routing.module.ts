@@ -16,6 +16,9 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { RegistroEmpleadoComponent } from './components/registro-empleado/registro-empleado.component';
 import { RegistroProveedorComponent } from './components/registro-proveedor/registro-proveedor.component';
 import { RolesComponent } from './components/roles/roles.component';
+import { CreateUserComponent } from './components/usuarios/create-user/create-user.component';
+import { EditUserComponent } from './components/usuarios/edit-user/edit-user.component';
+import { ListUserComponent } from './components/usuarios/list-user/list-user.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -34,6 +37,9 @@ const routes: Routes = [
   { path: 'creacion-productos', component: CreacionProductosComponent},
   { path: 'edit-empl/:id', component: EditComponent},
   { path: 'roles', component: RolesComponent},
+  { path: 'usuarios-list', component: ListUserComponent},
+  { path: 'usuario-edit/:id', component: EditUserComponent},
+  { path: 'usuario-crear', component: CreateUserComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];
 

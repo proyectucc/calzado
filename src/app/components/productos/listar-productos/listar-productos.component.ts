@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Empleados } from 'src/app/models/empleados';
+import { DatosEmpleado } from 'src/app/models/empleados.interface';
 import { UsuarioService } from '../../../services/usuarios/usuario.service';
 
 export interface PeriodicElement {
@@ -95,7 +95,7 @@ export class ListarProductosComponent implements OnInit {
    * Crea una nueva instancia de la clase
    */
   constructor(private usuarioService: UsuarioService) {}
-  public user: Empleados[];
+  public user: DatosEmpleado[];
   currentPage = 1;
   itemsPerPage = 10;
   pageSize: number;

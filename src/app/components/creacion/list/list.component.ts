@@ -38,7 +38,7 @@ export class ListComponent implements OnInit {
   constructor(
     private usuarioService: UsuarioService,
     private router: Router,
-    private api: UsuarioService
+    //private api: UsuarioService
   ) {
     this.modalParameters = {
       icon: {
@@ -60,21 +60,23 @@ export class ListComponent implements OnInit {
   public ngOnInit(): void {
     this.usuarioService.cargarEmpleados().subscribe((resp) => {
       this.emp = resp;
-      console.log(this.emp);
     });
   }
 
+  /**
+   * Método que se ejecuta para la edición de un registro
+   */
   editarEmpleado(id) {
     this.usuarioService.getSingleEmpleado(id).subscribe((data) => {
       this.router.navigate(['edit-empl', data.idEmpleado]);
-      console.log(data);
-      console.log(id);
     });
   }
 
+  /**
+   * Método que se ejecuta para la eliminación de un registro
+   */
   eliminar(id) {
-    console.log(id);
-    this.api.deleteEmpleado(id).subscribe();
+    this.usuarioService.deleteEmpleado(id).subscribe();
 
     this.dialogForm.onShowDialog();
   }

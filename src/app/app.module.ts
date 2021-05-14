@@ -35,6 +35,9 @@ import { RolesComponent } from './components/roles/roles.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { EditComponent } from './components/creacion/edit/edit.component';
 import { ModalCreacionComponent } from './components/modal/modal-creacion/modal-creacion.component';
+import { ListUserComponent } from './components/usuarios/list-user/list-user.component';
+import { CreateUserComponent } from './components/usuarios/create-user/create-user.component';
+import { EditUserComponent } from './components/usuarios/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +59,9 @@ import { ModalCreacionComponent } from './components/modal/modal-creacion/modal-
     RolesComponent,
     EditComponent,
     ModalCreacionComponent,
+    ListUserComponent,
+    CreateUserComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
