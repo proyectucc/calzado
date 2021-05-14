@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Empleados } from 'src/app/models/empleados';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { UsuarioService } from '../../../services/usuarios/usuario.service';
 
 export interface PeriodicElement {
   position: number;
@@ -115,7 +115,7 @@ export class ListarProductosComponent implements OnInit {
    * Se ejecuta cuando se inicializa el componente
    */
   public ngOnInit(): void {
-    this.obtener();
+
   }
 
   public onPageChange(pageNum: number): void {
@@ -134,28 +134,28 @@ export class ListarProductosComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  // tslint:disable-next-line: typedef
-  obtener() {
-    // tslint:disable-next-line: deprecation
-    this.usuarioService.obtener().subscribe(
-      (Response) => {
-        this.user = Response;
-        this.longitud = this.user.length;
-        console.log(this.user);
-        // tslint:disable-next-line: deprecation
-        // this.usuarioService.ingresar(this.user).subscribe(
-        //   // tslint:disable-next-line: no-shadowed-variable
-        //   (Response) => {
-        //     console.log('ok', Response);
-        //   },
-        //   (Error) => {
-        //     console.log('error');
-        //   }
-        // );
-      },
-      (Error) => {
-        console.log('error');
-      }
-    );
-  }
+  // // tslint:disable-next-line: typedef
+  // obtener() {
+  //   // tslint:disable-next-line: deprecation
+  //   this.usuarioService.obtener().subscribe(
+  //     (Response) => {
+  //       this.user = Response;
+  //       this.longitud = this.user.length;
+  //       console.log(this.user);
+  //       // tslint:disable-next-line: deprecation
+  //       // this.usuarioService.ingresar(this.user).subscribe(
+  //       //   // tslint:disable-next-line: no-shadowed-variable
+  //       //   (Response) => {
+  //       //     console.log('ok', Response);
+  //       //   },
+  //       //   (Error) => {
+  //       //     console.log('error');
+  //       //   }
+  //       // );
+  //     },
+  //     (Error) => {
+  //       console.log('error');
+  //     }
+  //   );
+  // }
 }

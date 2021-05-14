@@ -1,1 +1,195 @@
-<p>creacion-venta works!</p>
+<app-header></app-header>
+<br>
+
+<h1>FORMULARIO PARA CREAR UNA VENTA</h1>
+
+<br><br>
+
+<div class="container form">
+    <form class="row g-3" [formGroup]="options">
+        <!-- Cliente -->
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Cliente</label>
+            <select id="inputState" class="form-select" formControlName="IDcliente" [ngClass]="{
+      'is-invalid': options.controls['IDcliente'].invalid && (options.controls['IDcliente'].dirty || options.controls['IDcliente'].touched),
+      'is-valid': options.controls['IDcliente'].valid
+    }">
+                <option selected></option>
+                <option>1</option>
+            </select>
+            <div
+                *ngIf="options.controls['IDcliente'].invalid && (options.controls['IDcliente'].dirty || options.controls['IDcliente'].touched)">
+                <div *ngIf="options.controls['IDcliente'].errors.required">
+                    El Cliente es requerido.
+                </div>
+                <div *ngIf="options.controls['IDcliente'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="options.controls['IDcliente'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <!-- Empleado -->
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Empleado que realizo venta</label>
+            <select id="inputState" class="form-select" formControlName="IDempleado" [ngClass]="{
+        'is-invalid': options.controls['IDempleado'].invalid && (options.controls['IDempleado'].dirty || options.controls['IDempleado'].touched),
+        'is-valid': options.controls['IDempleado'].valid
+      }">
+                <option selected></option>
+                <option>1</option>
+            </select>
+            <div
+                *ngIf="options.controls['IDempleado'].invalid && (options.controls['IDempleado'].dirty || options.controls['IDempleado'].touched)">
+                <div *ngIf="options.controls['IDempleado'].errors.required">
+                    El empleado es requerido.
+                </div>
+                <div *ngIf="options.controls['IDempleado'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="options.controls['IDempleado'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <!-- Fecha de Venta -->
+        <div class="col-md-3">
+            <label for="inputPassword4" class="form-label">Fecha de Venta</label>
+            <input type="date" formControlName="fechaventa" class="form-control" id="inputPassword4" placeholder=" "
+                [ngClass]="{
+      'is-invalid': options.controls['fechaventa'].invalid && (options.controls['fechaventa'].dirty || options.controls['fechaventa'].touched),
+      'is-valid': options.controls['fechaventa'].valid
+    }">
+            <div
+                *ngIf="options.controls['fechaventa'].invalid && (options.controls['fechaventa'].dirty || options.controls['fechaventa'].touched)">
+                <div *ngIf="options.controls['fechaventa'].errors.required">
+                    Fecha de venta es requerido.
+                </div>
+                <div *ngIf="options.controls['fechaventa'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="options.controls['fechaventa'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <!-- Tipo de pago -->
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Tipo de pago</label>
+            <select id="inputState" class="form-select" formControlName="tipopago" [ngClass]="{
+      'is-invalid': options.controls['tipopago'].invalid && (options.controls['tipopago'].dirty || options.controls['tipopago'].touched),
+      'is-valid': options.controls['tipopago'].valid
+    }">
+                <option selected></option>
+                <option>1</option>
+            </select>
+            <div
+                *ngIf="options.controls['tipopago'].invalid && (options.controls['tipopago'].dirty || options.controls['tipopago'].touched)">
+                <div *ngIf="options.controls['tipopago'].errors.required">
+                    El empleado es requerido.
+                </div>
+                <div *ngIf="options.controls['tipopago'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="options.controls['tipopago'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <h5> Detalles de la venta </h5>
+        <!-- Producto -->
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Producto</label>
+            <select id="inputState" class="form-select" formControlName="IDproducto" [ngClass]="{
+      'is-invalid': options.controls['IDproducto'].invalid && (options.controls['IDproducto'].dirty || options.controls['IDproducto'].touched),
+      'is-valid': options.controls['IDproducto'].valid
+    }">
+                <option selected></option>
+                <option>1</option>
+            </select>
+            <div
+                *ngIf="options.controls['IDproducto'].invalid && (options.controls['IDproducto'].dirty || options.controls['IDproducto'].touched)">
+                <div *ngIf="options.controls['IDproducto'].errors.required">
+                    El producto es requerido.
+                </div>
+                <div *ngIf="options.controls['IDproducto'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="options.controls['IDproducto'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <!-- Valor unidad -->
+        <div class="col-md-3">
+            <label for="inputPassword4" class="form-label">Valor unidad</label>
+            <input type="numer" formControlName="valunidad" class="form-control" id="inputPassword4"
+                placeholder=" Valor unidad" [ngClass]="{
+      'is-invalid': options.controls['valunidad'].invalid && (options.controls['valunidad'].dirty || options.controls['valunidad'].touched),
+      'is-valid': options.controls['valunidad'].valid
+    }">
+            <div
+                *ngIf="options.controls['valunidad'].invalid && (options.controls['valunidad'].dirty || options.controls['valunidad'].touched)">
+                <div *ngIf="options.controls['valunidad'].errors.required">
+                    Valor unidad es requerido.
+                </div>
+                <div *ngIf="options.controls['valunidad'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="options.controls['valunidad'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <!-- Cantidad -->
+        <div class="col-md-3">
+            <label for="inputPassword4" class="form-label">Cantidad de unidades</label>
+            <input type="numer" formControlName="cantidad" class="form-control" id="inputPassword4"
+                placeholder="Cantidad" [ngClass]="{
+          'is-invalid': options.controls['cantidad'].invalid && (options.controls['cantidad'].dirty || options.controls['cantidad'].touched),
+          'is-valid': options.controls['cantidad'].valid
+        }">
+            <div
+                *ngIf="options.controls['cantidad'].invalid && (options.controls['cantidad'].dirty || options.controls['cantidad'].touched)">
+                <div *ngIf="options.controls['cantidad'].errors.required">
+                   La cantidad es requerido.
+                </div>
+                <div *ngIf="options.controls['cantidad'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="options.controls['cantidad'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <!-- Valor Total-->
+        <div class="col-md-3">
+            <label for="inputPassword4" class="form-label">Valor Total</label>
+            <input type="numer" formControlName="valortotal" class="form-control" id="inputPassword4"
+                placeholder=" " [ngClass]="{
+      'is-invalid': options.controls['valortotal'].invalid && (options.controls['valortotal'].dirty || options.controls['valortotal'].touched),
+      'is-valid': options.controls['valortotal'].valid
+    }">
+            <div
+                *ngIf="options.controls['valortotal'].invalid && (options.controls['valortotal'].dirty || options.controls['valortotal'].touched)">
+                <div *ngIf="options.controls['valortotal'].errors.required">
+                    Valor total es requerido.
+                </div>
+                <div *ngIf="options.controls['valortotal'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="options.controls['valortotal'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 ">
+            <button mat-raised-button color="primary">agregar</button>
+          </div>
+        <div class="col-12">
+            <button type="submit" [disabled]="options.invalid" class="btn btn-primary"
+                [routerLink]="['./home']">Crear Venta</button>
+        </div>
+    </form>
+</div>

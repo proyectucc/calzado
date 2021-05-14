@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';;
+import {MatButtonModule} from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +37,8 @@ import { EditComponent } from './components/creacion/edit/edit.component';
 import { VentasComponent } from './components/ventas/ventas.component';
 import { RegistroClienteComponent } from './components/registro-cliente/registro-cliente.component';
 import { CreacionVentaComponent } from './components/ventas/creacion-venta/creacion-venta.component';
+import { ListVentaComponent } from './components/ventas/list-venta/list-venta.component';
+import { ListClienteComponent } from './components/registro-cliente/list-cliente/list-cliente.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,8 @@ import { CreacionVentaComponent } from './components/ventas/creacion-venta/creac
     VentasComponent,
     RegistroClienteComponent,
     CreacionVentaComponent,
+    ListVentaComponent,
+    ListClienteComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +73,7 @@ import { CreacionVentaComponent } from './components/ventas/creacion-venta/creac
     MatRadioModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatButtonModule,
     MatIconModule,
     MatDatepickerModule,
     MatTableModule,

@@ -13,12 +13,14 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { CreacionProductosComponent } from './components/productos/creacion-productos/creacion-productos.component';
 import { ListarProductosComponent } from './components/productos/listar-productos/listar-productos.component';
 import { ProductosComponent } from './components/productos/productos.component';
-import { RegistroClienteComponent } from './components/registro-cliente/registro-cliente.component';
 import { RegistroEmpleadoComponent } from './components/registro-empleado/registro-empleado.component';
 import { RegistroProveedorComponent } from './components/registro-proveedor/registro-proveedor.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { CreacionVentaComponent } from './components/ventas/creacion-venta/creacion-venta.component';
 import { VentasComponent } from './components/ventas/ventas.component';
+import { RegistroClienteComponent } from './components/registro-cliente/registro-cliente.component';
+import { ListClienteComponent} from './components/registro-cliente/list-cliente/list-cliente.component';
+import { ListVentaComponent } from './components/ventas/list-venta/list-venta.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -35,11 +37,13 @@ const routes: Routes = [
   { path: 'productos', component: ProductosComponent},
   { path: 'listar-productos', component: ListarProductosComponent},
   { path: 'creacion-productos', component: CreacionProductosComponent},
-  { path: 'edit-empl', component: EditComponent},
+  { path: 'edit-empl/:id', component: EditComponent},
   { path: 'roles', component: RolesComponent},
   { path: 'moduloventas', component: VentasComponent},
   { path: 'regisclien', component: RegistroClienteComponent},
   { path: 'creacionventa', component: CreacionVentaComponent},
+  { path: 'listado-clientes', component: ListClienteComponent},
+  { path: 'listado-ventas', component: ListVentaComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];
 

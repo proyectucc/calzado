@@ -1,6 +1,6 @@
-<app-header></app-header><br><br><br><br>
+<!-- <app-header></app-header><br>
 
-<h1>LISTA DE USUARIOS</h1>
+<h1>LISTA DE CLIENTES</h1>
 <br><br><br>
 
 <div class="row ">
@@ -10,25 +10,24 @@
 
       <thead>
         <tr>
-          <th>ID Empleado</th>
+          <th>ID Cliente</th>
           <th>Primero Nombre</th>
           <th>Primer Apellido</th>
-          <th>Email Personal</th>
-          <th>Fecha de Contratación</th>
+          <th>Número Identificación</th>
+          <th>Celular</th>
           <th>Opciones</th>
         </tr>
       </thead>
       <br>
       <tbody>
-        <tr *ngFor="let empleados of emp">
-          <td>{{empleados.idEmpleado}}</td>
-          <td>{{empleados.primerNombre}}</td>
-          <td>{{empleados.primerApellido}}</td>
-          <td>{{empleados.emailPrincipal}}</td>
-          <td>{{empleados.fechaContratacion | date}}</td>
+        <tr *ngFor="let clientes of cli">
+          <td>{{clientes.idCliente}}</td>
+          <td>{{clientes.primerNombre}}</td>
+          <td>{{clientes.primerApellido}}</td>
+          <td>{{clientes.numeroIdentificacion}}</td>
+          <td>{{clientes.telefonoCelular}}</td>
           <td>
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-outline-danger" title="Eliminar Registro"  >Eliminar</button>
               <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarEmpleado(empleados)" >Editar</button>
             </div>
           </td>
@@ -40,3 +39,4 @@
   </div>
 
 </div>
+ -->

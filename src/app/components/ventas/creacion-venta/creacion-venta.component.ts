@@ -20,7 +20,19 @@ export class CreacionVentaComponent  {
      this.options = fb.group({      
        IDcliente: [null, Validators.required],
        IDempleado: [null,Validators.required],
-              
+       fechaventa: [null, Validators.required],   
+       tipopago: [null,Validators.required],    
+       IDproducto: [null, Validators.required],    
+       valunidad: [null, Validators.required],
+       cantidad: [null, Validators.required],
+       valortotal:  [null, Validators.required],
+       
+       multi(){
+        this.valortotal=this.valunidad*this.cantidad;
+      }
+      
      });
+     
+      
     }
 }
