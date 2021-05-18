@@ -21,6 +21,7 @@ import { VentasComponent } from './components/ventas/ventas.component';
 import { RegistroClienteComponent } from './components/registro-cliente/registro-cliente.component';
 import { ListClienteComponent} from './components/registro-cliente/list-cliente/list-cliente.component';
 import { ListVentaComponent } from './components/ventas/list-venta/list-venta.component';
+import { EditClienteComponent } from './components/registro-cliente/edit-cliente/edit-cliente.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'creacionventa', component: CreacionVentaComponent},
   { path: 'listado-clientes', component: ListClienteComponent},
   { path: 'listado-ventas', component: ListVentaComponent},
+  { path: 'edit-client/:id', component: EditClienteComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];
 

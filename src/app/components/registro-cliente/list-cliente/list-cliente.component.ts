@@ -13,7 +13,7 @@ export class ListClienteComponent implements OnInit {
  /**
    * Lista de clientes
    */
-  public cli: Clientes = [];
+  public cli: Clientes;
   /**
    * Objeto que contiene los campos de los clientes
    */
@@ -43,5 +43,12 @@ export class ListClienteComponent implements OnInit {
   }
 
   
-
+/**
+   * Método que se ejecuta para la edición de un registro
+   */
+ editarCliente(id) {
+  this.clienteService.getSingleCliente(id).subscribe((data) => {
+    this.router.navigate(['edit-client', data.idCliente]);
+  });
+}
 }

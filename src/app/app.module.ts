@@ -39,6 +39,8 @@ import { RegistroClienteComponent } from './components/registro-cliente/registro
 import { CreacionVentaComponent } from './components/ventas/creacion-venta/creacion-venta.component';
 import { ListVentaComponent } from './components/ventas/list-venta/list-venta.component';
 import { ListClienteComponent } from './components/registro-cliente/list-cliente/list-cliente.component';
+import { EditClienteComponent } from './components/registro-cliente/edit-cliente/edit-cliente.component';
+import { ModalCreacionComponent } from './components/modal/modal-creacion/modal-creacion.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { ListClienteComponent } from './components/registro-cliente/list-cliente
     CreacionVentaComponent,
     ListVentaComponent,
     ListClienteComponent,
+    EditClienteComponent,
+    ModalCreacionComponent,
   ],
   imports: [
     BrowserModule,
