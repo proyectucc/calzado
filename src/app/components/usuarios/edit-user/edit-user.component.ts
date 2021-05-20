@@ -48,6 +48,7 @@ export class EditUserComponent implements OnInit {
     private router: Router
   ) {
     this.editarForm = fb.group({
+      idUsuario: [''],
       nombreUsuario: ['', [Validators.required, Validators.minLength(4)]],
       contraseña: ['', [Validators.required, Validators.minLength(4)]],
       fechaCreacion: [null, Validators.required],
@@ -66,6 +67,10 @@ export class EditUserComponent implements OnInit {
         name: 'Cerrar',
         isEnable: true,
       },
+      centerButtonLogin: {
+        name: 'Cerrar',
+        isEnable: false,
+      },
     };
   }
 
@@ -79,14 +84,19 @@ export class EditUserComponent implements OnInit {
 
     const usuarioid = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.userService.getSingleUsuario(usuarioid).subscribe(data => {
+    this.userService.getSingleUsuario(usuarioid).subscribe((data) => {
       this.datosUsuario = data;
       this.editarForm.setValue({
         nombreUsuario: this.datosUsuario.nombreUsuario,
         contraseña: this.datosUsuario.contraseña,
-        fechaCreacion: moment( this.datosUsuario.fechaCreacion).format('YYYY-MM-DD'),
-        fechaTerminacion: moment(this.datosUsuario.fechaTerminacion).format('YYYY-MM-DD'),
+        fechaCreacion: moment(this.datosUsuario.fechaCreacion).format(
+          'YYYY-MM-DD'
+        ),
+        fechaTerminacion: moment(this.datosUsuario.fechaTerminacion).format(
+          'YYYY-MM-DD'
+        ),
         idEmpleado: this.datosUsuario.idEmpleado,
+        idUsuario: this.datosUsuario.idUsuario,
       });
     });
   }
@@ -95,11 +105,11 @@ export class EditUserComponent implements OnInit {
    * Método que se ejecuta para la edición del empleado
    * @param empleado Objeto con la edición
    */
-  putForm(usuario: Usuario) {
-    // this.userService.putUsuario(usuario).subscribe((data) => {
-    //   console.log('actualizar', data);
-    // });
-    console.log(usuario);
+  postForm(usuario: Usuario) {
+    this.userService.putUsuario(usuario).subscribe((data) => {
+      console.log('actualizar', data);
+    });
+    //console.log(usuario);
   }
 
   /**

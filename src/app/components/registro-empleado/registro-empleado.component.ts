@@ -83,6 +83,10 @@ export class RegistroEmpleadoComponent implements OnInit {
         name: 'Cerrar',
         isEnable: true,
       },
+      centerButtonLogin: {
+        name: 'Cerrar',
+        isEnable: false,
+      },
     };
   }
 

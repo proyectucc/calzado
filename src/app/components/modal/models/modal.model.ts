@@ -31,5 +31,10 @@ export interface ModalParameters {
    * Recibe el valor del contenido del select dialog
    */
 
-  centerButton: ButtonConfig;
+  centerButton?: ButtonConfig;
+  /**
+   * Recibe el valor del contenido del select dialog
+   */
+
+  centerButtonLogin?: ButtonConfig;
 }

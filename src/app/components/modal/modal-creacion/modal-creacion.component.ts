@@ -22,7 +22,9 @@ export class ModalCreacionComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.modalParameters?.centerButton.isEnable);
+  }
 
   /**
    * Accion de abrir el dialogo
@@ -39,5 +41,12 @@ export class ModalCreacionComponent implements OnInit {
   public onCloseDialog() {
     this.option.nativeElement.classList.remove('hidden');
     this.router.navigate(['home']);
+  }
+  /**
+   * Accion de cerrar el dialogo
+   */
+  public onCloseDialogLogin() {
+    this.option.nativeElement.classList.remove('hidden');
+    this.router.navigate(['login']);
   }
 }

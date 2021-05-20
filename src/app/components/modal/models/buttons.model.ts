@@ -4,8 +4,7 @@
 
  */
 
- export interface ButtonConfig {
-
+export interface ButtonConfig {
   /**
 
    * Nombre del boton en el dialog
@@ -14,18 +13,14 @@
 
   name?: string;
 
-
   /**
 
    * Habilita el boton en el dialog
 
    */
 
-  isEnable: boolean;
-
+  isEnable?: boolean;
 }
-
-
 
 /**
 
@@ -34,7 +29,6 @@
  */
 
 export interface IconConfig {
-
   /**
 
    * Define el tipo de icon en el dialog
@@ -43,8 +37,6 @@ export interface IconConfig {
 
   type?: IconsType;
 
-
-
   /**
 
    * Habilita el icon en el dialog
@@ -52,17 +44,12 @@ export interface IconConfig {
    */
 
   isEnable: boolean;
-
 }
 
-
-
-
-
- /**
+/**
 
   * Tipos de iconos dialog
 
   */
 
- export type IconsType = 'done' | 'secondary';
+export type IconsType = 'done' | 'secondary';

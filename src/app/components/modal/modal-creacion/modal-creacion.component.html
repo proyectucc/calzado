@@ -19,8 +19,17 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-4">
-        <button *ngIf="modalParameters?.centerButton.isEnable" (click)="onCloseDialog()" class="btn btn-success boton">
+        <button *ngIf="modalParameters?.centerButton.isEnable" (click)="onCloseDialog()"
+          class="btn btn-success boton">
           {{ modalParameters?.centerButton.name }}
+        </button>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <button *ngIf="modalParameters?.centerButtonLogin.isEnable" (click)="onCloseDialogLogin()"
+          class="btn btn-success boton">
+          {{ modalParameters?.centerButtonLogin.name }}
         </button>
       </div>
     </div>
