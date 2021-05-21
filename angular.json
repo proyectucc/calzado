@@ -30,10 +30,6 @@
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
-<<<<<<< HEAD
-=======
-
->>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
             ],
             "scripts": []
           },

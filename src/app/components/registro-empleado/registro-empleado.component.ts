@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-=======
 import {
   Component,
   OnInit,
@@ -23,16 +15,10 @@ import { Roles } from 'src/app/models/roles.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalCreacionComponent } from '../modal/modal-creacion/modal-creacion.component';
 import { ModalParameters } from '../modal/models/modal.model';
->>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
 
 @Component({
   selector: 'app-registro-empleado',
   templateUrl: './registro-empleado.component.html',
-<<<<<<< HEAD
-  styleUrls: ['./registro-empleado.component.scss']
-})
-export class RegistroEmpleadoComponent {
-=======
   styleUrls: ['./registro-empleado.component.scss'],
 })
 export class RegistroEmpleadoComponent implements OnInit {
@@ -55,33 +41,10 @@ export class RegistroEmpleadoComponent implements OnInit {
    * Objeto que trae los campos de roles
    */
   rol: Roles;
->>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
 
   /**
    * Declaración para poder manipular la información del formulario
    */
-<<<<<<< HEAD
-  options: FormGroup;
-
-  constructor(fb: FormBuilder) {
-    this.options = fb.group({
-      nameOne: [null, Validators.required],
-      nameTwo: [null],
-      lastNameOne: [null, Validators.required],
-      lastNameTwo: [null],
-      typeDocument: [null, Validators.required],
-      numberIdentification: [null, Validators.required],
-      dateBirthday: [null, Validators.required],
-      dateHiring: [null, Validators.required],
-      dateEndHiring: [null],
-      principalEmail: [null, Validators.required],
-      phone: [null],
-      cellPhone: [null, Validators.required],
-      rol: [null, Validators.required],
-    });
-  }
-
-=======
   nuevoForm: FormGroup;
 
   constructor(
@@ -151,5 +114,4 @@ export class RegistroEmpleadoComponent implements OnInit {
   public openModal() {
     this.dialogForm.onShowDialog();
   }
->>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
 }

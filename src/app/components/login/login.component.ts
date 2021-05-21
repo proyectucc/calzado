@@ -1,48 +1,13 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-=======
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioEmpleadoService } from 'src/app/services/usuario-empleado/usuario-empleado.service';
 import { ModalCreacionComponent } from '../modal/modal-creacion/modal-creacion.component';
 import { ModalParameters } from '../modal/models/modal.model';
->>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-<<<<<<< HEAD
-  styleUrls: ['./login.component.scss']
-})
-export class LoginComponent {
-
-  /**
-   * Permite la configuración de los campos del formulario
-   */
-   public formBuilder: FormBuilder;
-
-   /**
-    * Permite crear grupos de controles para un formulario
-    */
-   public frmGroup: FormGroup;
-
-   /**
-    * instancia de la clase
-    */
-   constructor(formBuilder: FormBuilder) {
-
-     this.formBuilder = formBuilder;
-
-     this.frmGroup = this.formBuilder.group({
-       email: ['', Validators.required],
-       pass: ['', Validators.required],
-     });
-
-   }
-
-=======
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
@@ -115,5 +80,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
->>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
 }
