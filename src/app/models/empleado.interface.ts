@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export interface OneEmpleado {
   idEmpleado: number;
   primerNombre: string;
@@ -12,4 +13,25 @@ export interface OneEmpleado {
   fechaContratacion: Date;
   fechaTerminacion: Date;
   fechaNacimiento: Date;
+=======
+
+/**
+ * Contiene la información del empleado
+ */
+export interface OneEmpleado{
+  IdEmpleado: number;
+  PrimerNombre: string;
+  SegundoNombre?: string;
+  PrimerApellido: string;
+  SegundoApellido?: string;
+  IdTipoIdent: string;
+  NumeroIdentificacion: string;
+  FechaNacimiento: Date;
+  FechaContratacion: Date;
+  FechaTerminacion: Date;
+  EmailPrincipal: string;
+  TelefonoFijo?: number;
+  TelefonoCelular: number;
+  Rol: string;
+>>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
 }

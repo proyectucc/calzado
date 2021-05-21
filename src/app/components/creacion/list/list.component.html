@@ -1,6 +1,10 @@
 <app-header></app-header><br><br><br><br>
 
+<<<<<<< HEAD
 <h1>LISTA DE USUARIOS</h1>
+=======
+<h1>LISTA DE EMPLEADOS</h1>
+>>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
 <br><br><br>
 
 <div class="row ">
@@ -9,7 +13,11 @@
     <table class="table table-sm ">
 
       <thead>
+<<<<<<< HEAD
         <tr>
+=======
+        <tr class="texto">
+>>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
           <th>ID Empleado</th>
           <th>Primero Nombre</th>
           <th>Primer Apellido</th>
@@ -20,7 +28,11 @@
       </thead>
       <br>
       <tbody>
+<<<<<<< HEAD
         <tr *ngFor="let empleados of emp">
+=======
+        <tr class="texto" *ngFor="let empleados of emp">
+>>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
           <td>{{empleados.idEmpleado}}</td>
           <td>{{empleados.primerNombre}}</td>
           <td>{{empleados.primerApellido}}</td>
@@ -28,13 +40,25 @@
           <td>{{empleados.fechaContratacion | date}}</td>
           <td>
             <div class="btn-group" role="group">
+<<<<<<< HEAD
               <button type="button" class="btn btn-outline-danger" title="Eliminar Registro"  >Eliminar</button>
               <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarEmpleado(empleados)" >Editar</button>
+=======
+              <button type="button" class="btn btn-outline-danger" title="Eliminar Registro" (click)="eliminar(empleados.idEmpleado)"  >Eliminar</button>
+              <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarEmpleado(empleados.idEmpleado)" >Editar</button>
+>>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
             </div>
           </td>
         </tr>
       </tbody>
 
+<<<<<<< HEAD
+=======
+
+    <!-- Modal -->
+    <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
+
+>>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
     </table>
 
   </div>

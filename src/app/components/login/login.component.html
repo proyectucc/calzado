@@ -3,7 +3,11 @@
 <div class="container">
   <div class="row text-center login-page">
     <div class="col-md-12 login-form">
+<<<<<<< HEAD
       <form action="claseDestino.php" [formGroup]="frmGroup">
+=======
+      <form action="claseDestino.php" [formGroup]="frmGroup" (ngSubmit)="onLogin()">
+>>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
         <div class="row">
           <div class="col-md-12 login-form-header">
             <p class="login-form-font-header">Calzado <span>Experto</span>
@@ -13,23 +17,40 @@
         <div class="row">
           <div class="col-md-12 login-from-row">
             <input type="email" placeholder="Escriba el correo electrónico" formControlName="email"
+<<<<<<< HEAD
               required autofocus
               pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
               placeholder="Usuario"  required />
+=======
+              required autofocus placeholder="Usuario"  required />
+>>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 login-from-row">
+<<<<<<< HEAD
             <input name="password" type="password" placeholder="Password" formControlName="pass" minlength="10"
+=======
+            <input type="password" placeholder="password" formControlName="pass" minlength="4"
+>>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
               maxlength="15" required/>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 login-from-row">
+<<<<<<< HEAD
             <button class="btn btn-info" routerLink="/home" [disabled]="frmGroup.invalid" tabindex="0"  title="Ingresar">Ingresar</button>
+=======
+            <button class="btn btn-info" [disabled]="frmGroup.invalid" tabindex="0"  title="Ingresar">Ingresar</button>
+>>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
           </div>
         </div>
       </form>
     </div>
   </div>
 </div>
+<<<<<<< HEAD
+=======
+    <!-- Modal -->
+    <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
+>>>>>>> a10aff708f28cc5ac704be656126cb5711c77a4e
