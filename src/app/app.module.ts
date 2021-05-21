@@ -37,6 +37,8 @@ import { ModalCreacionComponent } from './components/modal/modal-creacion/modal-
 import { ListUserComponent } from './components/usuarios/list-user/list-user.component';
 import { CreateUserComponent } from './components/usuarios/create-user/create-user.component';
 import { EditUserComponent } from './components/usuarios/edit-user/edit-user.component';
+import { MatButtonModule } from '@angular/material/button';
+import { ModalComponent } from './components/modal/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -79,8 +81,10 @@ import { EditUserComponent } from './components/usuarios/edit-user/edit-user.com
     FormsModule,
     BrowserAnimationsModule,
     NgxDatatableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule
   ],
+  entryComponents: [ ModalComponent ],
   providers: [],
   bootstrap: [AppComponent],
 })
