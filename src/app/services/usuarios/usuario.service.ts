@@ -15,7 +15,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) {}
 
   cargarEmpleados() {
-    const urls = 'https://localhost:44384/api/Empleados';
+    const urls = 'https://localhost:44384/api/Empleados/MostrarEmpleados';
 
     return this.http.get<Empleados>(urls);
   }

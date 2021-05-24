@@ -1,1 +1,38 @@
-<p>list-venta works!</p>
+<app-header></app-header><br>
+
+<h1>LISTA DE VENTAS</h1>
+<br><br><br>
+
+<div class="row ">
+  <div class="col ">
+
+    <table class="table table-sm ">
+
+      <thead>
+        <tr>
+          <th>ID Venta</th>
+          <th>#identificación Cliente</th>
+          <th>Empleado</th>
+          <th>Fecha de venta</th>
+          <th>Tipo pago</th>
+          <th>Cantidad</th>
+        </tr>
+      </thead>
+      <br>
+      <tbody>
+        <tr *ngFor="let ventas of ven" >
+          <td>{{ventas.idVenta}}</td>  
+          <td>{{ventas.numeroIdentificacion}}</td>  
+          <td>{{ventas.primerApellido}}</td>      
+          <td>{{ventas.fechaVenta}}</td>
+          <td>{{ventas.tipoPago1}}</td> 
+                  
+        </tr>        
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+

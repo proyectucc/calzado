@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Ventas } from 'src/app/models/Ventas';
+import { VentaService } from 'src/app/services/ventas/venta.service';
 
 @Component({
   selector: 'app-list-venta',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListVentaComponent implements OnInit {
 
-  constructor() { }
+  /**
+   * Lista de Ventas
+   */
+   public ven: Ventas;
+   /**
+    * Crea una nueva instancia de la clase
+    */
+    constructor(
+     private ventaService: VentaService,
+     private router: Router,
 
-  ngOnInit(): void {
-  }
+   ) {}
+   public user: Ventas[];
+   currentPage = 1;
+   itemsPerPage = 10;
+   pageSize: number;
+   longitud: number;
+ 
+   /**
+    * Se ejecuta cuando se inicializa el componente
+    */
+   public ngOnInit(): void {    
+     this.ventaService.cargarVentas().subscribe((resp) => {
+       this.ven = resp;
+       console.log('DATOS', resp);
+     });
+   }
 
 }
