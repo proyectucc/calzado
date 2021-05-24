@@ -4,5 +4,5 @@
 export interface TipoDocumento {
   IdTipoIdent: number;
   TipoIdent: string;
-  mask: string;
+  Mask: string;
 }

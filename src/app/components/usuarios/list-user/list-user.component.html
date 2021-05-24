@@ -1,0 +1,43 @@
+<app-header></app-header><br><br><br><br>
+
+<h1>LISTA DE USUARIOS</h1>
+<br><br><br>
+
+<div class="row ">
+  <div class="col ">
+    <button type="button" class="btn btn-outline-primary" title="Actualizar registro" (click)="crearUsuario()">Crear Usuario</button>
+    <table class="table table-sm ">
+
+      <thead>
+        <tr class="texto">
+          <th>ID</th>
+          <th>Usuario</th>
+          <th>Fecha de Contratación</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <br>
+      <tbody>
+        <tr class="texto" *ngFor="let usuario of usuarios">
+          <td>{{usuario.idUsuario}}</td>
+          <td>{{usuario.nombreUsuario}}</td>
+          <td>{{usuario.fechaCreacion | date}}</td>
+          <td>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-outline-danger" title="Eliminar Registro" (click)="eliminar(usuario.idUsuario)" >Eliminar</button>
+              <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarUsuario(usuario.idUsuario)">Editar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+
+
+    <!-- Modal -->
+    <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
+
+    </table>
+
+  </div>
+
+</div>
+

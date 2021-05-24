@@ -1,6 +1,6 @@
 <app-header></app-header><br><br><br><br>
 
-<h1>LISTA DE USUARIOS</h1>
+<h1>LISTA DE EMPLEADOS</h1>
 <br><br><br>
 
 <div class="row ">
@@ -9,7 +9,7 @@
     <table class="table table-sm ">
 
       <thead>
-        <tr>
+        <tr class="texto">
           <th>ID Empleado</th>
           <th>Primero Nombre</th>
           <th>Primer Apellido</th>
@@ -20,7 +20,7 @@
       </thead>
       <br>
       <tbody>
-        <tr *ngFor="let empleados of emp">
+        <tr class="texto" *ngFor="let empleados of emp">
           <td>{{empleados.idEmpleado}}</td>
           <td>{{empleados.primerNombre}}</td>
           <td>{{empleados.primerApellido}}</td>
@@ -28,12 +28,16 @@
           <td>{{empleados.fechaContratacion | date}}</td>
           <td>
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-outline-danger" title="Eliminar Registro"  >Eliminar</button>
-              <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarEmpleado(empleados)" >Editar</button>
+              <button type="button" class="btn btn-outline-danger" title="Eliminar Registro" (click)="eliminar(empleados.idEmpleado)"  >Eliminar</button>
+              <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarEmpleado(empleados.idEmpleado)" >Editar</button>
             </div>
           </td>
         </tr>
       </tbody>
+
+
+    <!-- Modal -->
+    <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
 
     </table>
 

@@ -22,6 +22,9 @@ import { RegistroClienteComponent } from './components/registro-cliente/registro
 import { ListClienteComponent} from './components/registro-cliente/list-cliente/list-cliente.component';
 import { ListVentaComponent } from './components/ventas/list-venta/list-venta.component';
 import { EditClienteComponent } from './components/registro-cliente/edit-cliente/edit-cliente.component';
+import { CreateUserComponent } from './components/usuarios/create-user/create-user.component';
+import { EditUserComponent } from './components/usuarios/edit-user/edit-user.component';
+import { ListUserComponent } from './components/usuarios/list-user/list-user.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -46,6 +49,9 @@ const routes: Routes = [
   { path: 'listado-clientes', component: ListClienteComponent},
   { path: 'listado-ventas', component: ListVentaComponent},
   { path: 'edit-client/:id', component: EditClienteComponent},
+  { path: 'usuarios-list', component: ListUserComponent},
+  { path: 'usuario-edit/:id', component: EditUserComponent},
+  { path: 'usuario-crear', component: CreateUserComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];
 

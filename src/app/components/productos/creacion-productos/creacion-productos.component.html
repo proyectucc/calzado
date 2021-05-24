@@ -1,4 +1,131 @@
-<app-header></app-header><br><br><br><br>
+<app-header></app-header>
+<br><br><br><br>
+
+<h1>FORMULARIO PARA REGISTRAR UN PRODUCTO</h1>
+
+<br><br><br>
+
+<div class="container form">
+    <form class="row g-3" [formGroup]="options">
+
+        <!-- Campo ID Categoria -->
+        <div class="col-md-3">
+            <label for="inputAddress" class="form-label">ID Categoría</label>
+            <input type="text" class="form-control" formControlName="categoria" id="inputAddress"
+                placeholder="ID de la Categoría" [ngClass]="{
+        'is-invalid': options.controls['categoria'].invalid && (options.controls['categoria'].dirty || options.controls['categoria'].touched),
+        'is-valid': options.controls['categoria'].valid
+      }">
+            <div
+                *ngIf="options.controls['categoria'].invalid && (options.controls['categoria'].dirty || options.controls['categoria'].touched)">
+                <div *ngIf="options.controls['categoria'].errors.required">
+                    ID es requerido.
+                </div>
+                <div *ngIf="options.controls['categoria'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="options.controls['categoria'].errors.forbiddenName" class="invalid-feedback">
+                    El ID no puede ser encontrado.
+                </div>
+            </div>
+        </div>
+
+        <!-- Marca -->
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Marca</label>
+            <select id="inputState" class="form-select" formControlName="marca" [ngClass]="{
+          'is-invalid': options.controls['marca'].invalid && (options.controls['marca'].dirty || options.controls['marca'].touched),
+          'is-valid': options.controls['marca'].valid
+        }">
+                <option selected></option>
+                <option>1. Nike</option>
+                <option>2. Puma</option>
+                <option>3. Adidas</option>
+                <option>4. Reebok</option>
+                <option>5. Brahma</option>
+            </select>
+            <div
+                *ngIf="options.controls['marca'].invalid && (options.controls['marca'].dirty || options.controls['marca'].touched)">
+                <div *ngIf="options.controls['marca'].errors.required">
+                    Marca del Producto Requerido.
+                </div>
+                <div *ngIf="options.controls['marca'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="options.controls['marca'].errors.forbiddenName" class="invalid-feedback">
+                    La Marca del Producto no fue encontrada.
+                </div>
+            </div>
+        </div>
+
+        <!-- Campo Costo de la Compra-->
+        <div class="col-md-3">
+            <label for="inputAddress" class="form-label">Costo de la Compra</label>
+            <input type="text" class="form-control" formControlName="cost_comp" id="inputAddress"
+                placeholder="Valor de la Compra Producto" [ngClass]="{
+        'is-invalid': options.controls['cost_comp'].invalid && (options.controls['cost_comp'].dirty || options.controls['cost_comp'].touched),
+        'is-valid': options.controls['cost_comp'].valid
+      }">
+            <div
+                *ngIf="options.controls['cost_comp'].invalid && (options.controls['cost_comp'].dirty || options.controls['cost_comp'].touched)">
+                <div *ngIf="options.controls['cost_comp'].errors.required">
+                    El Costo de la Compra del Producto es Requerido.
+                </div>
+                <div *ngIf="options.controls['cost_comp'].errors.forbiddenName" class="invalid-feedback">
+                    El Costo de la Compra del Producto no es Valido.
+                </div>
+            </div>
+        </div>
+
+        <!-- Campo Costo de la Venta-->
+        <div class="col-md-3">
+            <label for="inputAddress" class="form-label">Costo de la Venta</label>
+            <input type="text" class="form-control" formControlName="cost_vent" id="inputAddress" placeholder="Valor de la Venta del Producto"
+            [ngClass]="{        'is-invalid': options.controls['cost_vent'].invalid && (options.controls['cost_vent'].dirty || options.controls['cost_vent'].touched),
+        'is-valid': options.controls['cost_vent'].valid
+      }">
+            <div
+                *ngIf="options.controls['cost_vent'].invalid && (options.controls['cost_vent'].dirty || options.controls['cost_vent'].touched)">
+                <div *ngIf="options.controls['cost_vent'].errors.required">
+                    El Costo de la Venta del Producto es Requerido.
+                </div>
+                <div *ngIf="options.controls['cost_vent'].errors.forbiddenName" class="invalid-feedback">
+                    El Costo de la Venta del Producto no es Valido.
+                </div>
+            </div>
+        </div>
 
 
-<p>creacion-productos works!</p>
+        <!-- Cantidad -->
+        <div class="col-md-4">
+            <label for="inputPassword4" class="form-label">Cantidad</label>
+            <input type="numer" formControlName="cantidad" class="form-control" id="inputPassword4" placeholder="Cantidad de Productos"
+            [ngClass]="{        'is-invalid': options.controls['cantidad'].invalid && (options.controls['cantidad'].dirty || options.controls['cantidad'].touched),
+        'is-valid': options.controls['cantidad'].valid
+      }">
+
+            <div
+                *ngIf="options.controls['cantidad'].invalid && (options.controls['cantidad'].dirty || options.controls['cantidad'].touched)">
+                <div *ngIf="options.controls['cantidad'].errors.required">
+                    La Cantidad del Producto es Requerido.
+                </div>
+                <div *ngIf="options.controls['cantidad'].errors.forbiddenName" class="invalid-feedback">
+                    La Cantidad del Producto no es Valido.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Descripcion -->
+        <div class="col-md-4">
+            <label for="inputPassword4" class="form-label">Descripción</label>
+            <input type="numer" formControlName="phone" class="form-control" id="descripcion"
+                placeholder="Descripción del Producto">
+        </div>
+
+        <div class="col-12">
+            <button type="submit" [disabled]="options.invalid" class="btn btn-primary"
+                [routerLink]="['./home']">Crear</button>
+        </div>
+    </form>
+</div>

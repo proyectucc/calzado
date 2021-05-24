@@ -1,17 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { OneEmpleado } from 'src/app/models/empleado.interface';
-import { TipoDocumento } from 'src/app/models/tipo-identificacion.iterface';
-import { UsuarioService } from 'src/app/services/usuarios/usuario.service';
+import { Usuario } from 'src/app/models/usuario.interface';
+import { UsuarioEmpleadoService } from 'src/app/services/usuario-empleado/usuario-empleado.service';
 import { ModalCreacionComponent } from '../../modal/modal-creacion/modal-creacion.component';
 import { ModalParameters } from '../../modal/models/modal.model';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  selector: 'app-list-user',
+  templateUrl: './list-user.component.html',
+  styleUrls: ['./list-user.component.scss'],
 })
-export class ListComponent implements OnInit {
+export class ListUserComponent implements OnInit {
   /**
    * Configuracion de dialogo formulario
    */
@@ -22,23 +21,18 @@ export class ListComponent implements OnInit {
    */
   @ViewChild('dialogForm')
   private readonly dialogForm!: ModalCreacionComponent;
+  f;
   /**
-   * Lista de empleados
+   * Contine la información del usuario a listar
    */
-  public emp: OneEmpleado;
-
-  /**
-   * Objeto que contiene los campos de los empleados
-   */
-  typeDocuments: TipoDocumento;
+  public usuarios: Usuario[];
 
   /**
    * Crea una nueva instancia de la clase
    */
   constructor(
-    private usuarioService: UsuarioService,
-    private router: Router,
-    //private api: UsuarioService
+    private userService: UsuarioEmpleadoService,
+    private router: Router
   ) {
     this.modalParameters = {
       icon: {
@@ -61,27 +55,35 @@ export class ListComponent implements OnInit {
   /**
    * Se ejecuta cuando se inicializa el componente
    */
-  public ngOnInit(): void {
-    this.usuarioService.cargarEmpleados().subscribe((resp) => {
-      this.emp = resp;
+  ngOnInit(): void {
+    this.userService.cargarusuarios().subscribe((data) => {
+      this.usuarios = data;
+      console.log(data);
     });
   }
 
-  /**
-   * Método que se ejecuta para la edición de un registro
-   */
-  editarEmpleado(id) {
-    this.usuarioService.getSingleEmpleado(id).subscribe((data) => {
-      this.router.navigate(['edit-empl', data.idEmpleado]);
-    });
+  crearUsuario() {
+    this.router.navigate(['usuario-crear']);
   }
 
   /**
-   * Método que se ejecuta para la eliminación de un registro
+   * Método que se ejecuta para eliminar un registro
+   * @param id Id del registro a eliminar
    */
   eliminar(id) {
-    this.usuarioService.deleteEmpleado(id).subscribe();
+    this.userService.delete(id).subscribe();
 
     this.dialogForm.onShowDialog();
+  }
+
+  /**
+   * Método que se invoca para la edición del registro
+   * @param id Id del usuario a editar
+   */
+  editarUsuario(id) {
+    this.userService.getSingleUsuario(id).subscribe((data) => {
+      this.router.navigate(['usuario-edit', data.idUsuario]);
+      console.log(data);
+    });
   }
 }
