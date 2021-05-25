@@ -1,12 +1,14 @@
-export interface productos {
+/**
+ * Interface con los parámetros que tiene la Api de Clientes
+ */
 
-    idProducto:number,
-    nombreCategoria:string,
-    nombreMarca:string,
-    nombreProducto:string,
-    costoCompra:number,
-    costoVenta:number,
-    cantidad:number,
-    descripcion?: string,
-
-}
+ export interface productos {
+  idProducto:number,
+  idCategoria: number,
+  idMarca: number,
+  nombreProducto: string,
+  costoCompra: number,
+  costoVenta: number,
+  cantida: number,
+  descripcion?: string,
+ }

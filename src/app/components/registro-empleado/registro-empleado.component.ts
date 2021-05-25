@@ -90,6 +90,7 @@ export class RegistroEmpleadoComponent implements OnInit {
     };
   }
 
+
   ngOnInit(): void {
     this.document.cargardocumentos().subscribe((data) => {
       this.typeDocuments = data;

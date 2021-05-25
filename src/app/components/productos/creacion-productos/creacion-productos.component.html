@@ -111,6 +111,23 @@
         </div>
         <div *ngIf="options.controls['cantidad'].errors.forbiddenName" class="invalid-feedback">
           La Cantidad del Producto no es Valido.
+            <div
+                *ngIf="options.controls['cantidad'].invalid && (options.controls['cantidad'].dirty || options.controls['cantidad'].touched)">
+                <div *ngIf="options.controls['cantidad'].errors.required">
+                    La Cantidad del Producto es Requerido.
+                </div>
+                <div *ngIf="options.controls['cantidad'].errors.forbiddenName" class="invalid-feedback">
+                    La Cantidad del Producto no es Valido.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Descripcion -->
+        <div class="col-md-4">
+            <label for="inputPassword4" class="form-label">Descripción</label>
+            <input type="numer" formControlName="phone" class="form-control" id="descripcion"
+                placeholder="Descripción del Producto">
         </div>
       </div>
 

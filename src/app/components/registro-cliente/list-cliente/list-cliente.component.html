@@ -1,0 +1,42 @@
+<app-header></app-header><br>
+
+<h1>LISTA DE CLIENTES</h1>
+<br><br><br>
+
+<div class="row ">
+  <div class="col ">
+
+    <table class="table table-sm ">
+
+      <thead>
+        <tr>
+          <th>ID Cliente</th>
+          <th>Primero Nombre</th>
+          <th>Primer Apellido</th>
+          <th>Número Identificación</th>
+          <th>Celular</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <br>
+      <tbody>
+        <tr *ngFor="let clientes of cli">
+          <td>{{clientes.idCliente}}</td>
+          <td>{{clientes.primerNombre}}</td>
+          <td>{{clientes.primerApellido}}</td>
+          <td>{{clientes.numeroIdentificacion}}</td>
+          <td>{{clientes.telefonoCelular}}</td>
+          <td>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarCliente(clientes.idCliente)" >Editar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+

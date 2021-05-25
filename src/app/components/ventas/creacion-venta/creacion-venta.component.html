@@ -1,0 +1,244 @@
+<app-header></app-header>
+<br>
+
+<h1>FORMULARIO PARA CREAR UNA VENTA</h1>
+
+<br><br>
+
+<div class="container form">
+  <div *ngIf="!mostrarven">
+    <form class="row g-3" [formGroup]="cventaFrom" ><!--(ngSubmit)="postForm(cventaFrom.value)"-->
+        <!-- Cliente -->
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Cliente</label>
+            <select id="inputState" class="form-select" formControlName="idCliente" [ngClass]="{
+      'is-invalid': cventaFrom.controls['idCliente'].invalid && (cventaFrom.controls['idCliente'].dirty || cventaFrom.controls['idCliente'].touched),
+      'is-valid': cventaFrom.controls['idCliente'].valid
+    }">
+    <option [value]="null">Seleccione...</option>
+    <option *ngFor="let idCliente of cli" [value]="idCliente.idCliente">
+     {{idCliente.primerNombre}} - {{idCliente.primerApellido}} - {{idCliente.numeroIdentificacion}}
+    </option>
+    </select>
+            <div
+                *ngIf="cventaFrom.controls['idCliente'].invalid && (cventaFrom.controls['idCliente'].dirty || cventaFrom.controls['idCliente'].touched)">
+                <div *ngIf="cventaFrom.controls['idCliente'].errors.required">
+                    El Cliente es requerido.
+                </div>
+                <div *ngIf="cventaFrom.controls['idCliente'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="cventaFrom.controls['idCliente'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <!-- Empleado -->
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Empleado que realizo venta</label>
+            <select id="inputState" class="form-select" formControlName="idEmpleado" [ngClass]="{
+        'is-invalid': cventaFrom.controls['idEmpleado'].invalid && (cventaFrom.controls['idEmpleado'].dirty || cventaFrom.controls['idEmpleado'].touched),
+        'is-valid': cventaFrom.controls['idEmpleado'].valid
+      }">
+      <option [value]="null">Seleccione...</option>
+      <option *ngFor="let idEmpleado of empl" [value]="idEmpleado.idEmpleado">
+        {{idEmpleado.numeroIdentificacion}} - {{idEmpleado.primerNombre}} - {{idEmpleado.primerApellido}}
+      </option>
+      </select>
+            <div
+                *ngIf="cventaFrom.controls['idEmpleado'].invalid && (cventaFrom.controls['idEmpleado'].dirty || cventaFrom.controls['idEmpleado'].touched)">
+                <div *ngIf="cventaFrom.controls['idEmpleado'].errors.required">
+                    El empleado es requerido.
+                </div>
+                <div *ngIf="cventaFrom.controls['idEmpleado'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="cventaFrom.controls['idEmpleado'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <!-- Fecha de Venta -->
+        <div class="col-md-3">
+            <label for="inputPassword4" class="form-label">Fecha de Venta</label>
+            <input type="date" formControlName="fechaVenta" class="form-control" id="inputPassword4" placeholder=" "
+                [ngClass]="{
+      'is-invalid': cventaFrom.controls['fechaVenta'].invalid && (cventaFrom.controls['fechaVenta'].dirty || cventaFrom.controls['fechaVenta'].touched),
+      'is-valid': cventaFrom.controls['fechaVenta'].valid
+    }">
+            <div
+                *ngIf="cventaFrom.controls['fechaVenta'].invalid && (cventaFrom.controls['fechaVenta'].dirty || cventaFrom.controls['fechaVenta'].touched)">
+                <div *ngIf="cventaFrom.controls['fechaVenta'].errors.required">
+                    Fecha de venta es requerido.
+                </div>
+                <div *ngIf="cventaFrom.controls['fechaVenta'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="cventaFrom.controls['fechaVenta'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <!-- Tipo de pago -->
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Tipo de pago</label>
+            <select id="inputState" class="form-select" formControlName="idTipoPago" [ngClass]="{
+      'is-invalid': cventaFrom.controls['idTipoPago'].invalid && (cventaFrom.controls['idTipoPago'].dirty || cventaFrom.controls['idTipoPago'].touched),
+      'is-valid': cventaFrom.controls['idTipoPago'].valid
+    }">
+    <option [value]="null">Seleccione...</option>
+    <option *ngFor="let idTipoPago of tpago" [value]="idTipoPago.idTipoPago">
+      {{idTipoPago.tipoPago1}}
+    </option>
+    </select>
+            <div
+                *ngIf="cventaFrom.controls['idTipoPago'].invalid && (cventaFrom.controls['idTipoPago'].dirty || cventaFrom.controls['idTipoPago'].touched)">
+                <div *ngIf="cventaFrom.controls['idTipoPago'].errors.required">
+                    El empleado es requerido.
+                </div>
+                <div *ngIf="cventaFrom.controls['idTipoPago'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="cventaFrom.controls['idTipoPago'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="submit"  class="btn btn-primary" (click)="activarform()" >Siguiente</button>
+        </div>
+    </form>
+  </div>
+    <!-- Formulario detalles-->
+<div *ngIf=" mostrardetalles">
+
+<h5> Detalles de la venta </h5>
+        <form  class="row g-3" [formGroup]="detalles"><!--(ngSubmit)="postdetalle(detalles.value)"-->
+
+        <!-- Producto -->
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Producto</label>
+            <select id="inputState" class="form-select" formControlName="idProducto" [ngClass]="{
+      'is-invalid': detalles.controls['idProducto'].invalid && (detalles.controls['idProducto'].dirty || detalles.controls['idProducto'].touched),
+      'is-valid': detalles.controls['idProducto'].valid
+    }">
+    <option [value]="null">Seleccione...</option>
+    <option *ngFor="let idProducto of prod" [value]="idProducto.idProducto">
+      {{idProducto.nombreProducto}} - {{idProducto.costoVenta}}
+    </option>
+    </select>
+            <div
+                *ngIf="detalles.controls['idProducto'].invalid && (detalles.controls['idProducto'].dirty || detalles.controls['idProducto'].touched)">
+                <div *ngIf="detalles.controls['idProducto'].errors.required">
+                    El producto es requerido.
+                </div>
+                <div *ngIf="detalles.controls['idProducto'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="detalles.controls['idProducto'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <!-- Id Venta -->
+    <div *ngIf="!mostrarven" >
+    <div class="col-md-3">
+      <label for="inputState" class="form-label">Id venta</label>
+      <select id="inputState" class="form-select" formControlName="idVenta" [ngClass]="{
+        'is-invalid': detalles.controls['idVenta'].invalid && (detalles.controls['idVenta'].dirty || detalles.controls['idVenta'].touched),
+        'is-valid': detalles.controls['idVenta'].valid
+        }">
+        <!-- <option [value]="Melo">Seleccione...</option>
+        <option>1</option> -->
+        <option *ngFor="let idVenta of ventau">
+        {{idVenta.idVenta}}
+        </option>
+        </select>
+      <div
+          *ngIf="detalles.controls['idVenta'].invalid && (detalles.controls['idVenta'].dirty || detalles.controls['idVenta'].touched)">
+          <div *ngIf="detalles.controls['idVenta'].errors.required">
+              el es requerido.
+          </div>
+          <div *ngIf="detalles.controls['idVenta'].errors.minlength" class="invalid-feedback">
+              Name must be at least 4 characters long.
+          </div>
+          <div *ngIf="detalles.controls['idVenta'].errors.forbiddenName" class="invalid-feedback">
+              Name cannot be Bob.
+          </div>
+      </div>
+  </div>
+</div>
+        <!-- Valor unidad -->
+        <div class="col-md-3">
+            <label for="inputPassword4" class="form-label">Valor unidad</label>
+            <input type="numer" formControlName="valorUnit" class="form-control" id="inputPassword4"
+                placeholder=" Valor unidad" [ngClass]="{
+      'is-invalid': detalles.controls['valorUnit'].invalid && (detalles.controls['valorUnit'].dirty || detalles.controls['valorUnit'].touched),
+      'is-valid': detalles.controls['valorUnit'].valid
+    }">
+            <div
+                *ngIf="detalles.controls['valorUnit'].invalid && (detalles.controls['valorUnit'].dirty || detalles.controls['valorUnit'].touched)">
+                <div *ngIf="detalles.controls['valorUnit'].errors.required">
+                    Valor unidad es requerido.
+                </div>
+                <div *ngIf="detalles.controls['valorUnit'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="detalles.controls['valorUnit'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <!-- Cantidad -->
+        <div class="col-md-3">
+            <label for="inputPassword4" class="form-label">Cantidad de unidades</label>
+            <input type="numer" formControlName="cantidad" class="form-control" id="inputPassword4"
+                placeholder="Cantidad" [ngClass]="{
+          'is-invalid': detalles.controls['cantidad'].invalid && (detalles.controls['cantidad'].dirty || detalles.controls['cantidad'].touched),
+          'is-valid': detalles.controls['cantidad'].valid
+        }">
+            <div
+                *ngIf="detalles.controls['cantidad'].invalid && (detalles.controls['cantidad'].dirty || detalles.controls['cantidad'].touched)">
+                <div *ngIf="detalles.controls['cantidad'].errors.required">
+                   La cantidad es requerido.
+                </div>
+                <div *ngIf="detalles.controls['cantidad'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="detalles.controls['cantidad'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <!-- Valor Total-->
+        <div class="col-md-3">
+            <label for="inputPassword4" class="form-label">Valor Total</label>
+            <input type="numer" formControlName="valorTotal" class="form-control" id="inputPassword4"
+                placeholder=" " [ngClass]="{
+      'is-invalid': detalles.controls['valorTotal'].invalid && (detalles.controls['valorTotal'].dirty || detalles.controls['valorTotal'].touched),
+      'is-valid': detalles.controls['valorTotal'].valid
+    }">
+            <div
+                *ngIf="detalles.controls['valorTotal'].invalid && (detalles.controls['valorTotal'].dirty || detalles.controls['valorTotal'].touched)">
+                <div *ngIf="detalles.controls['valorTotal'].errors.required">
+                    Valor total es requerido.
+                </div>
+                <div *ngIf="detalles.controls['valorTotal'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="detalles.controls['valorTotal'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 ">
+            <button  class="btn btn-primary">agregar</button>
+          </div>
+        <div class="col-12">
+            <button type="submit" [disabled]="detalles.invalid" class="btn btn-primary" (click)="openModal()">Crear</button>
+          </div>
+          <!-- Modal -->
+           <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
+    </form>
+  </div>
+</div>

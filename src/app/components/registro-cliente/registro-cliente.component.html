@@ -1,0 +1,240 @@
+<app-header></app-header>
+<br>
+
+<h1 >FORMULARIO PARA CREAR UN CLIENTE</h1>
+
+<br><br>
+
+<div class="container form">
+  <form class="row g-3" [formGroup]="crearFrom"(ngSubmit)="postForm(crearFrom.value)">
+
+    <!-- Campo primer nombre -->
+    <div class="col-md-3">
+      <label for="inputEmail4" class="form-label">Primer Nombre</label>
+      <input type="text" formControlName="primerNombre" class="form-control" id="inputEmail4" placeholder="Primero Nombre"
+      [ngClass]="{
+        'is-invalid': crearFrom.controls['primerNombre'].invalid && (crearFrom.controls['primerNombre'].dirty || crearFrom.controls['primerNombre'].touched),
+        'is-valid': crearFrom.controls['primerNombre'].valid
+      }">
+      <div
+        *ngIf="crearFrom.controls['primerNombre'].invalid && (crearFrom.controls['primerNombre'].dirty || crearFrom.controls['primerNombre'].touched)">
+        <div *ngIf="crearFrom.controls['primerNombre'].errors.required">
+          Nombre es requerido.
+        </div>
+        <div *ngIf="crearFrom.controls['primerNombre'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="crearFrom.controls['primerNombre'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Campo segundo nombre -->
+    <div class="col-md-3">
+      <label for="inputAddress" class="form-label">Segundo Nombre</label>
+      <input type="text" class="form-control" formControlName="segundoNombre" id="inputAddress" placeholder="Segundo Nombre"[ngClass]="{
+        'is-invalid': crearFrom.controls['segundoNombre'].invalid && (crearFrom.controls['segundoNombre'].dirty || crearFrom.controls['segundoNombre'].touched),
+        'is-valid': crearFrom.controls['segundoNombre'].valid
+      }">
+      <div
+        *ngIf="crearFrom.controls['segundoNombre'].invalid && (crearFrom.controls['segundoNombre'].dirty || crearFrom.controls['segundoNombre'].touched)">
+        <div *ngIf="crearFrom.controls['segundoNombre'].errors.required">
+          Nombre es requerido.
+        </div>
+        <div *ngIf="crearFrom.controls['segundoNombre'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="crearFrom.controls['segundoNombre'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Campo primer apellido -->
+    <div class="col-md-3">
+      <label for="inputPassword4" class="form-label">Primer Apellido</label>
+      <input type="text" formControlName="primerApellido" class="form-control" id="inputPassword4" placeholder="Primer Apellido"   [ngClass]="{
+        'is-invalid': crearFrom.controls['primerApellido'].invalid && (crearFrom.controls['primerApellido'].dirty || crearFrom.controls['primerApellido'].touched),
+        'is-valid': crearFrom.controls['primerApellido'].valid
+      }">
+      <div
+        *ngIf="crearFrom.controls['primerApellido'].invalid && (crearFrom.controls['primerApellido'].dirty || crearFrom.controls['primerApellido'].touched)">
+        <div *ngIf="crearFrom.controls['primerApellido'].errors.required">
+          Primer Apellido es requerido.
+        </div>
+        <div *ngIf="crearFrom.controls['primerApellido'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="crearFrom.controls['primerApellido'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Campo segundo apellido -->
+    <div class="col-md-3">
+      <label for="inputAddress" class="form-label">Segundo Apellido</label>
+      <input type="text" class="form-control" formControlName="segundoApellido" id="inputAddress" placeholder="Segundo Apellido" [ngClass]="{
+        'is-invalid': crearFrom.controls['segundoApellido'].invalid && (crearFrom.controls['segundoApellido'].dirty || crearFrom.controls['segundoApellido'].touched),
+        'is-valid': crearFrom.controls['segundoApellido'].valid
+      }">
+      <div
+      *ngIf="crearFrom.controls['segundoApellido'].invalid && (crearFrom.controls['segundoApellido'].dirty || crearFrom.controls['segundoApellido'].touched)">
+      <div *ngIf="crearFrom.controls['segundoApellido'].errors.required">
+        Segundo Apellido es requerido.
+      </div>
+      <div *ngIf="crearFrom.controls['segundoApellido'].errors.minlength" class="invalid-feedback">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="crearFrom.controls['segundoApellido'].errors.forbiddenName" class="invalid-feedback">
+        Name cannot be Bob.
+      </div>
+    </div>
+    </div>
+
+    <!-- Tipo de identificación -->
+    <div class="col-md-3">
+      <label for="inputState" class="form-label">Tipo de identificación</label>
+      <select id="inputState" class="form-select" formControlName="idTipoIdent" [ngClass]="{
+        'is-invalid': crearFrom.controls['idTipoIdent'].invalid && (crearFrom.controls['idTipoIdent'].dirty || crearFrom.controls['idTipoIdent'].touched),
+        'is-valid': crearFrom.controls['idTipoIdent'].valid
+      }">
+      <option [value]="null">Seleccione...</option>
+      <option *ngFor="let idTipoIdent of typeDocuments" [value]="idTipoIdent.idTipoIdent">
+        {{idTipoIdent.mask}} - {{idTipoIdent.tipoIdent}}
+      </option>
+      </select>
+      <div
+      *ngIf="crearFrom.controls['idTipoIdent'].invalid && (crearFrom.controls['idTipoIdent'].dirty || crearFrom.controls['idTipoIdent'].touched)">
+      <div *ngIf="crearFrom.controls['idTipoIdent'].errors.required">
+        Tipo de documento es requerido.
+      </div>
+      <div *ngIf="crearFrom.controls['idTipoIdent'].errors.minlength" class="invalid-feedback">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="crearFrom.controls['idTipoIdent'].errors.forbiddenName" class="invalid-feedback">
+        Name cannot be Bob.
+      </div>
+    </div>
+    </div>
+
+    <!-- Número de Identificación -->
+    <div class="col-md-3">
+      <label for="inputPassword4" class="form-label">Número de Identificación</label>
+      <input type="numer" formControlName="numeroIdentificacion" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': crearFrom.controls['numeroIdentificacion'].invalid && (crearFrom.controls['numeroIdentificacion'].dirty || crearFrom.controls['numeroIdentificacion'].touched),
+        'is-valid': crearFrom.controls['numeroIdentificacion'].valid
+      }">
+      <div
+        *ngIf="crearFrom.controls['numeroIdentificacion'].invalid && (crearFrom.controls['numeroIdentificacion'].dirty || crearFrom.controls['numeroIdentificacion'].touched)">
+        <div *ngIf="crearFrom.controls['numeroIdentificacion'].errors.required">
+          Número de documento es requerido.
+        </div>
+        <div *ngIf="crearFrom.controls['numeroIdentificacion'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="crearFrom.controls['numeroIdentificacion'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+<!-- Campo direccion -->
+<div class="col-md-3">
+    <label for="inputAddress" class="form-label">Dirección</label>
+    <input type="text" class="form-control" formControlName="direccion" id="inputAddress" placeholder="Dirección" [ngClass]="{
+      'is-invalid': crearFrom.controls['direccion'].invalid && (crearFrom.controls['direccion'].dirty || crearFrom.controls['direccion'].touched),
+      'is-valid': crearFrom.controls['direccion'].valid
+    }">
+    <div
+    *ngIf="crearFrom.controls['direccion'].invalid && (crearFrom.controls['direccion'].dirty || crearFrom.controls['direccion'].touched)">
+    <div *ngIf="crearFrom.controls['direccion'].errors.required">
+      Direccion es requerida.
+    </div>
+    <div *ngIf="crearFrom.controls['direccion'].errors.minlength" class="invalid-feedback">
+      Name must be at least 4 characters long.
+    </div>
+    <div *ngIf="crearFrom.controls['direccion'].errors.forbiddenName" class="invalid-feedback">
+      Name cannot be Bob.
+    </div>
+  </div>
+  </div>
+    <!-- Correo electrónico personal -->
+    <div class="col-md-8">
+      <label for="inputPassword4" class="form-label">Email personal</label>
+      <input type="numer" formControlName="email" class="form-control" id="inputPassword4" placeholder="Correo electrónico principal"   [ngClass]="{
+        'is-invalid': crearFrom.controls['email'].invalid && (crearFrom.controls['email'].dirty || crearFrom.controls['email'].touched),
+        'is-valid': crearFrom.controls['email'].valid
+      }">
+      <div
+        *ngIf="crearFrom.controls['email'].invalid && (crearFrom.controls['email'].dirty || crearFrom.controls['email'].touched)">
+        <div *ngIf="crearFrom.controls['email'].errors.required">
+          El email es requerido.
+        </div>
+        <div *ngIf="crearFrom.controls['email'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="crearFrom.controls['email'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+ <!-- Correo electrónico secundario 
+ <div class="col-md-8">
+    <label for="inputPassword4" class="form-label">Email secundario</label>
+    <input type="numer" formControlName="secundarioEmail" class="form-control" id="inputPassword4" placeholder="Correo electrónico secundario">
+  </div>-->
+
+    <!-- Teléfono Fijo -->
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Teléfono Fijo</label>
+      <input type="numer" formControlName="telefonoFijo" class="form-control" id="inputPassword4" placeholder="Teléfono fijo"   [ngClass]="{
+        'is-invalid': crearFrom.controls['telefonoFijo'].invalid && (crearFrom.controls['telefonoFijo'].dirty || crearFrom.controls['telefonoFijo'].touched),
+        'is-valid': crearFrom.controls['telefonoFijo'].valid
+      }">
+      <div
+        *ngIf="crearFrom.controls['telefonoFijo'].invalid && (crearFrom.controls['telefonoFijo'].dirty || crearFrom.controls['telefonoFijo'].touched)">
+        <div *ngIf="crearFrom.controls['telefonoFijo'].errors.required">
+          Celular es requerido.
+        </div>
+        <div *ngIf="crearFrom.controls['telefonoFijo'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="crearFrom.controls['telefonoFijo'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Teléfono Ceular -->
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Teléfono Ceular</label>
+      <input type="numer" formControlName="telefonoCelular" class="form-control" id="inputPassword4" placeholder="Teléfono celular"   [ngClass]="{
+        'is-invalid': crearFrom.controls['telefonoCelular'].invalid && (crearFrom.controls['telefonoCelular'].dirty || crearFrom.controls['telefonoCelular'].touched),
+        'is-valid': crearFrom.controls['telefonoCelular'].valid
+      }">
+      <div
+        *ngIf="crearFrom.controls['telefonoCelular'].invalid && (crearFrom.controls['telefonoCelular'].dirty || crearFrom.controls['telefonoCelular'].touched)">
+        <div *ngIf="crearFrom.controls['telefonoCelular'].errors.required">
+          Celular es requerido.
+        </div>
+        <div *ngIf="crearFrom.controls['telefonoCelular'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="crearFrom.controls['telefonoCelular'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+ 
+
+    <div class="col-12">
+      <button type="submit" [disabled]="crearFrom.invalid" class="btn btn-primary" (click)="openModal()">Crear</button>
+    </div>
+    <!-- Modal -->
+     <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion> 
+  </form>
+</div>
+
