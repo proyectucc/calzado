@@ -25,7 +25,7 @@ export class EditClienteComponent implements OnInit  {
     */
    @ViewChild('dialogForm')
    private readonly dialogForm!: ModalCreacionComponent;
- 
+
   /**
    * Declaración para poder manipular la información del formulario
    */
@@ -34,16 +34,16 @@ export class EditClienteComponent implements OnInit  {
    /**
     * Objeto que contiene los campos de los documentos
     */
-    typeDocuments: TipoDocumento; 
+    typeDocuments: TipoDocumento;
     datosClientes: Clientes;
       /**
    * Observable encargado de eliminar los diferentes sucriptores
    */
   public destroy$ = new Subject<boolean>();
    constructor(
-     fb: FormBuilder, 
+     fb: FormBuilder,
      private document: IdentificacionService,
-     private api: ClienteService, 
+     private api: ClienteService,
      private activatedRoute: ActivatedRoute,
      private router: Router
     ) {
@@ -60,7 +60,7 @@ export class EditClienteComponent implements OnInit  {
        //secundarioEmail: [null],
        telefonoFijo: [0, [Validators.required,Validators.minLength(5)]],
        telefonoCelular: [0, [Validators.required,Validators.minLength(5)]],
- 
+
      });
      this.modalParameters = {
       icon: {
@@ -73,6 +73,10 @@ export class EditClienteComponent implements OnInit  {
         name: 'Cerrar',
         isEnable: true,
       },
+      centerButtonLogin: {
+        name: 'Cerrar',
+        isEnable: false,
+      }
     };
     }
    /**
@@ -82,7 +86,7 @@ export class EditClienteComponent implements OnInit  {
      this.document.cargardocumentos().subscribe((data) => {
        this.typeDocuments = data;
        console.log('documentos', this.typeDocuments);
-     }); 
+     });
      const clienteid = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.api.getSingleCliente(clienteid).subscribe((data) => {
@@ -107,7 +111,7 @@ export class EditClienteComponent implements OnInit  {
     this.api.putClientes(cliente).subscribe((data) => {
       console.log('actualizar', data);
     });
-    
+
    }
    public openModal() {
     this.dialogForm.onShowDialog();

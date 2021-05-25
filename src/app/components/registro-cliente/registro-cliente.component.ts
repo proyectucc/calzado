@@ -44,7 +44,7 @@ export class RegistroClienteComponent implements OnInit {
    */
    typeDocuments: TipoDocumento;
   constructor(
-    fb: FormBuilder, 
+    fb: FormBuilder,
     private document: IdentificacionService,
     private cliente: ClienteService ) {
     this.crearFrom = fb.group({
@@ -72,10 +72,14 @@ export class RegistroClienteComponent implements OnInit {
         name: 'Cerrar',
         isEnable: true,
       },
+      centerButtonLogin: {
+        name: 'Cerrar',
+        isEnable: false,
+      }
     };
-  
+
   }
-  
+
   /**
   * Se ejecuta cuando se invoca el componente
   */
@@ -83,7 +87,7 @@ export class RegistroClienteComponent implements OnInit {
     this.document.cargardocumentos().subscribe((data) => {
       this.typeDocuments = data;
       console.log('documentos', this.typeDocuments);
-    });     
+    });
   }
   postForm(form: Clientes){
     //console.log(form);

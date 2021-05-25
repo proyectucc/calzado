@@ -59,19 +59,19 @@ export class CreacionVentaComponent implements OnInit {
      private det: VentadetalleService,
      private ven: VentaService) {
      this.cventaFrom = fb.group({
-       idCliente: [null, Validators.required],
-       idEmpleado: [null,Validators.required],
-       fechaVenta: [null, Validators.required],
-       idTipoIdent:[null,Validators.required] ,
-       idTipoPago: [null,Validators.required],
+       idCliente: ['', Validators.required],
+       idEmpleado: ['',Validators.required],
+       fechaVenta: ['', Validators.required],
+       idTipoIdent:['',Validators.required] ,
+       idTipoPago: ['',Validators.required],
      });
 
      this.detalles = fb.group({
-       idProducto: [null, Validators.required],
-       idVenta: [null,Validators.required],
-       valorUnit: [null, Validators.required],
-       cantidad: [null, Validators.required],
-       valorTotal:  [null, Validators.required],
+       idProducto: ['', Validators.required],
+       idVenta: ['',Validators.required],
+       valorUnit: ['', Validators.required],
+       cantidad: ['', Validators.required],
+       valorTotal:  ['', Validators.required],
 
 
      });

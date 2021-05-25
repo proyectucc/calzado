@@ -7,7 +7,7 @@
 
 <div class="container form">
   <div *ngIf="!mostrarven">
-    <form class="row g-3" [formGroup]="cventaFrom">
+    <form class="row g-3" [formGroup]="cventaFrom" ><!--(ngSubmit)="postForm(cventaFrom.value)"-->
         <!-- Cliente -->
         <div class="col-md-3">
             <label for="inputState" class="form-label">Cliente</label>
@@ -113,7 +113,7 @@
 <div *ngIf=" mostrardetalles">
 
 <h5> Detalles de la venta </h5>
-        <form  class="row g-3" [formGroup]="detalles"(ngSubmit)="postdetalle(detalles.value)">
+        <form  class="row g-3" [formGroup]="detalles"><!--(ngSubmit)="postdetalle(detalles.value)"-->
 
         <!-- Producto -->
         <div class="col-md-3">
@@ -141,15 +141,16 @@
             </div>
         </div>
         <!-- Id Venta -->
-    <div *ngIf="mostrarven" >
+    <div *ngIf="!mostrarven" >
     <div class="col-md-3">
       <label for="inputState" class="form-label">Id venta</label>
       <select id="inputState" class="form-select" formControlName="idVenta" [ngClass]="{
         'is-invalid': detalles.controls['idVenta'].invalid && (detalles.controls['idVenta'].dirty || detalles.controls['idVenta'].touched),
         'is-valid': detalles.controls['idVenta'].valid
         }">
-        <!-- <option [value]="null">Seleccione...</option> -->
-        <option *ngFor="let idVenta of ventau" [value]="idVenta.idVenta">
+        <!-- <option [value]="Melo">Seleccione...</option>
+        <option>1</option> -->
+        <option *ngFor="let idVenta of ventau">
         {{idVenta.idVenta}}
         </option>
         </select>

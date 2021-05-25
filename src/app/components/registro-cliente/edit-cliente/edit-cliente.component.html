@@ -102,7 +102,7 @@
       }">
       <option [value]="null">Seleccione...</option>
       <option *ngFor="let idTipoIdent of typeDocuments" [value]="idTipoIdent.idTipoIdent">
-        {{idTipoIdent.mask}} - {{idTipoIdent.tipoIdent}}
+        {{idTipoIdent.Mask}} - {{idTipoIdent.tipoIdent}}
       </option>
       </select>
       <div
@@ -180,7 +180,7 @@
       </div>
     </div>
 
- <!-- Correo electrónico secundario 
+ <!-- Correo electrónico secundario
  <div class="col-md-8">
     <label for="inputPassword4" class="form-label">Email secundario</label>
     <input type="numer" formControlName="secundarioEmail" class="form-control" id="inputPassword4" placeholder="Correo electrónico secundario">
@@ -228,13 +228,13 @@
       </div>
     </div>
 
- 
+
 
     <div class="col-12">
       <button type="submit" [disabled]="editarForm.invalid"  class="btn btn-primary"(click)="openModal()">Actualizar</button>
     </div>
     <!-- Modal -->
-     <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion> 
+     <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
   </form>
 </div>
 
