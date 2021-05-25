@@ -43,7 +43,7 @@
       <div
         *ngIf="editarForm.controls['contraseña'].invalid && (editarForm.controls['contraseña'].dirty || editarForm.controls['contraseña'].touched)">
         <div *ngIf="editarForm.controls['contraseña'].errors.required">
-          Primer Apellido es requerido.
+          Contraseña es requerido.
         </div>
         <div *ngIf="editarForm.controls['contraseña'].errors.minlength" class="invalid-feedback">
           Name must be at least 4 characters long.
