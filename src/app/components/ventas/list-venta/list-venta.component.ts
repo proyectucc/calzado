@@ -27,11 +27,11 @@ export class ListVentaComponent implements OnInit {
    itemsPerPage = 10;
    pageSize: number;
    longitud: number;
- 
+
    /**
     * Se ejecuta cuando se inicializa el componente
     */
-   public ngOnInit(): void {    
+   public ngOnInit(): void {
      this.ventaService.cargarVentas().subscribe((resp) => {
        this.ven = resp;
        console.log('DATOS', resp);

@@ -1,8 +1,8 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
-import {  FormBuilder,  FormGroup,  Validators,} from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Clientes } from 'src/app/models/clientes';
 import { Empleados } from 'src/app/models/empleados';
-import { productos } from 'src/app/models/productos';
+import { Productos } from 'src/app/models/productos';
 import { TipoPago } from 'src/app/models/tipo-pago';
 import { Ventasdetalle } from 'src/app/models/vendetalle';
 import { ClienteService } from 'src/app/services/clientes/cliente.service';
@@ -17,65 +17,63 @@ import { Ventas } from 'src/app/models/ventas';
 @Component({
   selector: 'app-creacion-venta',
   templateUrl: './creacion-venta.component.html',
-  styleUrls: ['./creacion-venta.component.scss']
+  styleUrls: ['./creacion-venta.component.scss'],
 })
 export class CreacionVentaComponent implements OnInit {
   /**
    * Configuracion de dialogo formulario
    */
-   public modalParameters: ModalParameters;
+  public modalParameters: ModalParameters;
 
-   /**
-    * Obtiene el componente dialogo formulario
-    */
-   @ViewChild('dialogForm')
-   private readonly dialogForm!: ModalCreacionComponent;
-
+  /**
+   * Obtiene el componente dialogo formulario
+   */
+  @ViewChild('dialogForm')
+  private readonly dialogForm!: ModalCreacionComponent;
 
   /**
    * Declaración para poder manipular la información del formulario
    */
 
-   cventaFrom: FormGroup;
-   detalles: FormGroup;
+  cventaFrom: FormGroup;
+  detalles: FormGroup;
 
-   // visible formulario
-   mostrardetalles:boolean;
-   mostrarven: boolean;
-    deet: boolean;
+  // visible formulario
+  mostrardetalles: boolean;
+  mostrarven: boolean;
+  deet: boolean;
 
-   cli: Clientes;
-   empl: Empleados;
-   tpago: TipoPago;
-   prod: productos;
-   ventau: Ventas;
+  cli: Clientes;
+  empl: Empleados;
+  tpago: TipoPago;
+  prod: Productos;
+  ventau: Ventas;
 
-   constructor(
-     fb: FormBuilder,
-     private pago: PagoService,
-     private empleado: UsuarioService,
-     private cliente: ClienteService,
-     private producto: productoService,
-     private det: VentadetalleService,
-     private ven: VentaService) {
-     this.cventaFrom = fb.group({
-       idCliente: ['', Validators.required],
-       idEmpleado: ['',Validators.required],
-       fechaVenta: ['', Validators.required],
-       idTipoIdent:['',Validators.required] ,
-       idTipoPago: ['',Validators.required],
-     });
+  constructor(
+    fb: FormBuilder,
+    private pago: PagoService,
+    private empleado: UsuarioService,
+    private cliente: ClienteService,
+    private producto: productoService,
+    private det: VentadetalleService,
+    private ven: VentaService
+  ) {
+    this.cventaFrom = fb.group({
+      idCliente: ['', Validators.required],
+      idEmpleado: ['', Validators.required],
+      fechaVenta: ['', Validators.required],
+      idTipoIdent: ['', Validators.required],
+      idTipoPago: ['', Validators.required],
+    });
 
-     this.detalles = fb.group({
-       idProducto: ['', Validators.required],
-       idVenta: ['',Validators.required],
-       valorUnit: ['', Validators.required],
-       cantidad: ['', Validators.required],
-       valorTotal:  ['', Validators.required],
-
-
-     });
-     this.modalParameters = {
+    this.detalles = fb.group({
+      idProducto: ['', Validators.required],
+      idVenta: ['', Validators.required],
+      valorUnit: ['', Validators.required],
+      cantidad: ['', Validators.required],
+      valorTotal: ['', Validators.required],
+    });
+    this.modalParameters = {
       icon: {
         isEnable: false,
         type: 'done',
@@ -86,50 +84,54 @@ export class CreacionVentaComponent implements OnInit {
         name: 'Cerrar',
         isEnable: true,
       },
+      centerButtonLogin: {
+        name: 'Cerrar',
+        isEnable: false,
+      },
     };
-    }
-    ngOnInit(): void {
-      this.cliente.cargarClientes().subscribe((data) => {
-        this.cli = data;
-        console.log('cliente', this.cli);
-      });
-      this.empleado.cargarEmpleados().subscribe((empe) => {
-        this.empl = empe;
-        console.log('empleado', this.empl);
-      });
-      this.pago.cargarPago().subscribe((p) => {
-        this.tpago = p;
-        console.log('Pagos', this.tpago);
-      });
-      this.producto.cargarproducto().subscribe((prodd) => {
-        this.prod = prodd;
-        console.log('Producto', this.prod);
-      });
+  }
+  ngOnInit(): void {
+    this.cliente.cargarClientes().subscribe((data) => {
+      this.cli = data;
+      console.log('cliente', this.cli);
+    });
+    this.empleado.cargarEmpleados().subscribe((empe) => {
+      this.empl = empe;
+      console.log('empleado', this.empl);
+    });
+    this.pago.cargarPago().subscribe((p) => {
+      this.tpago = p;
+      console.log('Pagos', this.tpago);
+    });
+    this.producto.cargarproducto().subscribe((prodd) => {
+      this.prod = prodd;
+      console.log('Producto', this.prod);
+    });
     this.ven.getultimaVenta().subscribe((ul) => {
       this.ventau = ul;
       console.log('id', this.ventau);
     });
-    }
-    postForm(form: Ventas){
-      this.ven.addVentas(form).subscribe((data)=>{
-        console.log('GUARDARV',data)
-      });
-    }
-    postdetalle(form: Ventasdetalle){
-      this.det.adddetalle(form).subscribe((data)=>{
-        console.log('GUARDARD',data)
-      });
-    }
+  }
+  postForm(form: Ventas) {
+    this.ven.addVentas(form).subscribe((data) => {
+      console.log('GUARDARV', data);
+    });
+  }
+  postdetalle(form: Ventasdetalle) {
+    this.det.adddetalle(form).subscribe((data) => {
+      console.log('GUARDARD', data);
+    });
+  }
 
-    activarform() : void{
-      this.mostrardetalles=true;
-      this.mostrarven=true;
-    }
+  activarform(): void {
+    this.mostrardetalles = true;
+    this.mostrarven = true;
+  }
 
-    /**
-     * Abre el componente hijo de dialogo
-     */
-     public openModal() {
-      this.dialogForm.onShowDialog();
-    }
+  /**
+   * Abre el componente hijo de dialogo
+   */
+  public openModal() {
+    this.dialogForm.onShowDialog();
+  }
 }

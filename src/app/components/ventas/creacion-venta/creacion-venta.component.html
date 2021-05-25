@@ -105,7 +105,7 @@
             </div>
         </div>
         <div class="col-12">
-            <button type="submit"  class="btn btn-primary" (click)="activarform()" >Siguiente</button>
+            <button type="submit" [disabled]="cventaFrom.invalid"  class="btn btn-primary" (click)="activarform()" >Siguiente</button>
         </div>
     </form>
   </div>

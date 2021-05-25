@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { productos } from 'src/app/models/productos';
+import { Productos } from 'src/app/models/productos';
 import { productoService } from 'src/app/services/productos/producto.service';
 @Component({
   selector: 'app-listar-productos',
   templateUrl: './listar-productos.component.html',
-  styleUrls: ['./listar-productos.component.scss']
+  styleUrls: ['./listar-productos.component.scss'],
 })
 export class ListarProductosComponent implements OnInit {
- /**
+  /**
    * Lista de productos
    */
-  public prod: productos;
+  public prod: Productos;
   /**
 
   /**
    * Crea una nueva instancia de la clase
    */
-   constructor(
+  constructor(
     private productoService: productoService,
-    private router: Router,
+    private router: Router
   ) {}
-  public user: productos[];
+  public user: Productos[];
   currentPage = 1;
   itemsPerPage = 10;
   pageSize: number;
