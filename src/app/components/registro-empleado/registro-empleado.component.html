@@ -274,8 +274,8 @@
         'is-valid': nuevoForm.controls['Rol'].valid
       }">
       <option selected></option>
-      <option *ngFor="let roles of rol" [value]="roles.nombreRol">
-         {{roles.nombreRol}}
+      <option *ngFor="let roles of rol" [value]="roles.idRol">
+         {{roles.idRol}} - {{roles.nombreRol}}
      </option>
       </select>
       <div

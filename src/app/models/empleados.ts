@@ -17,6 +17,6 @@ export class Empleados {
     fechaContratacion: Date,
     fechaTerminacion: Date,
     fechaNacimiento: Date,
-    role: string
+    idRole: string
   ){}
 }

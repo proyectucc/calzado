@@ -1,1 +1,40 @@
-<p>informes works!</p>
+<app-header></app-header><br><br><br><br>
+
+<h1 >MÓDULO DE REPORTES</h1>
+
+<br><br><br><br><br><br>
+
+<div class="container">
+    <div class="row">
+      <div class="col-3">
+      <div class="card custom" style="width: 280px; height: 270px;">
+        <div class="card-body">
+          <img class="image-card-height" src="../../assets/imagenes/asignacion.png" />
+          <h2 class="card-title">  DETALLE EMPLEADOS  </h2>
+          <a href="https://localhost:44384/api/Reportes/ReporteEmpleados" class="stretched-link"></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 offset-1">
+      <div class="card custom" style="width: 285px; height: 270px;" [routerLink]="['/productos']">
+        <div class="card-body">
+          <img class="image-card-height" src="../../assets/imagenes/admin.png" />
+          <h2 class="card-title"> LISTADO PROVEEDORES </h2>
+          <a href="https://localhost:44384/api/Reportes/ReporteProveedores" class="stretched-link"></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 offset-1">
+      <div class="card custom" style="width: 280px; height: 270px;" [routerLink]="['/informes']">
+        <div class="card-body">
+          <img class="image-card-height" src="../../assets/imagenes/informes.png" />
+          <h2 class="card-title">VENTAS REALIZADAS</h2>
+          <a href="https://localhost:44384/api/Reportes/ReporteVentas" class="stretched-link"></a>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+<br><br><br><br><br><br><br><br>

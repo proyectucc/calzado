@@ -254,7 +254,7 @@
     'is-valid': editarForm.controls['rol'].valid
   }">
         <option selected></option>
-        <option *ngFor="let roles of rol" [value]="roles.nombreRol">
+        <option *ngFor="let roles of rol" [value]="roles.idRol">
           {{roles.nombreRol}}
         </option>
       </select>

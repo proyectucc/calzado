@@ -62,7 +62,6 @@ export class CreacionVentaComponent implements OnInit {
       idCliente: ['', Validators.required],
       idEmpleado: ['', Validators.required],
       fechaVenta: ['', Validators.required],
-      idTipoIdent: ['', Validators.required],
       idTipoPago: ['', Validators.required],
     });
 

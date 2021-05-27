@@ -16,5 +16,5 @@ export interface OneEmpleado{
   EmailPrincipal: string;
   TelefonoFijo?: number;
   TelefonoCelular: number;
-  Rol: string;
+  IdRol: string;
 }
