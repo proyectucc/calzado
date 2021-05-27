@@ -1,0 +1,146 @@
+<app-header></app-header>
+<br><br><br><br>
+
+<h1 >FORMULARIO PARA CREAR UN PROVEEDOR</h1>
+
+<br><br><br>
+
+<div class="container form">
+  <form class="row g-3" [formGroup]="editarfrom" (ngSubmit)="putForm(editarfrom.value)">
+
+    <!-- Nombre Proveedor -->
+    <div class="col-md-4">
+      <label for="inputEmail4" class="form-label">Nombre Proveedor</label>
+      <input type="text" formControlName="nombreProveedor" class="form-control" id="inputEmail4" placeholder="Primero Nombre"
+      [ngClass]="{
+        'is-invalid': editarfrom.controls['nombreProveedor'].invalid && (editarfrom.controls['nombreProveedor'].dirty || editarfrom.controls['nombreProveedor'].touched),
+        'is-valid': editarfrom.controls['nombreProveedor'].valid
+      }">
+      <div
+        *ngIf="editarfrom.controls['nombreProveedor'].invalid && (editarfrom.controls['nombreProveedor'].dirty || editarfrom.controls['nombreProveedor'].touched)">
+        <div *ngIf="editarfrom.controls['nombreProveedor'].errors.required">
+          El nombre del proveedor es requerido.
+        </div>
+        <div *ngIf="editarfrom.controls['nombreProveedor'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarfrom.controls['nombreProveedor'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Nit de Proveedor -->
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Nit de Proveedor</label>
+      <input type="numer" formControlName="nit" class="form-control" id="inputPassword4" placeholder="Número de identificación"   [ngClass]="{
+        'is-invalid': editarfrom.controls['nit'].invalid && (editarfrom.controls['nit'].dirty || editarfrom.controls['nit'].touched),
+        'is-valid': editarfrom.controls['nit'].valid
+      }">
+      <div
+        *ngIf="editarfrom.controls['nit'].invalid && (editarfrom.controls['nit'].dirty || editarfrom.controls['nit'].touched)">
+        <div *ngIf="editarfrom.controls['nit'].errors.required">
+          El Nit es requerido.
+        </div>
+        <div *ngIf="editarfrom.controls['nit'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarfrom.controls['nit'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Teléfono Fijo -->
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Teléfono Fijo</label>
+      <input type="numer" formControlName="telefonoFijo" class="form-control" id="inputPassword4" placeholder="Teléfono Fijo"[ngClass]="{
+        'is-invalid': editarfrom.controls['telefonoFijo'].invalid && (editarfrom.controls['telefonoFijo'].dirty || editarfrom.controls['telefonoFijo'].touched),
+        'is-valid': editarfrom.controls['telefonoFijo'].valid
+      }">
+      <div
+        *ngIf="editarfrom.controls['telefonoFijo'].invalid && (editarfrom.controls['telefonoFijo'].dirty || editarfrom.controls['telefonoFijo'].touched)">
+        <div *ngIf="editarfrom.controls['telefonoFijo'].errors.required">
+          Celular es requerido.
+        </div>
+        <div *ngIf="editarfrom.controls['telefonoFijo'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarfrom.controls['telefonoFijo'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Teléfono Ceular -->
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Teléfono Ceular</label>
+      <input type="numer" formControlName="telefonoCelular" class="form-control" id="inputPassword4" placeholder="Teléfono celular"   [ngClass]="{
+        'is-invalid': editarfrom.controls['telefonoCelular'].invalid && (editarfrom.controls['telefonoCelular'].dirty || editarfrom.controls['telefonoCelular'].touched),
+        'is-valid': editarfrom.controls['telefonoCelular'].valid
+      }">
+      <div
+        *ngIf="editarfrom.controls['telefonoCelular'].invalid && (editarfrom.controls['telefonoCelular'].dirty || editarfrom.controls['telefonoCelular'].touched)">
+        <div *ngIf="editarfrom.controls['telefonoCelular'].errors.required">
+          Celular es requerido.
+        </div>
+        <div *ngIf="editarfrom.controls['telefonoCelular'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarfrom.controls['telefonoCelular'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+
+    <!-- Correo electrónico -->
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Correo Electrónico</label>
+      <input type="numer" formControlName="email" class="form-control" id="inputPassword4" placeholder="Email"   [ngClass]="{
+        'is-invalid': editarfrom.controls['email'].invalid && (editarfrom.controls['email'].dirty || editarfrom.controls['email'].touched),
+        'is-valid': editarfrom.controls['email'].valid
+      }">
+      <div
+        *ngIf="editarfrom.controls['email'].invalid && (editarfrom.controls['email'].dirty || editarfrom.controls['email'].touched)">
+        <div *ngIf="editarfrom.controls['email'].errors.required">
+          El email es requerido.
+        </div>
+        <div *ngIf="editarfrom.controls['email'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarfrom.controls['email'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+<!-- Direccion -->
+<div class="col-md-4">
+  <label for="inputEmail4" class="form-label">Dirección</label>
+  <input type="text" formControlName="direccion" class="form-control" id="inputEmail4" placeholder="Direccion"
+  [ngClass]="{
+    'is-invalid': editarfrom.controls['direccion'].invalid && (editarfrom.controls['direccion'].dirty || editarfrom.controls['direccion'].touched),
+    'is-valid': editarfrom.controls['direccion'].valid
+  }">
+  <div
+    *ngIf="editarfrom.controls['direccion'].invalid && (editarfrom.controls['direccion'].dirty || editarfrom.controls['direccion'].touched)">
+    <div *ngIf="editarfrom.controls['direccion'].errors.required">
+      El nombre del proveedor es requerido.
+    </div>
+    <div *ngIf="editarfrom.controls['direccion'].errors.minlength" class="invalid-feedback">
+      Name must be at least 4 characters long.
+    </div>
+    <div *ngIf="editarfrom.controls['direccion'].errors.forbiddenName" class="invalid-feedback">
+      Name cannot be Bob.
+    </div>
+  </div>
+</div>
+
+
+    <div class="col-12">
+      <button type="submit" [disabled]="editarfrom.invalid" class="btn btn-primary" (click)="openModal()">Actualizar</button>
+    </div>
+    <!-- Modal -->
+     <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
+  </form>
+</div>
+

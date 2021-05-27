@@ -14,6 +14,7 @@ import { ModalCreacionComponent } from '../../modal/modal-creacion/modal-creacio
 import { ModalParameters } from '../../modal/models/modal.model';
 import { VentaService } from 'src/app/services/ventas/venta.service';
 import { Ventas } from 'src/app/models/ventas';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-creacion-venta',
   templateUrl: './creacion-venta.component.html',
@@ -49,7 +50,6 @@ export class CreacionVentaComponent implements OnInit {
    tpago: TipoPago;
    prod: productos;
    ventau: Ventas;
-
    constructor(
      fb: FormBuilder,
      private pago: PagoService,
@@ -57,21 +57,21 @@ export class CreacionVentaComponent implements OnInit {
      private cliente: ClienteService,
      private producto: productoService,
      private det: VentadetalleService,
-     private ven: VentaService) {
+     private ven: VentaService,
+     private activatedRoute: ActivatedRoute) {
      this.cventaFrom = fb.group({
-       idCliente: ['', Validators.required],
-       idEmpleado: ['',Validators.required],
-       fechaVenta: ['', Validators.required],
-       idTipoIdent:['',Validators.required] ,
-       idTipoPago: ['',Validators.required],
+       idCliente: [null, Validators.required],
+       idEmpleado: [null,Validators.required],
+       fechaVenta: [null, Validators.required],
+       idTipoPago: [null,Validators.required],
      });
 
      this.detalles = fb.group({
-       idProducto: ['', Validators.required],
-       idVenta: ['',Validators.required],
-       valorUnit: ['', Validators.required],
-       cantidad: ['', Validators.required],
-       valorTotal:  ['', Validators.required],
+       idProducto: [null, Validators.required],
+       idVenta: [null, Validators.required],
+       valorUnit: [null, Validators.required],
+       cantidad: [null, Validators.required],
+       valorTotal:  [null, Validators.required],
 
 
      });
@@ -86,6 +86,10 @@ export class CreacionVentaComponent implements OnInit {
         name: 'Cerrar',
         isEnable: true,
       },
+      centerButtonLogin: {
+        name: 'Cerrar',
+        isEnable: false,
+      }
     };
     }
     ngOnInit(): void {
@@ -109,7 +113,9 @@ export class CreacionVentaComponent implements OnInit {
       this.ventau = ul;
       console.log('id', this.ventau);
     });
+
     }
+
     postForm(form: Ventas){
       this.ven.addVentas(form).subscribe((data)=>{
         console.log('GUARDARV',data)
