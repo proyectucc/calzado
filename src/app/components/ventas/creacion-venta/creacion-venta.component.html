@@ -123,7 +123,7 @@
       'is-valid': detalles.controls['idProducto'].valid
     }">
     <option [value]="null">Seleccione...</option>
-    <option *ngFor="let idProducto of prod" [value]="idProducto.idProducto">
+    <option *ngFor="let idProducto of prod" [value]="idProducto.idProducto" >
       {{idProducto.nombreProducto}} - {{idProducto.costoVenta}}
     </option>
     </select>
@@ -148,11 +148,15 @@
         'is-invalid': detalles.controls['idVenta'].invalid && (detalles.controls['idVenta'].dirty || detalles.controls['idVenta'].touched),
         'is-valid': detalles.controls['idVenta'].valid
         }">
-        <!-- <option [value]="Melo">Seleccione...</option>
-        <option>1</option> -->
-        <option *ngFor="let idVenta of ventau">
+
+        <option *ngFor="let idVenta of ventau" [value]="idVenta.idVenta">
         {{idVenta.idVenta}}
         </option>
+        <!-- <some-element *ngPlural="value">
+          <ng-template *ngPluralCase="let idVenta of ventau" [value]="idVenta.idVenta">
+             {{idVenta.idVenta}}>
+          </ng-template>
+        </some-element> -->
         </select>
       <div
           *ngIf="detalles.controls['idVenta'].invalid && (detalles.controls['idVenta'].dirty || detalles.controls['idVenta'].touched)">

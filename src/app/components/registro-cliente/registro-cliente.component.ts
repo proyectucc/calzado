@@ -31,10 +31,6 @@ export class RegistroClienteComponent implements OnInit {
   @ViewChild('dialogForm')
   private readonly dialogForm!: ModalCreacionComponent;
   /**
-   * Objeto que contiene los campos de los empleados
-   */
-
-  /**
    * Declaración para poder manipular la información del formulario
    */
   crearFrom: FormGroup;

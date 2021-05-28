@@ -14,6 +14,7 @@ import { ModalCreacionComponent } from '../../modal/modal-creacion/modal-creacio
 import { ModalParameters } from '../../modal/models/modal.model';
 import { VentaService } from 'src/app/services/ventas/venta.service';
 import { Ventas } from 'src/app/models/ventas';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-creacion-venta',
   templateUrl: './creacion-venta.component.html',
@@ -110,17 +111,19 @@ export class CreacionVentaComponent implements OnInit {
       this.ventau = ul;
       console.log('id', this.ventau);
     });
-  }
-  postForm(form: Ventas) {
-    this.ven.addVentas(form).subscribe((data) => {
-      console.log('GUARDARV', data);
-    });
-  }
-  postdetalle(form: Ventasdetalle) {
-    this.det.adddetalle(form).subscribe((data) => {
-      console.log('GUARDARD', data);
-    });
-  }
+
+    }
+
+    postForm(form: Ventas){
+      this.ven.addVentas(form).subscribe((data)=>{
+        console.log('GUARDARV',data)
+      });
+    }
+    postdetalle(form: Ventasdetalle){
+      this.det.adddetalle(form).subscribe((data)=>{
+        console.log('GUARDARD',data)
+      });
+    }
 
   activarform(): void {
     this.mostrardetalles = true;

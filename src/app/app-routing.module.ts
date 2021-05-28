@@ -25,6 +25,8 @@ import { EditClienteComponent } from './components/registro-cliente/edit-cliente
 import { CreateUserComponent } from './components/usuarios/create-user/create-user.component';
 import { EditUserComponent } from './components/usuarios/edit-user/edit-user.component';
 import { ListUserComponent } from './components/usuarios/list-user/list-user.component';
+import { ListarProveedorComponent } from './components/registro-proveedor/listar-proveedor/listar-proveedor.component';
+import { EditarProveedorComponent } from './components/registro-proveedor/editar-proveedor/editar-proveedor.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -52,6 +54,8 @@ const routes: Routes = [
   { path: 'usuarios-list', component: ListUserComponent},
   { path: 'usuario-edit/:id', component: EditUserComponent},
   { path: 'usuario-crear', component: CreateUserComponent},
+  { path: "listado-proveedores", component: ListarProveedorComponent},
+  { path: 'edit-proveedor/:id', component: EditarProveedorComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];
 

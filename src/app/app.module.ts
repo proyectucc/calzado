@@ -45,6 +45,8 @@ import { CreateUserComponent } from './components/usuarios/create-user/create-us
 import { EditUserComponent } from './components/usuarios/edit-user/edit-user.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ModalComponent } from './components/modal/modal/modal.component';
+import { ListarProveedorComponent } from './components/registro-proveedor/listar-proveedor/listar-proveedor.component';
+import { EditarProveedorComponent } from './components/registro-proveedor/editar-proveedor/editar-proveedor.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { ModalComponent } from './components/modal/modal/modal.component';
     ModalCreacionComponent,
     ListUserComponent,
     CreateUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    ListarProveedorComponent,
+    EditarProveedorComponent
   ],
   imports: [
     BrowserModule,

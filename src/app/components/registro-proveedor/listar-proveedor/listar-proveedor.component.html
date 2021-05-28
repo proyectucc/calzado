@@ -1,0 +1,48 @@
+<app-header></app-header><br>
+
+<h1>LISTA DE PROVEEDORES</h1>
+<br><br><br>
+
+<div class="row ">
+  <div class="col ">
+
+    <table class="table table-sm ">
+
+      <thead>
+        <tr>
+          <th>ID Proveedor</th>
+          <th>Nombre Proveedor</th>
+          <th>NIT</th>
+          <th>Teléfono Fijo</th>
+          <th>Teléfono Celular</th>
+          <th>Email</th>
+          <th>Dirección</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <br>
+      <tbody>
+        <tr *ngFor="let proveedores of prov">
+          <td>{{proveedores.idProveedor}}</td>
+          <td>{{proveedores.nombreProveedor}}</td>
+          <td>{{proveedores.nit}}</td>
+          <td>{{proveedores.telefonoFijo}}</td>
+          <td>{{proveedores.telefonoCelular}}</td>
+          <td>{{proveedores.email}}</td>
+          <td>{{proveedores.direccion}}</td>
+          <td>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarProveedor(proveedores.idProveedor)" >Editar</button>
+              <button type="button" class="btn btn-outline-danger" title="Eliminar Registro" (click)="eliminarProveedor(proveedores.idProveedor)"  >Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+
