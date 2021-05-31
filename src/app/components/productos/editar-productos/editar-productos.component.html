@@ -7,7 +7,27 @@
 
 <div class="container form">
     <form class="row g-3" [formGroup]="editarpro"(ngSubmit)="putForm(editarpro.value)">
-
+<!-- Nombre prodcto-->
+<div class="col-md-3">
+  <label for="inputEmail4" class="form-label">Nombre Producto</label>
+  <input type="text" formControlName="nombreProducto" class="form-control" id="inputEmail4" placeholder="Nombre Producto"
+  [ngClass]="{
+    'is-invalid': editarpro.controls['nombreProducto'].invalid && (editarpro.controls['nombreProducto'].dirty || editarpro.controls['nombreProducto'].touched),
+    'is-valid': editarpro.controls['nombreProducto'].valid
+  }">
+  <div
+    *ngIf="editarpro.controls['nombreProducto'].invalid && (editarpro.controls['nombreProducto'].dirty || editarpro.controls['nombreProducto'].touched)">
+    <div *ngIf="editarpro.controls['nombreProducto'].errors.required">
+      Nombre es requerido.
+    </div>
+    <div *ngIf="editarpro.controls['nombreProducto'].errors.minlength" class="invalid-feedback">
+      Name must be at least 4 characters long.
+    </div>
+    <div *ngIf="editarpro.controls['nombreProducto'].errors.forbiddenName" class="invalid-feedback">
+      Name cannot be Bob.
+    </div>
+  </div>
+</div>
         <!-- Campo ID Categoria -->
 
         <div class="col-md-3">
@@ -34,7 +54,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <!-- Marca -->
         <div class="col-md-3">
@@ -117,15 +137,30 @@
                     La cantidad del Producto no es Valido.
                 </div>
             </div>
-        
+
         </div>
-        
+
         <!-- Descripcion -->
         <div class="col-md-4">
             <label for="inputPassword4" class="form-label">Descripción</label>
             <input type="text" formControlName="descripcion" class="form-control" id="descripcion"
-                placeholder="Descripción del Producto">
-        </div>
+                placeholder="Descripción del Producto" [ngClass]="{
+                  'is-invalid': editarpro.controls['descripcion'].invalid && (editarpro.controls['descripcion'].dirty || editarpro.controls['descripcion'].touched),
+                  'is-valid': editarpro.controls['descripcion'].valid
+                }">
+                <div
+                  *ngIf="editarpro.controls['descripcion'].invalid && (editarpro.controls['descripcion'].dirty || editarpro.controls['descripcion'].touched)">
+                  <div *ngIf="editarpro.controls['descripcion'].errors.required">
+                    Nombre es requerido.
+                  </div>
+                  <div *ngIf="editarpro.controls['descripcion'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                  </div>
+                  <div *ngIf="editarpro.controls['descripcion'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                  </div>
+                </div>
+              </div>
 
         <div class="col-12">
             <button type="submit" [disabled]="editarpro.invalid" class="btn btn-primary"

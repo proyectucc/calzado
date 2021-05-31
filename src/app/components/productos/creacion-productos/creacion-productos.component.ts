@@ -16,7 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { marcaService } from 'src/app/services//marca/marca.service';
 import { categoria } from 'src/app/models/categoria';
 import { marca } from 'src/app/models/marca';
-import { productos } from 'src/app/models/productos';
+import { Productos } from 'src/app/models/productos';
 import { productoService } from 'src/app/services/productos/producto.service';
 import { ModalParameters } from '../../modal/models/modal.model';
 import { ModalCreacionComponent } from '../../modal/modal-creacion/modal-creacion.component';
@@ -47,15 +47,19 @@ export class CreacionProductosComponent implements OnInit {
 
   crearpro: FormGroup;
 
-  constructor(fb: FormBuilder,private nomarca:marcaService,private nomcategoria:categoriaService,private producto:productoService) {
-    
+  constructor(fb: FormBuilder,
+    private nomarca:marcaService,
+    private nomcategoria:categoriaService,
+    private producto:productoService) {
+
     this.crearpro = fb.group({
       idCategoria: [null, Validators.required],
       idMarca: [null, Validators.required],
+      nombreProducto: [null, Validators.required],
       costoCompra: [null, Validators.required],
       costoVenta: [null, Validators.required],
       cantidad: [null, Validators.required],
-      descripcion: [null],
+      descripcion: [null,Validators.required],
     });
     this.modalParameters = {
       icon: {
@@ -77,21 +81,21 @@ export class CreacionProductosComponent implements OnInit {
   ngOnInit(): void {
     this.nomarca.cargarmarca().subscribe((data) => {
       this.marca = data;
-      console.log('documentos', this.marca);
+      console.log('marca', this.marca);
     });
 
     this.nomcategoria.cargarcategoria().subscribe((roles) => {
       this.categoria = roles;
-      console.log('Roles', this.categoria);
+      console.log('categoria', this.categoria);
     });
   }
 
-  postfrom(pro: productos) {
+  postfrom(pro: Productos) {
     this.producto.postproductos(pro).subscribe((data) => {
       console.log('guardar', data);
     });
-    
-  } 
+
+  }
   public openModal() {
     this.dialogForm.onShowDialog();
   }

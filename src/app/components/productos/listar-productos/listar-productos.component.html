@@ -11,6 +11,7 @@
       <thead>
         <tr>
           <th>ID Producto</th>
+          <th>Nombre Marca</th>
           <th>Marca</th>
           <th>Costo de la Compra</th>
           <th>Costo de la Venta</th>
@@ -21,6 +22,7 @@
       <tbody>
         <tr *ngFor="let productos of prod">
           <td>{{productos.idProducto}}</td>
+          <td>{{productos.nombreProducto}}</td>
           <td>{{productos.idMarca}}</td>
           <td>{{productos.costoCompra}}</td>
           <td>{{productos.costoVenta}}</td>

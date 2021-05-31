@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { categoria } from 'src/app/models/categoria';
 import { marca } from 'src/app/models/marca';
-import { productos } from 'src/app/models/productos';
+import { Productos } from 'src/app/models/productos';
 import { categoriaService } from 'src/app/services/categoria/categoria.service';
 import { marcaService } from 'src/app/services/marca/marca.service';
 import { productoService } from 'src/app/services/productos/producto.service';
@@ -29,7 +29,7 @@ export class EditarProductosComponent implements OnInit {
    */
   marca: marca;
 
-  datosProductos: productos;
+  datosProductos: Productos;
   /**
    * Objeto que trae los campos de roles
    */
@@ -37,16 +37,21 @@ export class EditarProductosComponent implements OnInit {
 
   editarpro: FormGroup;
 
-  constructor(fb: FormBuilder,private nomarca:marcaService,private nomcategoria:categoriaService,private producto:productoService,private activatedRoute: ActivatedRoute,) { 
+  constructor(fb: FormBuilder,
+    private nomarca:marcaService,
+    private nomcategoria:categoriaService,
+    private producto:productoService,
+    private activatedRoute: ActivatedRoute,) {
 
     this.editarpro = fb.group({
       idProducto: ['', Validators.required],
       idCategoria: ['', Validators.required],
       idMarca: ['', Validators.required],
+      nombreProducto: ['', Validators.required],
       costoCompra: ['', Validators.required],
       costoVenta: ['',Validators.required],
       cantidad: ['', Validators.required],
-      descripcion: [''],
+      descripcion: ['',Validators.required],
     });
 
     this.modalParameters = {
@@ -85,6 +90,7 @@ ngOnInit(): void {
       this.editarpro.setValue({
         idCategoria: this.datosProductos.idCategoria,
         idMarca: this.datosProductos.idMarca,
+        nombreProducto: this.datosProductos.nombreProducto,
         costoCompra: this.datosProductos.costoCompra,
         costoVenta: this.datosProductos.costoVenta,
         cantidad: this.datosProductos.cantidad,
@@ -93,7 +99,7 @@ ngOnInit(): void {
       });
     });
   }
-  putForm(prod: productos) {
+  putForm(prod: Productos) {
     this.producto.putproductos(prod).subscribe((data) => {
       console.log('actualizar', data);
     });
