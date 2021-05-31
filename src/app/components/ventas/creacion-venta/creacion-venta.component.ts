@@ -60,10 +60,10 @@ export class CreacionVentaComponent implements OnInit {
     private ven: VentaService
   ) {
     this.cventaFrom = fb.group({
-      idCliente: ['', Validators.required],
-      idEmpleado: ['', Validators.required],
-      fechaVenta: ['', Validators.required],
-      idTipoPago: ['', Validators.required],
+      idCliente: [null, Validators.required],
+      idEmpleado: [null, Validators.required],
+      fechaVenta: [null, Validators.required],
+      idTipoPago: [null, Validators.required],
     });
 
     this.detalles = fb.group({
@@ -115,13 +115,14 @@ export class CreacionVentaComponent implements OnInit {
     }
 
     postForm(form: Ventas){
-      this.ven.addVentas(form).subscribe((data)=>{
-        console.log('GUARDARV',data)
+      console.log('datos',form);
+      this.ven.addVentas(form).subscribe((venta)=>{
+        console.log('GUARDARV',venta)
       });
     }
-    postdetalle(form: Ventasdetalle){
-      this.det.adddetalle(form).subscribe((data)=>{
-        console.log('GUARDARD',data)
+    postdetalle(form1: Ventasdetalle){
+      this.det.adddetalle(form1).subscribe((de)=>{
+        console.log('GUARDARD',de)
       });
     }
 

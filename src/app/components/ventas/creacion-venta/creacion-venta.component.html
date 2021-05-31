@@ -6,8 +6,8 @@
 <br><br>
 
 <div class="container form">
-  <div *ngIf="!mostrarven">
-    <form class="row g-3" [formGroup]="cventaFrom" ><!--(ngSubmit)="postForm(cventaFrom.value)"-->
+
+    <form class="row g-3" [formGroup]="cventaFrom" (ngSubmit)="postForm(cventaFrom.value)">
         <!-- Cliente -->
         <div class="col-md-3">
             <label for="inputState" class="form-label">Cliente</label>
@@ -94,7 +94,7 @@
             <div
                 *ngIf="cventaFrom.controls['idTipoPago'].invalid && (cventaFrom.controls['idTipoPago'].dirty || cventaFrom.controls['idTipoPago'].touched)">
                 <div *ngIf="cventaFrom.controls['idTipoPago'].errors.required">
-                    El empleado es requerido.
+                    El pago es requerido.
                 </div>
                 <div *ngIf="cventaFrom.controls['idTipoPago'].errors.minlength" class="invalid-feedback">
                     Name must be at least 4 characters long.
@@ -105,15 +105,15 @@
             </div>
         </div>
         <div class="col-12">
-            <button type="submit" [disabled]="cventaFrom.invalid"  class="btn btn-primary" (click)="activarform()" >Siguiente</button>
+            <button type="submit" [disabled]="cventaFrom.invalid"   class="btn btn-primary"  (click)="activarform()" >Productos</button>
         </div>
     </form>
-  </div>
+
     <!-- Formulario detalles-->
 <div *ngIf=" mostrardetalles">
 
 <h5> Detalles de la venta </h5>
-        <form  class="row g-3" [formGroup]="detalles"><!--(ngSubmit)="postdetalle(detalles.value)"-->
+        <form  class="row g-3" [formGroup]="detalles"(ngSubmit)="postdetalle(detalles.value)">
 
         <!-- Producto -->
         <div class="col-md-3">
@@ -141,34 +141,25 @@
             </div>
         </div>
         <!-- Id Venta -->
-    <div *ngIf="!mostrarven" >
-    <div class="col-md-3">
-      <label for="inputState" class="form-label">Id venta</label>
-      <select id="inputState" class="form-select" formControlName="idVenta" [ngClass]="{
-        'is-invalid': detalles.controls['idVenta'].invalid && (detalles.controls['idVenta'].dirty || detalles.controls['idVenta'].touched),
-        'is-valid': detalles.controls['idVenta'].valid
-        }">
 
-        <option *ngFor="let idVenta of ventau" [value]="idVenta.idVenta">
-        {{idVenta.idVenta}}
-        </option>
-        <!-- <some-element *ngPlural="value">
-          <ng-template *ngPluralCase="let idVenta of ventau" [value]="idVenta.idVenta">
-             {{idVenta.idVenta}}>
-          </ng-template>
-        </some-element> -->
-        </select>
-      <div
-          *ngIf="detalles.controls['idVenta'].invalid && (detalles.controls['idVenta'].dirty || detalles.controls['idVenta'].touched)">
-          <div *ngIf="detalles.controls['idVenta'].errors.required">
-              el es requerido.
-          </div>
-          <div *ngIf="detalles.controls['idVenta'].errors.minlength" class="invalid-feedback">
-              Name must be at least 4 characters long.
-          </div>
-          <div *ngIf="detalles.controls['idVenta'].errors.forbiddenName" class="invalid-feedback">
-              Name cannot be Bob.
-          </div>
+
+<div class="col-md-3">
+  <label for="inputPassword4" class="form-label">ID Venta</label>
+  <input type="numer" formControlName="idVenta" class="form-control" id="inputPassword4"
+      placeholder=" Id Venta" [ngClass]="{
+'is-invalid': detalles.controls['idVenta'].invalid && (detalles.controls['idVenta'].dirty || detalles.controls['idVenta'].touched),
+'is-valid': detalles.controls['idVenta'].valid
+}">
+  <div
+      *ngIf="detalles.controls['idVenta'].invalid && (detalles.controls['idVenta'].dirty || detalles.controls['idVenta'].touched)">
+      <div *ngIf="detalles.controls['idVenta'].errors.required">
+          Valor unidad es requerido.
+      </div>
+      <div *ngIf="detalles.controls['idVenta'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="detalles.controls['idVenta'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
       </div>
   </div>
 </div>
@@ -235,14 +226,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 ">
-            <button  class="btn btn-primary">agregar</button>
-          </div>
         <div class="col-12">
             <button type="submit" [disabled]="detalles.invalid" class="btn btn-primary" (click)="openModal()">Crear</button>
           </div>
-          <!-- Modal -->
-           <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
+
     </form>
   </div>
 </div>
+<!-- Modal -->
+           <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
