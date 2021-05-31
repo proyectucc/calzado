@@ -9,4 +9,5 @@ export interface Usuario {
   fechaCreacion: Date;
   fechaTerminacion: string;
   idEmpleado: number;
+  rol: string;
 }

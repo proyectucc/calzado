@@ -266,32 +266,6 @@
       </div>
     </div>
 
-    <!-- Rol -->
-    <div class="col-md-3">
-      <label for="inputState" class="form-label">Rol</label>
-      <select id="inputState" class="form-select" formControlName="Rol" [ngClass]="{
-        'is-invalid': nuevoForm.controls['Rol'].invalid && (nuevoForm.controls['Rol'].dirty || nuevoForm.controls['Rol'].touched),
-        'is-valid': nuevoForm.controls['Rol'].valid
-      }">
-      <option selected></option>
-      <option *ngFor="let roles of rol" [value]="roles.idRol">
-         {{roles.idRol}} - {{roles.nombreRol}}
-     </option>
-      </select>
-      <div
-      *ngIf="nuevoForm.controls['Rol'].invalid && (nuevoForm.controls['Rol'].dirty || nuevoForm.controls['Rol'].touched)">
-      <div *ngIf="nuevoForm.controls['Rol'].errors.required">
-        El rol es requerido.
-      </div>
-      <div *ngIf="nuevoForm.controls['Rol'].errors.minlength" class="invalid-feedback">
-        Name must be at least 4 characters long.
-      </div>
-      <div *ngIf="nuevoForm.controls['Rol'].errors.forbiddenName" class="invalid-feedback">
-        Name cannot be Bob.
-      </div>
-    </div>
-    </div>
-
 
     <div class="col-12">
       <button type="submit" [disabled]="nuevoForm.invalid" class="btn btn-primary" (click)="openModal()">Crear</button>

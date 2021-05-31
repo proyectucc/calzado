@@ -8,6 +8,8 @@ import { UsuarioEmpleadoService } from 'src/app/services/usuario-empleado/usuari
 import { UsuarioService } from 'src/app/services/usuarios/usuario.service';
 import { ModalCreacionComponent } from '../../modal/modal-creacion/modal-creacion.component';
 import { ModalParameters } from '../../modal/models/modal.model';
+import { Roles } from 'src/app/models/roles.interface';
+import { RolService } from 'src/app/services/roles/rol.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -30,6 +32,11 @@ export class EditUserComponent implements OnInit {
   datosUsuario: Usuario;
 
   /**
+   * Objeto que trae los campos de roles
+   */
+  rol: Roles;
+
+  /**
    * Obtiene el componente dialogo formulario
    */
   @ViewChild('dialogForm')
@@ -45,6 +52,7 @@ export class EditUserComponent implements OnInit {
     private api: UsuarioService,
     private userService: UsuarioEmpleadoService,
     private activatedRoute: ActivatedRoute,
+    private roles: RolService,
     private router: Router
   ) {
     this.editarForm = fb.group({
@@ -54,6 +62,7 @@ export class EditUserComponent implements OnInit {
       fechaCreacion: [null, Validators.required],
       fechaTerminacion: [null, Validators.required],
       idEmpleado: [null, Validators.required],
+      Rol: [null, Validators.required],
     });
 
     this.modalParameters = {
@@ -82,6 +91,11 @@ export class EditUserComponent implements OnInit {
       this.emp = resp;
     });
 
+    this.roles.cargarRoles().subscribe((roles) => {
+      this.rol = roles;
+      console.log('Roles', this.rol);
+    });
+
     const usuarioid = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.userService.getSingleUsuario(usuarioid).subscribe((data) => {
@@ -97,6 +111,7 @@ export class EditUserComponent implements OnInit {
         ),
         idEmpleado: this.datosUsuario.idEmpleado,
         idUsuario: this.datosUsuario.idUsuario,
+        Rol: this.datosUsuario.rol,
       });
     });
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { pipe } from 'rxjs';
 import { UsuarioEmpleadoService } from 'src/app/services/usuario-empleado/usuario-empleado.service';
 import { ModalCreacionComponent } from '../modal/modal-creacion/modal-creacion.component';
 import { ModalParameters } from '../modal/models/modal.model';
@@ -71,7 +72,7 @@ export class LoginComponent implements OnInit {
     const data = this.frmGroup.value;
     this.usuarioService.loginUsuario(data.email, data.pass).subscribe(
       (info) => {
-        console.log('logueado', info);
+        localStorage.setItem('UsuarioLogueado', JSON.stringify(info));
         this.router.navigate(['home']);
       },
       (error) => {

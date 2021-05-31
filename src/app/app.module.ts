@@ -47,6 +47,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ModalComponent } from './components/modal/modal/modal.component';
 import { ListarProveedorComponent } from './components/registro-proveedor/listar-proveedor/listar-proveedor.component';
 import { EditarProveedorComponent } from './components/registro-proveedor/editar-proveedor/editar-proveedor.component';
+import { RolesGuard } from './components/roles-guard/roles-guard.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,7 @@ import { EditarProveedorComponent } from './components/registro-proveedor/editar
     MatButtonModule
   ],
   entryComponents: [ ModalComponent ],
-  providers: [],
+  providers: [RolesGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

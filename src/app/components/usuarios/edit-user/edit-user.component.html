@@ -9,12 +9,11 @@
   <form class="row g-3" [formGroup]="editarForm" (ngSubmit)="postForm(editarForm.value)">
 
     <!-- Campo Nombre usuario-->
-
-    <div class="col-md-3"></div>
+    <div class="row">
+    <div class="col-2"></div>
     <div class="col-md-3">
       <label for="inputEmail4" class="form-label">Usuario</label>
-      <input type="text" formControlName="nombreUsuario" class="form-control"
-        placeholder="Primero Nombre" [ngClass]="{
+      <input type="text" formControlName="nombreUsuario" class="form-control" placeholder="Primero Nombre" [ngClass]="{
     'is-invalid': editarForm.controls['nombreUsuario'].invalid && (editarForm.controls['nombreUsuario'].dirty || editarForm.controls['nombreUsuario'].touched),
     'is-valid': editarForm.controls['nombreUsuario'].valid
   }">
@@ -35,8 +34,7 @@
     <!-- Campo contraseña -->
     <div class="col-md-3">
       <label for="inputPassword4" class="form-label">Contraseña</label>
-      <input type="password" formControlName="contraseña" class="form-control"
-        placeholder="Primer Apellido" [ngClass]="{
+      <input type="password" formControlName="contraseña" class="form-control" placeholder="Primer Apellido" [ngClass]="{
     'is-invalid': editarForm.controls['contraseña'].invalid && (editarForm.controls['contraseña'].dirty || editarForm.controls['contraseña'].touched),
     'is-valid': editarForm.controls['contraseña'].valid
   }">
@@ -53,15 +51,43 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3"></div>
 
-    <div class="col-md-1"></div>
+
+    <!-- Rol -->
+    <div class="col-md-3">
+      <label for="inputState" class="form-label">Rol</label>
+      <select id="inputState" class="form-select" formControlName="Rol" [ngClass]="{
+                'is-invalid': editarForm.controls['Rol'].invalid && (editarForm.controls['Rol'].dirty || editarForm.controls['Rol'].touched),
+                'is-valid': editarForm.controls['Rol'].valid
+              }">
+        <option selected></option>
+        <option *ngFor="let roles of rol" [value]="roles.idRol">
+          {{roles.idRol}} - {{roles.nombreRol}}
+        </option>
+      </select>
+      <div
+        *ngIf="editarForm.controls['Rol'].invalid && (editarForm.controls['Rol'].dirty || editarForm.controls['Rol'].touched)">
+        <div *ngIf="editarForm.controls['Rol'].errors.required">
+          El rol es requerido.
+        </div>
+        <div *ngIf="editarForm.controls['Rol'].errors.minlength" class="invalid-feedback">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="editarForm.controls['Rol'].errors.forbiddenName" class="invalid-feedback">
+          Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="col-2"></div>
 
     <!-- Fecha de Creación -->
     <div class="col-md-3">
       <label for="inputPassword4" class="form-label">Fecha de Creación</label>
-      <input type="date" formControlName="fechaCreacion" class="form-control"
-        placeholder="Número de identificación" [ngClass]="{
+      <input type="date" formControlName="fechaCreacion" class="form-control" placeholder="Número de identificación"
+        [ngClass]="{
     'is-invalid': editarForm.controls['fechaCreacion'].invalid && (editarForm.controls['fechaCreacion'].dirty || editarForm.controls['fechaCreacion'].touched),
     'is-valid': editarForm.controls['fechaCreacion'].valid
   }">
@@ -82,8 +108,8 @@
     <!-- Fecha de Terminación -->
     <div class="col-md-3">
       <label for="inputPassword4" class="form-label">Fecha de Terminación de Contrato</label>
-      <input type="date" formControlName="fechaTerminacion" class="form-control"
-        placeholder="Número de identificación" [ngClass]="{
+      <input type="date" formControlName="fechaTerminacion" class="form-control" placeholder="Número de identificación"
+        [ngClass]="{
     'is-invalid': editarForm.controls['fechaTerminacion'].invalid && (editarForm.controls['fechaTerminacion'].dirty || editarForm.controls['fechaTerminacion'].touched),
     'is-valid': editarForm.controls['fechaTerminacion'].valid
   }">
@@ -126,13 +152,16 @@
         </div>
       </div>
     </div>
-
-
-    <div class="col-12">
-      <button type="submit" [disabled]="editarForm.invalid" class="btn btn-primary" (click)="openModal()">Actualizar</button>
+  </div>
+  <hr>
+    <div class="row">
+      <div class="col-11"></div>
+    <div class="col-1">
+      <button type="submit" [disabled]="editarForm.invalid" class="btn btn-primary"
+        (click)="openModal()">Actualizar</button>
     </div>
+  </div>
     <!-- Modal -->
     <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
   </form>
 </div>
-

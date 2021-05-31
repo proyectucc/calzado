@@ -69,7 +69,6 @@ export class RegistroEmpleadoComponent implements OnInit {
       EmailPrincipal: [null, Validators.required],
       TelefonoFijo: [null, Validators.required],
       TelefonoCelular: [null, Validators.required],
-      Rol: [null, Validators.required],
     });
 
     this.modalParameters = {

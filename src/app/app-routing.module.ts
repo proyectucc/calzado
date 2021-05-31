@@ -19,7 +19,7 @@ import { RolesComponent } from './components/roles/roles.component';
 import { CreacionVentaComponent } from './components/ventas/creacion-venta/creacion-venta.component';
 import { VentasComponent } from './components/ventas/ventas.component';
 import { RegistroClienteComponent } from './components/registro-cliente/registro-cliente.component';
-import { ListClienteComponent} from './components/registro-cliente/list-cliente/list-cliente.component';
+import { ListClienteComponent } from './components/registro-cliente/list-cliente/list-cliente.component';
 import { ListVentaComponent } from './components/ventas/list-venta/list-venta.component';
 import { EditClienteComponent } from './components/registro-cliente/edit-cliente/edit-cliente.component';
 import { CreateUserComponent } from './components/usuarios/create-user/create-user.component';
@@ -27,40 +27,46 @@ import { EditUserComponent } from './components/usuarios/edit-user/edit-user.com
 import { ListUserComponent } from './components/usuarios/list-user/list-user.component';
 import { ListarProveedorComponent } from './components/registro-proveedor/listar-proveedor/listar-proveedor.component';
 import { EditarProveedorComponent } from './components/registro-proveedor/editar-proveedor/editar-proveedor.component';
+import { RolesGuard } from './components/roles-guard/roles-guard.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'informes', component: InformesComponent },
   { path: 'nosotros', component: NosotrosComponent },
-  { path: 'creacion', component: CreacionComponent },
-  { path: 'regisprov', component: RegistroProveedorComponent},
-  { path: 'regisemp', component: RegistroEmpleadoComponent},
-  { path: 'footer', component: FooterComponent},
-  { path: 'header', component: HeaderComponent},
-  { path: 'listado-usuarios', component: ListComponent},
-  { path: 'headerlogin', component: HeaderLoginComponent},
-  { path: 'productos', component: ProductosComponent},
-  { path: 'listar-productos', component: ListarProductosComponent},
-  { path: 'creacion-productos', component: CreacionProductosComponent},
-  { path: 'edit-empl/:id', component: EditComponent},
-  { path: 'roles', component: RolesComponent},
-  { path: 'moduloventas', component: VentasComponent},
-  { path: 'regisclien', component: RegistroClienteComponent},
-  { path: 'creacionventa', component: CreacionVentaComponent},
-  { path: 'listado-clientes', component: ListClienteComponent},
-  { path: 'listado-ventas', component: ListVentaComponent},
-  { path: 'edit-client/:id', component: EditClienteComponent},
-  { path: 'usuarios-list', component: ListUserComponent},
-  { path: 'usuario-edit/:id', component: EditUserComponent},
-  { path: 'usuario-crear', component: CreateUserComponent},
-  { path: "listado-proveedores", component: ListarProveedorComponent},
-  { path: 'edit-proveedor/:id', component: EditarProveedorComponent},
+  { path: 'creacion', component: CreacionComponent,
+  data: {
+    rol: '3'
+  },
+  canActivate: [RolesGuard]
+ },
+  { path: 'regisprov', component: RegistroProveedorComponent },
+  { path: 'regisemp', component: RegistroEmpleadoComponent },
+  { path: 'footer', component: FooterComponent },
+  { path: 'header', component: HeaderComponent },
+  { path: 'listado-usuarios', component: ListComponent },
+  { path: 'headerlogin', component: HeaderLoginComponent },
+  { path: 'productos', component: ProductosComponent },
+  { path: 'listar-productos', component: ListarProductosComponent },
+  { path: 'creacion-productos', component: CreacionProductosComponent },
+  { path: 'edit-empl/:id', component: EditComponent },
+  { path: 'roles', component: RolesComponent },
+  { path: 'moduloventas', component: VentasComponent },
+  { path: 'regisclien', component: RegistroClienteComponent },
+  { path: 'creacionventa', component: CreacionVentaComponent },
+  { path: 'listado-clientes', component: ListClienteComponent },
+  { path: 'listado-ventas', component: ListVentaComponent },
+  { path: 'edit-client/:id', component: EditClienteComponent },
+  { path: 'usuarios-list', component: ListUserComponent },
+  { path: 'usuario-edit/:id', component: EditUserComponent },
+  { path: 'usuario-crear', component: CreateUserComponent },
+  { path: 'listado-proveedores', component: ListarProveedorComponent },
+  { path: 'edit-proveedor/:id', component: EditarProveedorComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

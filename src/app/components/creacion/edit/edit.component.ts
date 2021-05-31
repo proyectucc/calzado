@@ -75,7 +75,6 @@ export class EditComponent implements OnInit {
       emailPrincipal: ['', [Validators.required, Validators.minLength(5), Validators.email]],
       telefonoFijo: [0, [Validators.required, Validators.minLength(5)]],
       telefonoCelular: [0, [Validators.required, Validators.minLength(5)]],
-      rol: ['', Validators.required],
     });
 
     this.modalParameters = {
@@ -131,7 +130,6 @@ export class EditComponent implements OnInit {
         emailPrincipal: this.datosEmpleados.emailPrincipal,
         telefonoFijo: this.datosEmpleados.telefonoFijo,
         telefonoCelular: this.datosEmpleados.telefonoCelular,
-        rol: this.datosEmpleados.rol,
         idEmpleado: this.datosEmpleados.idEmpleado,
       });
     });

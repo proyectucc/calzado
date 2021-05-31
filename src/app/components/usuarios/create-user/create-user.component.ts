@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OneEmpleado } from 'src/app/models/empleado.interface';
+import { Roles } from 'src/app/models/roles.interface';
 import { Usuario } from 'src/app/models/usuario.interface';
+import { RolService } from 'src/app/services/roles/rol.service';
 import { UsuarioEmpleadoService } from 'src/app/services/usuario-empleado/usuario-empleado.service';
 import { UsuarioService } from 'src/app/services/usuarios/usuario.service';
 import { ModalCreacionComponent } from '../../modal/modal-creacion/modal-creacion.component';
@@ -24,6 +26,11 @@ export class CreateUserComponent implements OnInit {
   public emp: OneEmpleado;
 
   /**
+   * Objeto que trae los campos de roles
+   */
+  rol: Roles;
+
+  /**
    * Obtiene el componente dialogo formulario
    */
   @ViewChild('dialogForm')
@@ -36,13 +43,16 @@ export class CreateUserComponent implements OnInit {
   constructor(
     fb: FormBuilder,
     private userService: UsuarioEmpleadoService,
-    private api: UsuarioService) {
+    private api: UsuarioService,
+    private roles: RolService,
+  ) {
     this.editarForm = fb.group({
       nombreUsuario: ['', [Validators.required, Validators.minLength(5)]],
       contraseña: ['', [Validators.required, Validators.minLength(5)]],
       fechaCreacion: ['', Validators.required],
       fechaTerminacion: ['', Validators.required],
       idEmpleado: ['', Validators.required],
+      Rol: [null, Validators.required],
     });
 
     this.modalParameters = {
@@ -69,6 +79,10 @@ export class CreateUserComponent implements OnInit {
   ngOnInit(): void {
     this.api.cargarEmpleados().subscribe((resp) => {
       this.emp = resp;
+    });
+    this.roles.cargarRoles().subscribe((roles) => {
+      this.rol = roles;
+      console.log('Roles', this.rol);
     });
   }
 
