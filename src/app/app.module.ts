@@ -45,8 +45,12 @@ import { CreateUserComponent } from './components/usuarios/create-user/create-us
 import { EditUserComponent } from './components/usuarios/edit-user/edit-user.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ModalComponent } from './components/modal/modal/modal.component';
+<<<<<<< HEAD
 import { ListarProveedorComponent } from './components/registro-proveedor/listar-proveedor/listar-proveedor.component';
 import { EditarProveedorComponent } from './components/registro-proveedor/editar-proveedor/editar-proveedor.component';
+=======
+import { EditarProductosComponent } from './components/productos/editar-productos/editar-productos.component';
+>>>>>>> 31f2c1e9c91fc810e79bd17a49a68d4e2dfc5d1b
 
 @NgModule({
   declarations: [
@@ -77,8 +81,12 @@ import { EditarProveedorComponent } from './components/registro-proveedor/editar
     ListUserComponent,
     CreateUserComponent,
     EditUserComponent,
+<<<<<<< HEAD
     ListarProveedorComponent,
     EditarProveedorComponent
+=======
+    EditarProductosComponent
+>>>>>>> 31f2c1e9c91fc810e79bd17a49a68d4e2dfc5d1b
   ],
   imports: [
     BrowserModule,

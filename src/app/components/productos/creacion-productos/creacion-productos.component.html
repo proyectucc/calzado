@@ -6,6 +6,7 @@
 <br><br><br>
 
 <div class="container form">
+<<<<<<< HEAD
   <form class="row g-3" [formGroup]="options">
 
     <!-- Campo ID Categoria -->
@@ -48,6 +49,62 @@
         *ngIf="options.controls['marca'].invalid && (options.controls['marca'].dirty || options.controls['marca'].touched)">
         <div *ngIf="options.controls['marca'].errors.required">
           Marca del Producto Requerido.
+=======
+    <form class="row g-3" [formGroup]="crearpro"(ngSubmit)="postfrom(crearpro.value)">
+
+        <!-- Campo ID Categoria -->
+
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">idCategoria</label>
+            <select id="inputState" class="form-select" formControlName="idCategoria" [ngClass]="{
+          'is-invalid': crearpro.controls['idCategoria'].invalid && (crearpro.controls['idCategoria'].dirty || crearpro.controls['idCategoria'].touched),
+          'is-valid': crearpro.controls['idCategoria'].valid
+        }">
+        <option selected></option>
+        <option *ngFor="let idCategoria of categoria" [value]="idCategoria.idCategoria">
+           {{idCategoria.nombreCategoria}}
+        </option>
+      </select>
+            <div
+                *ngIf="crearpro.controls['idCategoria'].invalid && (crearpro.controls['idCategoria'].dirty || crearpro.controls['idCategoria'].touched)">
+                <div *ngIf="crearpro.controls['idCategoria'].errors.required">
+                    idCategoria del Producto Requerido.
+                </div>
+                <div *ngIf="crearpro.controls['idCategoria'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="crearpro.controls['idCategoria'].errors.forbiddenName" class="invalid-feedback">
+                    El Id de Categoria del Producto no fue encontrada.
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Marca -->
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">idMarca</label>
+            <select id="inputState" class="form-select" formControlName="idMarca" [ngClass]="{
+          'is-invalid': crearpro.controls['idMarca'].invalid && (crearpro.controls['idMarca'].dirty || crearpro.controls['idMarca'].touched),
+          'is-valid': crearpro.controls['idMarca'].valid
+        }">
+        <option selected></option>
+        <option *ngFor="let idMarca of marca" [value]="idMarca.idMarca">
+           {{idMarca.nombreMarca}}
+        </option>
+      </select>
+            <div
+                *ngIf="crearpro.controls['idMarca'].invalid && (crearpro.controls['idMarca'].dirty || crearpro.controls['idMarca'].touched)">
+                <div *ngIf="crearpro.controls['idMarca'].errors.required">
+                    idMarca del Producto Requerido.
+                </div>
+                <div *ngIf="crearpro.controls['idMarca'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="crearpro.controls['idMarca'].errors.forbiddenName" class="invalid-feedback">
+                    La idMarca del Producto no fue encontrada.
+                </div>
+            </div>
+>>>>>>> 31f2c1e9c91fc810e79bd17a49a68d4e2dfc5d1b
         </div>
         <div *ngIf="options.controls['marca'].errors.minlength" class="invalid-feedback">
           Name must be at least 4 characters long.
@@ -58,6 +115,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <!-- Campo Costo de la Compra-->
     <div class="col-md-3">
       <label for="inputAddress" class="form-label">Costo de la Compra</label>
@@ -70,6 +128,25 @@
         *ngIf="options.controls['cost_comp'].invalid && (options.controls['cost_comp'].dirty || options.controls['cost_comp'].touched)">
         <div *ngIf="options.controls['cost_comp'].errors.required">
           El Costo de la Compra del Producto es Requerido.
+=======
+        <!-- Campo Costo de la Compra-->
+        <div class="col-md-3">
+            <label for="inputAddress" class="form-label">Costo de la Compra</label>
+            <input type="text" class="form-control" formControlName="costoCompra" id="inputAddress"
+                placeholder="Valor de la Compra Producto" [ngClass]="{
+        'is-invalid': crearpro.controls['costoCompra'].invalid && (crearpro.controls['costoCompra'].dirty || crearpro.controls['costoCompra'].touched),
+        'is-valid': crearpro.controls['costoCompra'].valid
+      }">
+            <div
+                *ngIf="crearpro.controls['costoCompra'].invalid && (crearpro.controls['costoCompra'].dirty || crearpro.controls['costoCompra'].touched)">
+                <div *ngIf="crearpro.controls['costoCompra'].errors.required">
+                    El Costo de la Compra del Producto es Requerido.
+                </div>
+                <div *ngIf="crearpro.controls['costoCompra'].errors.forbiddenName" class="invalid-feedback">
+                    El Costo de la Compra del Producto no es Valido.
+                </div>
+            </div>
+>>>>>>> 31f2c1e9c91fc810e79bd17a49a68d4e2dfc5d1b
         </div>
         <div *ngIf="options.controls['cost_comp'].errors.forbiddenName" class="invalid-feedback">
           El Costo de la Compra del Producto no es Valido.
@@ -77,6 +154,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <!-- Campo Costo de la Venta-->
     <div class="col-md-3">
       <label for="inputAddress" class="form-label">Costo de la Venta</label>
@@ -91,17 +169,44 @@
         </div>
         <div *ngIf="options.controls['cost_vent'].errors.forbiddenName" class="invalid-feedback">
           El Costo de la Venta del Producto no es Valido.
+=======
+        <!-- Campo Costo de la Venta-->
+        <div class="col-md-3">
+            <label for="inputAddress" class="form-label">Costo de la Venta</label>
+            <input type="text" class="form-control" formControlName="costoVenta" id="inputAddress" placeholder="Valor de la Venta del Producto"
+            [ngClass]="{        'is-invalid': crearpro.controls['costoVenta'].invalid && (crearpro.controls['costoVenta'].dirty || crearpro.controls['costoVenta'].touched),
+        'is-valid': crearpro.controls['costoVenta'].valid
+      }">
+            <div
+                *ngIf="crearpro.controls['costoVenta'].invalid && (crearpro.controls['costoVenta'].dirty || crearpro.controls['costoVenta'].touched)">
+                <div *ngIf="crearpro.controls['costoVenta'].errors.required">
+                    El Costo de la Venta del Producto es Requerido.
+                </div>
+                <div *ngIf="crearpro.controls['costoVenta'].errors.forbiddenName" class="invalid-feedback">
+                    El Costo de la Venta del Producto no es Valido.
+                </div>
+            </div>
+>>>>>>> 31f2c1e9c91fc810e79bd17a49a68d4e2dfc5d1b
         </div>
       </div>
     </div>
 
 
+<<<<<<< HEAD
     <!-- Cantidad -->
     <div class="col-md-4">
       <label for="inputPassword4" class="form-label">Cantidad</label>
       <input type="numer" formControlName="cantidad" class="form-control" id="inputPassword4"
         placeholder="Cantidad de Productos" [ngClass]="{        'is-invalid': options.controls['cantidad'].invalid && (options.controls['cantidad'].dirty || options.controls['cantidad'].touched),
         'is-valid': options.controls['cantidad'].valid
+=======
+        <!-- Cantidad -->
+        <div class="col-md-4">
+            <label for="inputPassword4" class="form-label">cantidad</label>
+            <input type="numer" formControlName="cantidad" class="form-control" id="inputPassword4" placeholder="cantidad de Productos"
+            [ngClass]="{        'is-invalid': crearpro.controls['cantidad'].invalid && (crearpro.controls['cantidad'].dirty || crearpro.controls['cantidad'].touched),
+        'is-valid': crearpro.controls['cantidad'].valid
+>>>>>>> 31f2c1e9c91fc810e79bd17a49a68d4e2dfc5d1b
       }">
 
       <div
@@ -112,12 +217,12 @@
         <div *ngIf="options.controls['cantidad'].errors.forbiddenName" class="invalid-feedback">
           La Cantidad del Producto no es Valido.
             <div
-                *ngIf="options.controls['cantidad'].invalid && (options.controls['cantidad'].dirty || options.controls['cantidad'].touched)">
-                <div *ngIf="options.controls['cantidad'].errors.required">
-                    La Cantidad del Producto es Requerido.
+                *ngIf="crearpro.controls['cantidad'].invalid && (crearpro.controls['cantidad'].dirty || crearpro.controls['cantidad'].touched)">
+                <div *ngIf="crearpro.controls['cantidad'].errors.required">
+                    La cantidad del Producto es Requerido.
                 </div>
-                <div *ngIf="options.controls['cantidad'].errors.forbiddenName" class="invalid-feedback">
-                    La Cantidad del Producto no es Valido.
+                <div *ngIf="crearpro.controls['cantidad'].errors.forbiddenName" class="invalid-feedback">
+                    La cantidad del Producto no es Valido.
                 </div>
             </div>
 
@@ -126,11 +231,16 @@
         <!-- Descripcion -->
         <div class="col-md-4">
             <label for="inputPassword4" class="form-label">Descripción</label>
+<<<<<<< HEAD
             <input type="numer" formControlName="descripcion" class="form-control" id="descripcion"
+=======
+            <input type="text" formControlName="descripcion" class="form-control" id="descripcion"
+>>>>>>> 31f2c1e9c91fc810e79bd17a49a68d4e2dfc5d1b
                 placeholder="Descripción del Producto">
         </div>
       </div>
 
+<<<<<<< HEAD
     </div>
 
     <!-- Descripcion -->
@@ -145,4 +255,13 @@
         [routerLink]="['./home']">Crear</button>
     </div>
   </form>
+=======
+        <div class="col-12">
+            <button type="submit" [disabled]="crearpro.invalid" class="btn btn-primary"
+            (click)="openModal()">Crear</button>
+        </div>
+         <!-- Modal -->
+    <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
+    </form>
+>>>>>>> 31f2c1e9c91fc810e79bd17a49a68d4e2dfc5d1b
 </div>
