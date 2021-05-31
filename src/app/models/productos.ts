@@ -1,8 +1,8 @@
 export interface productos {
 
     idProducto:number,
-    nombreCategoria:string,
-    nombreMarca:string,
+    idCategoria:number,
+    idMarca:number,
     nombreProducto:string,
     costoCompra:number,
     costoVenta:number,

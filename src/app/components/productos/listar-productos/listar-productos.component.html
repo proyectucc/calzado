@@ -10,6 +10,7 @@
 
       <thead>
         <tr>
+          <th>ID Producto</th>
           <th>Marca</th>
           <th>Costo de la Compra</th>
           <th>Costo de la Venta</th>
@@ -19,13 +20,14 @@
       <br>
       <tbody>
         <tr *ngFor="let productos of prod">
-          <td>{{productos.nombreMarca}}</td>
+          <td>{{productos.idProducto}}</td>
+          <td>{{productos.idMarca}}</td>
           <td>{{productos.costoCompra}}</td>
           <td>{{productos.costoVenta}}</td>
           <td>{{productos.cantidad}}</td>
           <td>
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarCliente(clientes.idCliente)" >Editar</button>
+              <button type="button" class="btn btn-outline-success" title="Actualizar registro" (click)="editarproducto(productos.idProducto)" >Editar</button>
             </div>
           </td>
         </tr>

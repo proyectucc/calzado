@@ -17,20 +17,32 @@ export class productoService {
    * Servicio que contiene el array de empleados
    */
   cargarproducto() {
-    const urls = 'https://localhost:44384/api/Productos/MostrarProductos';
+    const urls = 'https://localhost:44384/api/Producto/MostrarProducto';
 
     return this.http.get<productos>(urls);
   }
 
- /* getSingleEmpleado(id): Observable<OneEmpleado> {
-    const direccion = 'https://localhost:44384/api/Empleados?id=' + id;
+  getSingleproductos(id): Observable<productos> {
+    const direccion = 'https://localhost:44384/api/Producto/' + id;
 
-    return this.http.get<OneEmpleado>(direccion);
+    return this.http.get<productos>(direccion);
   }
 
-  putEmpleados(formulario: Empleados): Observable<Empleados>{
-    const direccion = 'https://localhost:44384/api/Empleados?EmpleadoId=';
+  putproductos(formulario: productos): Observable<productos>{
+    const direccion = 'https://localhost:44384/api/Producto/ActualizarProducto';
 
-    return this.http.put<Empleados>(direccion, formulario);
-  } /**/
+    return this.http.put<productos>(direccion, formulario);
+  }
+
+  /**
+   * Mewtodo que se ejecuta para realizar la creaci;on de un producto
+   * @param form objeto con la data del producto
+   * @returns returna un formulario con informacion a insertar en la BD
+   */
+  postproductos(form: productos): Observable<productos> {
+    const direccion = 'https://localhost:44384/api/Producto/CrearProducto';
+
+    return this.http.post<productos>(direccion, form);
+  }
+
 }

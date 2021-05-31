@@ -36,4 +36,11 @@ export class ListarProductosComponent implements OnInit {
       console.log('DATOS', resp);
     });
   }
+
+  editarproducto(id) {
+    this.productoService.getSingleproductos(id).subscribe((data) => {
+      this.router.navigate(['editar-productos', data.idProducto]);
+    });
+  }
+
 }
