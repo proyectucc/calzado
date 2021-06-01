@@ -15,6 +15,7 @@ import { ModalParameters } from '../../modal/models/modal.model';
 import { VentaService } from 'src/app/services/ventas/venta.service';
 import { Ventas } from 'src/app/models/ventas';
 import { ActivatedRoute } from '@angular/router';
+import { UltimaVenta } from 'src/app/models/ultima-venta';
 @Component({
   selector: 'app-creacion-venta',
   templateUrl: './creacion-venta.component.html',
@@ -48,7 +49,7 @@ export class CreacionVentaComponent implements OnInit {
   empl: Empleados;
   tpago: TipoPago;
   prod: Productos;
-  ventau: Ventas;
+  ventau: UltimaVenta;
 
   constructor(
     fb: FormBuilder,
@@ -60,15 +61,15 @@ export class CreacionVentaComponent implements OnInit {
     private ven: VentaService
   ) {
     this.cventaFrom = fb.group({
-      idCliente: ['', Validators.required],
-      idEmpleado: ['', Validators.required],
-      fechaVenta: ['', Validators.required],
-      idTipoPago: ['', Validators.required],
+      idCliente: [null, Validators.required],
+      idEmpleado: [null, Validators.required],
+      fechaVenta: [null, Validators.required],
+      idTipoPago: [null, Validators.required],
     });
 
     this.detalles = fb.group({
       idProducto: ['', Validators.required],
-      idVenta: ['', Validators.required],
+      idVenta: [{value: '', disabled: true }],
       valorUnit: ['', Validators.required],
       cantidad: ['', Validators.required],
       valorTotal: ['', Validators.required],
@@ -93,37 +94,42 @@ export class CreacionVentaComponent implements OnInit {
   ngOnInit(): void {
     this.cliente.cargarClientes().subscribe((data) => {
       this.cli = data;
-      console.log('cliente', this.cli);
     });
     this.empleado.cargarEmpleados().subscribe((empe) => {
       this.empl = empe;
-      console.log('empleado', this.empl);
     });
     this.pago.cargarPago().subscribe((p) => {
       this.tpago = p;
-      console.log('Pagos', this.tpago);
     });
     this.producto.cargarproducto().subscribe((prodd) => {
       this.prod = prodd;
-      console.log('Producto', this.prod);
+      this.detalles.patchValue({
+        valorUnit: prodd.costoVenta,
+      })
     });
     this.ven.getultimaVenta().subscribe((ul) => {
       this.ventau = ul;
-      console.log('id', this.ventau);
     });
+  }
 
-    }
-
-    postForm(form: Ventas){
-      this.ven.addVentas(form).subscribe((data)=>{
-        console.log('GUARDARV',data)
-      });
-    }
-    postdetalle(form: Ventasdetalle){
-      this.det.adddetalle(form).subscribe((data)=>{
-        console.log('GUARDARD',data)
-      });
-    }
+  /**
+   * Método encargado de crear
+   * @param form formulario que contiene la información de la venta
+   */
+  postForm(form: Ventas) {
+    console.log('datos', form);
+    this.ven.addVentas(form).subscribe((venta) => {
+      console.log('GUARDARV', venta);
+      this.detalles.patchValue({
+        idVenta: venta.idVenta,
+      })
+    });
+  }
+  postdetalle(form1: Ventasdetalle) {
+    this.det.adddetalle(form1).subscribe((de) => {
+      console.log('GUARDARD', de);
+    });
+  }
 
   activarform(): void {
     this.mostrardetalles = true;

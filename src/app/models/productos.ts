@@ -1,5 +1,5 @@
 /**
- * Interface con los parámetros que tiene la Api de Clientes
+ * Interface con los parámetros que tiene la Api de Productos
  */
 
 export interface Productos {
@@ -9,6 +9,6 @@ export interface Productos {
   nombreProducto: string;
   costoCompra: number;
   costoVenta: number;
-  cantida: number;
+  cantidad: number;
   descripcion?: string;
 }

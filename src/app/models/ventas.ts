@@ -4,5 +4,4 @@ export interface Ventas {
     idEmpleado: number,
     fechaVenta: Date,
     idTipoPago: number,
-    
   }

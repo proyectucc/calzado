@@ -48,6 +48,7 @@ import { ModalComponent } from './components/modal/modal/modal.component';
 import { ListarProveedorComponent } from './components/registro-proveedor/listar-proveedor/listar-proveedor.component';
 import { EditarProveedorComponent } from './components/registro-proveedor/editar-proveedor/editar-proveedor.component';
 import { RolesGuard } from './components/roles-guard/roles-guard.component';
+import { EditarProductosComponent } from './components/productos/editar-productos/editar-productos.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { RolesGuard } from './components/roles-guard/roles-guard.component';
     CreateUserComponent,
     EditUserComponent,
     ListarProveedorComponent,
-    EditarProveedorComponent
+    EditarProveedorComponent,
+    EditarProductosComponent
   ],
   imports: [
     BrowserModule,

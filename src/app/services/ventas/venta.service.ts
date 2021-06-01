@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ventas } from 'src/app/models/ventas';
 import { ResponseI } from 'src/app/models/response.interface';
+import { UltimaVenta } from 'src/app/models/ultima-venta';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,9 @@ export class VentaService {
     /**
    * Servicio que se encarga de comunicar backend y Frontend para el método Get con parámetros
    */
-     getultimaVenta(){
+     getultimaVenta(): Observable<UltimaVenta>{
       const urls = 'https://localhost:44384/api/Ventas/ultima';
 
-      return this.http.get<Ventas>(urls);
+      return this.http.get<UltimaVenta>(urls);
     }
 }

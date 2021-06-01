@@ -21,15 +21,27 @@ export class productoService {
     return this.http.get<Productos>(urls);
   }
 
-  /* getSingleEmpleado(id): Observable<OneEmpleado> {
-    const direccion = 'https://localhost:44384/api/Empleados?id=' + id;
+  getSingleproductos(id): Observable<Productos> {
+    const direccion = 'https://localhost:44384/api/Producto/' + id;
 
-    return this.http.get<OneEmpleado>(direccion);
+    return this.http.get<Productos>(direccion);
   }
 
-  putEmpleados(formulario: Empleados): Observable<Empleados>{
-    const direccion = 'https://localhost:44384/api/Empleados?EmpleadoId=';
+  putproductos(formulario: Productos): Observable<Productos>{
+    const direccion = 'https://localhost:44384/api/Producto/ActualizarProducto';
 
-    return this.http.put<Empleados>(direccion, formulario);
-  } /**/
+    return this.http.put<Productos>(direccion, formulario);
+  }
+
+  /**
+   * Mewtodo que se ejecuta para realizar la creaci;on de un producto
+   * @param form objeto con la data del producto
+   * @returns returna un formulario con informacion a insertar en la BD
+   */
+  postproductos(form: Productos): Observable<Productos> {
+    const direccion = 'https://localhost:44384/api/Producto/CrearProducto';
+
+    return this.http.post<Productos>(direccion, form);
+  }
+
 }

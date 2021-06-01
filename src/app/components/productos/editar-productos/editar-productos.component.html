@@ -1,0 +1,172 @@
+<app-header></app-header>
+<br><br><br><br>
+
+<h1>FORMULARIO PARA REGISTRAR UN PRODUCTO</h1>
+
+<br><br><br>
+
+<div class="container form">
+    <form class="row g-3" [formGroup]="editarpro"(ngSubmit)="putForm(editarpro.value)">
+<!-- Nombre prodcto-->
+<div class="col-md-3">
+  <label for="inputEmail4" class="form-label">Nombre Producto</label>
+  <input type="text" formControlName="nombreProducto" class="form-control" id="inputEmail4" placeholder="Nombre Producto"
+  [ngClass]="{
+    'is-invalid': editarpro.controls['nombreProducto'].invalid && (editarpro.controls['nombreProducto'].dirty || editarpro.controls['nombreProducto'].touched),
+    'is-valid': editarpro.controls['nombreProducto'].valid
+  }">
+  <div
+    *ngIf="editarpro.controls['nombreProducto'].invalid && (editarpro.controls['nombreProducto'].dirty || editarpro.controls['nombreProducto'].touched)">
+    <div *ngIf="editarpro.controls['nombreProducto'].errors.required">
+      Nombre es requerido.
+    </div>
+    <div *ngIf="editarpro.controls['nombreProducto'].errors.minlength" class="invalid-feedback">
+      Name must be at least 4 characters long.
+    </div>
+    <div *ngIf="editarpro.controls['nombreProducto'].errors.forbiddenName" class="invalid-feedback">
+      Name cannot be Bob.
+    </div>
+  </div>
+</div>
+        <!-- Campo ID Categoria -->
+
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">idCategoria</label>
+            <select id="inputState" class="form-select" formControlName="idCategoria" [ngClass]="{
+          'is-invalid': editarpro.controls['idCategoria'].invalid && (editarpro.controls['idCategoria'].dirty || editarpro.controls['idCategoria'].touched),
+          'is-valid': editarpro.controls['idCategoria'].valid
+        }">
+        <option selected></option>
+        <option *ngFor="let idCategoria of categoria" [value]="idCategoria.idCategoria">
+           {{idCategoria.nombreCategoria}}
+        </option>
+      </select>
+            <div
+                *ngIf="editarpro.controls['idCategoria'].invalid && (editarpro.controls['idCategoria'].dirty || editarpro.controls['idCategoria'].touched)">
+                <div *ngIf="editarpro.controls['idCategoria'].errors.required">
+                    idCategoria del Producto Requerido.
+                </div>
+                <div *ngIf="editarpro.controls['idCategoria'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="editarpro.controls['idCategoria'].errors.forbiddenName" class="invalid-feedback">
+                    El Id de Categoria del Producto no fue encontrada.
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Marca -->
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">idMarca</label>
+            <select id="inputState" class="form-select" formControlName="idMarca" [ngClass]="{
+          'is-invalid': editarpro.controls['idMarca'].invalid && (editarpro.controls['idMarca'].dirty || editarpro.controls['idMarca'].touched),
+          'is-valid': editarpro.controls['idMarca'].valid
+        }">
+        <option selected></option>
+        <option *ngFor="let idMarca of marca" [value]="idMarca.idMarca">
+           {{idMarca.nombreMarca}}
+        </option>
+      </select>
+            <div
+                *ngIf="editarpro.controls['idMarca'].invalid && (editarpro.controls['idMarca'].dirty || editarpro.controls['idMarca'].touched)">
+                <div *ngIf="editarpro.controls['idMarca'].errors.required">
+                    idMarca del Producto Requerido.
+                </div>
+                <div *ngIf="editarpro.controls['idMarca'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="editarpro.controls['idMarca'].errors.forbiddenName" class="invalid-feedback">
+                    La idMarca del Producto no fue encontrada.
+                </div>
+            </div>
+        </div>
+
+        <!-- Campo Costo de la Compra-->
+        <div class="col-md-3">
+            <label for="inputAddress" class="form-label">Costo de la Compra</label>
+            <input type="text" class="form-control" formControlName="costoCompra" id="inputAddress"
+                placeholder="Valor de la Compra Producto" [ngClass]="{
+        'is-invalid': editarpro.controls['costoCompra'].invalid && (editarpro.controls['costoCompra'].dirty || editarpro.controls['costoCompra'].touched),
+        'is-valid': editarpro.controls['costoCompra'].valid
+      }">
+            <div
+                *ngIf="editarpro.controls['costoCompra'].invalid && (editarpro.controls['costoCompra'].dirty || editarpro.controls['costoCompra'].touched)">
+                <div *ngIf="editarpro.controls['costoCompra'].errors.required">
+                    El Costo de la Compra del Producto es Requerido.
+                </div>
+                <div *ngIf="editarpro.controls['costoCompra'].errors.forbiddenName" class="invalid-feedback">
+                    El Costo de la Compra del Producto no es Valido.
+                </div>
+            </div>
+        </div>
+
+        <!-- Campo Costo de la Venta-->
+        <div class="col-md-3">
+            <label for="inputAddress" class="form-label">Costo de la Venta</label>
+            <input type="text" class="form-control" formControlName="costoVenta" id="inputAddress" placeholder="Valor de la Venta del Producto"
+            [ngClass]="{        'is-invalid': editarpro.controls['costoVenta'].invalid && (editarpro.controls['costoVenta'].dirty || editarpro.controls['costoVenta'].touched),
+        'is-valid': editarpro.controls['costoVenta'].valid
+      }">
+            <div
+                *ngIf="editarpro.controls['costoVenta'].invalid && (editarpro.controls['costoVenta'].dirty || editarpro.controls['costoVenta'].touched)">
+                <div *ngIf="editarpro.controls['costoVenta'].errors.required">
+                    El Costo de la Venta del Producto es Requerido.
+                </div>
+                <div *ngIf="editarpro.controls['costoVenta'].errors.forbiddenName" class="invalid-feedback">
+                    El Costo de la Venta del Producto no es Valido.
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Cantidad -->
+        <div class="col-md-4">
+            <label for="inputPassword4" class="form-label">cantidad</label>
+            <input type="numer" formControlName="cantidad" class="form-control" id="inputPassword4" placeholder="cantidad de Productos"
+            [ngClass]="{        'is-invalid': editarpro.controls['cantidad'].invalid && (editarpro.controls['cantidad'].dirty || editarpro.controls['cantidad'].touched),
+        'is-valid': editarpro.controls['cantidad'].valid
+      }">
+
+            <div
+                *ngIf="editarpro.controls['cantidad'].invalid && (editarpro.controls['cantidad'].dirty || editarpro.controls['cantidad'].touched)">
+                <div *ngIf="editarpro.controls['cantidad'].errors.required">
+                    La cantidad del Producto es Requerido.
+                </div>
+                <div *ngIf="editarpro.controls['cantidad'].errors.forbiddenName" class="invalid-feedback">
+                    La cantidad del Producto no es Valido.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Descripcion -->
+        <div class="col-md-4">
+            <label for="inputPassword4" class="form-label">Descripción</label>
+            <input type="text" formControlName="descripcion" class="form-control" id="descripcion"
+                placeholder="Descripción del Producto" [ngClass]="{
+                  'is-invalid': editarpro.controls['descripcion'].invalid && (editarpro.controls['descripcion'].dirty || editarpro.controls['descripcion'].touched),
+                  'is-valid': editarpro.controls['descripcion'].valid
+                }">
+                <div
+                  *ngIf="editarpro.controls['descripcion'].invalid && (editarpro.controls['descripcion'].dirty || editarpro.controls['descripcion'].touched)">
+                  <div *ngIf="editarpro.controls['descripcion'].errors.required">
+                    Nombre es requerido.
+                  </div>
+                  <div *ngIf="editarpro.controls['descripcion'].errors.minlength" class="invalid-feedback">
+                    Name must be at least 4 characters long.
+                  </div>
+                  <div *ngIf="editarpro.controls['descripcion'].errors.forbiddenName" class="invalid-feedback">
+                    Name cannot be Bob.
+                  </div>
+                </div>
+              </div>
+
+        <div class="col-12">
+            <button type="submit" [disabled]="editarpro.invalid" class="btn btn-primary"
+            (click)="openModal()">Actualizar</button>
+        </div>
+         <!-- Modal -->
+    <app-modal-creacion #dialogForm [modalParameters]="modalParameters"></app-modal-creacion>
+    </form>
+</div>
