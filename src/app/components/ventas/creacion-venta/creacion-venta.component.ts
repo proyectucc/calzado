@@ -69,7 +69,7 @@ export class CreacionVentaComponent implements OnInit {
 
     this.detalles = fb.group({
       idProducto: ['', Validators.required],
-      idVenta: [{value: '', disabled: true }],
+      idVenta: ['',Validators.required],
       valorUnit: ['', Validators.required],
       cantidad: ['', Validators.required],
       valorTotal: ['', Validators.required],
@@ -116,6 +116,16 @@ export class CreacionVentaComponent implements OnInit {
    * Método encargado de crear
    * @param form formulario que contiene la información de la venta
    */
+
+  uni:number;
+  total: number;
+  can: number;
+  calcular( ){
+    this.total=this.uni*this.can;
+    this.detalles.patchValue({
+      valorTotal: this.total,
+    })
+  }
   postForm(form: Ventas) {
     console.log('datos', form);
     this.ven.addVentas(form).subscribe((venta) => {
