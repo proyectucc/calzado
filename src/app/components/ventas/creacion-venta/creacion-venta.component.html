@@ -110,7 +110,7 @@
     </form>
 
     <!-- Formulario detalles-->
-<div *ngIf=" !mostrardetalles">
+<div *ngIf=" mostrardetalles">
 
 <h5> Detalles de la venta </h5>
         <form  class="row g-3" [formGroup]="detalles"(ngSubmit)="postdetalle(detalles.value)">
