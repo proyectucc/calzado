@@ -49,6 +49,10 @@ export class ListUserComponent implements OnInit {
         name: 'Cerrar',
         isEnable: false,
       },
+      permissionButton: {
+        name: 'Cerrar',
+        isEnable: false,
+      },
     };
   }
 

@@ -58,7 +58,11 @@ export class EditarProveedorComponent implements OnInit {
       centerButtonLogin: {
         name: 'Cerrar',
         isEnable: false,
-      }
+      },
+      permissionButton: {
+        name: 'Cerrar',
+        isEnable: false,
+      },
     };
   }
   ngOnInit(){

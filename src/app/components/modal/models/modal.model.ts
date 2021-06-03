@@ -37,4 +37,9 @@ export interface ModalParameters {
    */
 
   centerButtonLogin?: ButtonConfig;
+
+  /**
+   * Recibe el valor del contenido del select dialog
+   */
+  permissionButton?: ButtonConfig;
 }

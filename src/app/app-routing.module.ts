@@ -29,11 +29,16 @@ import { ListUserComponent } from './components/usuarios/list-user/list-user.com
 import { ListarProveedorComponent } from './components/registro-proveedor/listar-proveedor/listar-proveedor.component';
 import { EditarProveedorComponent } from './components/registro-proveedor/editar-proveedor/editar-proveedor.component';
 import { RolesGuard } from './components/roles-guard/roles-guard.component';
+import { ForbbidenComponent } from './components/forbbiden/forbbiden.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'informes', component: InformesComponent },
+  { path: 'informes', component: InformesComponent,
+  data: {
+    rol: '2'
+  },
+  canActivate: [RolesGuard] },
   { path: 'nosotros', component: NosotrosComponent },
   { path: 'creacion', component: CreacionComponent,
   data: {
@@ -41,7 +46,11 @@ const routes: Routes = [
   },
   canActivate: [RolesGuard]
  },
-  { path: 'regisprov', component: RegistroProveedorComponent },
+  { path: 'regisprov', component: RegistroProveedorComponent,
+  data: {
+    rol: '3'
+  },
+  canActivate: [RolesGuard] },
   { path: 'regisemp', component: RegistroEmpleadoComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'header', component: HeaderComponent },
@@ -61,9 +70,14 @@ const routes: Routes = [
   { path: 'usuarios-list', component: ListUserComponent },
   { path: 'usuario-edit/:id', component: EditUserComponent },
   { path: 'usuario-crear', component: CreateUserComponent },
-  { path: 'listado-proveedores', component: ListarProveedorComponent },
+  { path: 'listado-proveedores', component: ListarProveedorComponent,
+  data: {
+    rol: '3'
+  },
+  canActivate: [RolesGuard] },
   { path: 'edit-proveedor/:id', component: EditarProveedorComponent },
   { path: 'editar-productos/:id', component: EditarProductosComponent },
+  { path: 'forbbiden', component: ForbbidenComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];
 

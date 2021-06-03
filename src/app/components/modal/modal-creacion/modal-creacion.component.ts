@@ -49,4 +49,11 @@ export class ModalCreacionComponent implements OnInit {
     this.option.nativeElement.classList.remove('hidden');
     this.router.navigate(['login']);
   }
+  /**
+   * Accion de cerrar el dialogo
+   */
+  public onCloseDialogPermission() {
+    this.option.nativeElement.classList.remove('hidden');
+    this.router.navigate(['home']);
+  }
 }

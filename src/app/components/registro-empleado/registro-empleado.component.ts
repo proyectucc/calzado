@@ -86,6 +86,10 @@ export class RegistroEmpleadoComponent implements OnInit {
         name: 'Cerrar',
         isEnable: false,
       },
+      permissionButton: {
+        name: 'Cerrar',
+        isEnable: false,
+      },
     };
   }
 
@@ -105,7 +109,12 @@ export class RegistroEmpleadoComponent implements OnInit {
   postform(form: OneEmpleado) {
     this.api.postEmpleados(form).subscribe((data) => {
       console.log('guardar', data);
-    });
+      this.dialogForm.onShowDialog();
+    },
+    error => {
+      console.log('ya existe', error);
+    }
+    );
   }
 
   /**

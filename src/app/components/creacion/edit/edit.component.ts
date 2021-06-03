@@ -92,6 +92,10 @@ export class EditComponent implements OnInit {
         name: 'Cerrar',
         isEnable: false,
       },
+      permissionButton: {
+        name: 'Cerrar',
+        isEnable: false,
+      },
     };
   }
 

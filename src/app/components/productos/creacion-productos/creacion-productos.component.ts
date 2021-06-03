@@ -76,6 +76,10 @@ export class CreacionProductosComponent implements OnInit {
         name: 'Cerrar',
         isEnable: false,
       },
+      permissionButton: {
+        name: 'Cerrar',
+        isEnable: false,
+      },
     };
   }
   ngOnInit(): void {

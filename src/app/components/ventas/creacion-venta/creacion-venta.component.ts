@@ -89,6 +89,10 @@ export class CreacionVentaComponent implements OnInit {
         name: 'Cerrar',
         isEnable: false,
       },
+      permissionButton: {
+        name: 'Cerrar',
+        isEnable: false,
+      },
     };
   }
   ngOnInit(): void {
@@ -125,6 +129,11 @@ export class CreacionVentaComponent implements OnInit {
       })
     });
   }
+
+  /**
+   * Método que se invoca para la eliminación un registro
+   * @param form1 contiene la información del registro a eliminar
+   */
   postdetalle(form1: Ventasdetalle) {
     this.det.adddetalle(form1).subscribe((de) => {
       console.log('GUARDARD', de);

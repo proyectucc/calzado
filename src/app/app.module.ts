@@ -49,6 +49,7 @@ import { ListarProveedorComponent } from './components/registro-proveedor/listar
 import { EditarProveedorComponent } from './components/registro-proveedor/editar-proveedor/editar-proveedor.component';
 import { RolesGuard } from './components/roles-guard/roles-guard.component';
 import { EditarProductosComponent } from './components/productos/editar-productos/editar-productos.component';
+import { ForbbidenComponent } from './components/forbbiden/forbbiden.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { EditarProductosComponent } from './components/productos/editar-producto
     EditUserComponent,
     ListarProveedorComponent,
     EditarProveedorComponent,
-    EditarProductosComponent
+    EditarProductosComponent,
+    ForbbidenComponent
   ],
   imports: [
     BrowserModule,

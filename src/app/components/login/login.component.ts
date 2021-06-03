@@ -61,6 +61,10 @@ export class LoginComponent implements OnInit {
         name: 'Cerrar',
         isEnable: true,
       },
+      permissionButton: {
+        name: 'Cerrar',
+        isEnable: false,
+      },
     };
   }
   ngOnInit(): void {}

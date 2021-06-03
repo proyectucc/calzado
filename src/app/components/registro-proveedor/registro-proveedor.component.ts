@@ -53,7 +53,11 @@ export class RegistroProveedorComponent implements OnInit {
       centerButtonLogin: {
         name: 'Cerrar',
         isEnable: false,
-      }
+      },
+      permissionButton: {
+        name: 'Cerrar',
+        isEnable: false,
+      },
     };
   }
   ngOnInit() {

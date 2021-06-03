@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
@@ -8,17 +8,18 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario.interface';
-import { UsuarioEmpleadoService } from 'src/app/services/usuario-empleado/usuario-empleado.service';
+import { HomeComponent } from '../home/home.component';
+import { ModalCreacionComponent } from '../modal/modal-creacion/modal-creacion.component';
+import { ModalParameters } from '../modal/models/modal.model';
 @Injectable({
   providedIn: 'root',
 })
 export class RolesGuard implements CanActivate {
-  rol: Usuario[];
+  //rol: Usuario[];
 
-  constructor(
-    private router: Router,
-    private userService: UsuarioEmpleadoService
-  ) {}
+  scopes: Array<Usuario> = [];
+
+  constructor(private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -31,22 +32,18 @@ export class RolesGuard implements CanActivate {
     return this.checkUserLogin(route);
   }
 
+  /**
+   * Método que realiza la validación si el usuario logueado tiene acceso a la ruta definida
+   */
   checkUserLogin(route: ActivatedRouteSnapshot): boolean {
-    // this.userService.cargarusuarios().subscribe(data => {
-    //   this.rol = data;
-    //   console.log(this.rol.includes(route.data.rol));
-    // });
-    //const servant = JSON.parse(localStorage.getItem('UsuarioLogueado'));
-    const { scopes = [] } = JSON.parse(localStorage.getItem('UsuarioLogueado'));
-    console.log(scopes);
+    const servant = JSON.parse(localStorage.getItem('UsuarioLogueado'));
+    const data = Object.values(servant);
 
-    return true;
-
-    // if (this.rol.includes(route.data.rol)) {
-    //   return true;
-    // } else {
-    //   console.log('NO TIENE ROL');
-    //   return false;
-    // }
+    if (data.includes(route.data.rol)) {
+      return true;
+    } else {
+      this.router.navigate(['/forbbiden']);
+      return false;
+    }
   }
 }
