@@ -9,13 +9,11 @@ import {
 import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario.interface';
 import { HomeComponent } from '../home/home.component';
-import { ModalCreacionComponent } from '../modal/modal-creacion/modal-creacion.component';
 import { ModalParameters } from '../modal/models/modal.model';
 @Injectable({
   providedIn: 'root',
 })
 export class RolesGuard implements CanActivate {
-  //rol: Usuario[];
 
   scopes: Array<Usuario> = [];
 

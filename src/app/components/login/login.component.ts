@@ -67,7 +67,8 @@ export class LoginComponent implements OnInit {
       },
     };
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   /**
    * Evento que se ejecuta cuando el usuario se loguea
